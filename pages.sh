@@ -1,0 +1,22 @@
+#!/bin/bash
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Mentions L&eacute;gales'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Accueil'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Contact'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Plan du site'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='La garantie'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Le financement'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Le service atelier'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Livraison &agrave; domicile'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Installation &agrave; domicile'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Services'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Conditions G&eacute;n&eacute;rales de Vente'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Histoire'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Manifesto'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Usines'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Provenance du bois'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Le savoir bien-faire'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Plans de travail'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Mod&eacute;les de cuisine'
+php wp-cli.phar post create --post_type=page --post_status=publish --post_title='Magasin'
+php wp-cli.phar menu create "Menu principal"
+php wp-cli.phar menu location assign menu-principal primary
