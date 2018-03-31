@@ -28,6 +28,11 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+	<?php 
+		get_template_part('/template-parts/popup','acces');
+		get_template_part('/template-parts/popup','recherche');
+	?>
+	
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

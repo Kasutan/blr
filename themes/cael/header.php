@@ -21,38 +21,31 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site" data-sticky-container>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cael' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<header id="masthead" class="site-header"  data-sticky-container>
+		<div class="header-sticky grid-x  align-middle sticky" data-margin-top="0" data-sticky>
+			<button class="acces cell" data-open="acces-direct"><strong>Le CAEL</strong> c'est toujours <strong>plus d'activités</strong> pour tous</button>
+			<div class="site-branding cell small-6 large-3">
 				<?php
-			else :
+				the_custom_logo();
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$cael_description = get_bloginfo( 'description', 'display' );
-			if ( $cael_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $cael_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+			</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cael' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+			<nav id="site-navigation" class="main-navigation cell large-6">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cael' ); ?></button>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+					'menu_class'	=> 'dropdown menu'
+				) );
+				?>
+			</nav><!-- #site-navigation -->
+
+			<button class="recherche cell small-6 large-3" data-open="recherche">Recherche</button>
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
