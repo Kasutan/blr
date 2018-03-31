@@ -120,11 +120,14 @@ add_action( 'widgets_init', 'cael_widgets_init' );
  * Enqueue scripts and styles.
  */
 function cael_scripts() {
-	wp_enqueue_style( 'cael-style-foundation', get_stylesheet_uri().'/inc/foundation/css/foundation.min.css', array(),'6.4.2' );
+	wp_enqueue_style( 'cael-style-foundation', get_template_directory_uri().'/inc/foundation/css/foundation.min.css', array(),'6.4.2' );
 	
 	wp_enqueue_style( 'cael-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'cael-script-foundations', get_template_directory_uri() . '/inc/foundation/js/vendor/foundation.min.js', array(), '6.4.2', true );
+	wp_enqueue_script( 'cael-what-input', get_template_directory_uri() . '/inc/foundation/js/vendor/what-input.js', array(), '', true );
+	wp_enqueue_script( 'cael-foundation', get_template_directory_uri() . '/inc/foundation/js/vendor/foundation.min.js', array('cael-what-input','jquery'), '6.4.2', true );
+	wp_enqueue_script( 'cael-foundation-app', get_template_directory_uri() . '/inc/foundation/js/app.js', array('cael-foundation'), '6.4.2', true );
+	
 
 	/*wp_enqueue_script( 'cael-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );*/
 
