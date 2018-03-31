@@ -22,6 +22,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Variables
 # Normalize
 # Typography
 # Elements
@@ -29,6 +30,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Navigation
 	## Links
 	## Menus
+# Header
 # Accessibility
 # Alignments
 # Clearings
@@ -41,6 +43,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+html {
+	--rose : #b30062 ;
+	/*ou #b30163*/
+	--rose-clair : #e6007e;
+	--rose-fonce : #660038;
+	/* ou #670038*/
+	--gris : #666666;
+	--vert : #01b700;
+	--vert-clair : #e0f8e2;
+	
+}
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -389,6 +405,42 @@ template {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+@font-face {
+	font-family: 'MuseoSansDisplay';
+	src: url('inc/fonts/exljbris - MuseoSansDisplay-Black.otf');
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'MuseoSansDisplay';
+	src: url('inc/fonts/exljbris - MuseoSansDisplay-ExtraBlack.otf');
+	font-style: normal;
+	font-weight: 700;
+}
+@font-face {
+	font-family: 'MuseoSansDisplay';
+	src: url('inc/fonts/exljbris - MuseoSansDisplay-ExtraLight.otf');
+	font-style: normal;
+	font-weight: 200;
+}
+@font-face {
+	font-family: 'MuseoSansDisplay';
+	src: url('inc/fonts/exljbris - MuseoSansDisplay-Hairline.otf');
+	font-style: normal;
+	font-weight: 100;
+}
+@font-face {
+	font-family: 'MuseoSansDisplay';
+	src: url('inc/fonts/exljbris - MuseoSansDisplay-Light.otf');
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'MuseoSansRounded';
+	src: url('inc/fonts/Museo Sans Rounded.rtf');
+	font-style: normal;
+	font-weight: 400;
+}
 body,
 button,
 input,
@@ -546,6 +598,7 @@ input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
+	cursor: pointer;
 }
 
 button:active, button:focus,
@@ -614,15 +667,16 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: inherit;
+	text-decoration:none;
 }
 
 a:visited {
-	color: purple;
+	color: inherit;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color: inherit;
 }
 
 a:focus {
@@ -684,7 +738,9 @@ a:hover, a:active {
 }
 
 .main-navigation a {
+	color: var(--rose-fonce);
 	display: block;
+	padding:10px;
 	text-decoration: none;
 }
 
@@ -724,7 +780,42 @@ a:hover, a:active {
 	text-align: right;
 	width: 50%;
 }
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+button.acces {
+	background-color:var(--rose);
+	border:0;
+	color:#fff;
+	font-size:1.2rem;
+	margin-bottom:1rem;
+	padding:10px;
+	transition: background-color 1s ;
+}
 
+button.acces:hover, button.acces:focus, button.acces:active {
+	background-color:var(--vert);
+	cursor: pointer;
+}
+.site-branding {
+	text-align: center;
+}
+.custom-logo {
+	max-width:150px;
+}
+
+.site-header {
+	margin-bottom:2rem;
+}
+.header-sticky {
+	background-color: #fff;
+}
+.is-stuck button.acces {
+	margin-bottom: 0;
+}
+.is-stuck .custom-logo {
+	max-width:50px;
+}
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -838,8 +929,12 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.sticky {
+/*.sticky {
 	display: block;
+}*/
+
+.site-content {
+	min-height:150vh;
 }
 
 .hentry {
