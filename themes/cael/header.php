@@ -25,26 +25,37 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cael' ); ?></a>
 
 	<header id="masthead" class="site-header"  data-sticky-container>
-		<div class="header-sticky grid-x  align-middle sticky" data-margin-top="0" data-sticky>
-			<button class="acces cell" data-open="acces-direct"><strong>Le CAEL</strong> c'est toujours <strong>plus d'activités</strong> pour tous</button>
-			<div class="site-branding cell small-6 large-3">
+		<div class="header-sticky grid-x grid-padding-x align-middle align-justify sticky" data-margin-top="0" data-sticky>
+			<button class="acces cell grid-x align-middle align-center" data-open="acces-direct"><span><strong>Le CAEL</strong> c'est toujours <strong>plus d'activités</strong> pour tous</span><span class="icon-bolt"></span></button>
+			<div class="site-branding cell small-5 medium-4 large-2">
 				<?php
 				the_custom_logo();
 				?>
-			</div><!-- .site-branding -->
+			</div>
+			<button id="menu-toggle" class="menu-toggle cell small-3 hide-for-large" aria-controls="primary-menu" aria-expanded="false" aria-label="Controle le menu mobile"><span class="icon-menu"></span></button>
+			
 
-			<nav id="site-navigation" class="main-navigation cell large-6">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cael' ); ?></button>
+			<button class="recherche cell small-2 large-1" data-open="recherche"><span class="icon-search"></span></button>
+			<div class="social  cell small-2 large-1">
+				<?php //utiliser le même menu que dans le footer ? ?>
+				<div class="icones grid-y align-middle align-center">
+					<a href="https://www.facebook.com/CAEL.MJC/" target="_blank" title="Facebook"><span class="icon-facebook"></span></a>
+					<a href="" target="_blank" title="Twitter"><span class="icon-twitter"></span></a>
+					<a href="" target="_blank" title="Instagram"><span class="icon-instagram"></span></a>
+					<a href="" target="_blank" title="YouTube"><span class="icon-youtube"></span></a>
+				</div>	
+			</div>
+			<nav id="site-navigation" class="main-navigation cell small-12 large-8">
+				
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
-					'menu_class'	=> 'dropdown menu'
+					//'menu_class'	=> 'dropdown menu'
 				) );
 				?>
 			</nav><!-- #site-navigation -->
 
-			<button class="recherche cell small-6 large-3" data-open="recherche">Recherche</button>
 		</div>
 	</header><!-- #masthead -->
 

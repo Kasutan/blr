@@ -44,9 +44,25 @@ if ( ! function_exists( 'cael_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'cael' ),
+			'menu-1' => esc_html__( 'Principal', 'cael' ),
 		) );
 
+		register_nav_menus( array(
+			'menu-footer-1' => esc_html__( 'Liens footer 1', 'cael' ),
+		) );
+
+		register_nav_menus( array(
+			'menu-footer-2' => esc_html__( 'Liens footer 2', 'cael' ),
+		) );
+		register_nav_menus( array(
+			'menu-footer-3' => esc_html__( 'Liens footer 3', 'cael' ),
+		) );
+		register_nav_menus( array(
+			'menu-footer-4' => esc_html__( 'Liens footer 4', 'cael' ),
+		) );
+		register_nav_menus( array(
+			'menu-footer-social' => esc_html__( 'Liens vers réseaux sociaux', 'cael' ),
+		) );
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -129,7 +145,7 @@ function cael_scripts() {
 	wp_enqueue_script( 'cael-foundation-app', get_template_directory_uri() . '/inc/foundation/js/app.js', array('cael-foundation'), '6.4.2', true );
 	
 
-	/*wp_enqueue_script( 'cael-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );*/
+	wp_enqueue_script( 'cael-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'cael-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

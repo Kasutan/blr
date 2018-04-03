@@ -8,24 +8,81 @@
  *
  * @package cael
  */
-
+if (function_exists('gm_get_theme_menu_name')) {
+	$titre1=gm_get_theme_menu_name('menu-footer-1');
+	$titre2=gm_get_theme_menu_name('menu-footer-2');
+	$titre3=gm_get_theme_menu_name('menu-footer-3');
+	$titresocial=gm_get_theme_menu_name('menu-footer-social');
+	
+}
 ?>
 
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cael' ) ); ?>">
+		<div class="menus-footer grid-x grid-padding-x align-center">
+			<nav class="cell medium-6 large-3">
+				<p class="footer-header">
+				<?php echo $titre1; ?>
+				</p>
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'cael' ), 'WordPress' );
+				wp_nav_menu( array(
+					'theme_location' => 'menu-footer-1',
+					'menu_id'        => '',
+					'container'		=> false
+				) );
 				?>
-			</a>
-			<span class="sep"> | </span>
+			</nav>
+			<nav class="cell medium-6 large-3">
+				<p class="footer-header">
+				<?php echo $titre2; ?>
+				</p>
 				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cael' ), 'cael', '<a href="https://www.kasutan.pro/">Rodolphe Cazemajou-Tournié</a>' );
+				wp_nav_menu( array(
+					'theme_location' => 'menu-footer-2',
+					'menu_id'        => '',
+					'container'		=> false
+				) );
 				?>
+			</nav>
+			<nav class="cell medium-6 large-3">
+				<p class="footer-header">
+				<?php echo $titre3; ?>
+				</p>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-footer-3',
+					'menu_id'        => '',
+					'container'		=> false
+				) );
+				?>
+			</nav>
+			<nav class="cell medium-6 large-3 menu-footer-social">
+				<p class="footer-header">
+				<?php echo $titresocial; ?>
+				</p>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-footer-social',
+					'menu_id'        => '',
+					'container'		=> false
+				) );
+				?>
+			</nav>
+		</div>
+		<div class="site-info grid-x align-center align-middle">
+			<nav>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-footer-4',
+					'menu_id'        => '',
+					'container'		=> false
+				) );
+				?>
+			</nav>
+			<span class="copyright">&copy; Copyright
+					<?php echo the_date('Y').' '.esc_html__( '&mdash; Tous droits réservés', 'cael' ); ?> 
+				</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	<?php 

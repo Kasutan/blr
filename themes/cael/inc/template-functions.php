@@ -30,3 +30,20 @@ function cael_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'cael_pingback_header' );
+
+/**
+ * Afficher le nom du menu.
+ */
+//https://www.andrewgail.com/getting-a-menu-name-in-wordpress/
+function gm_get_theme_menu_name( $theme_location ) {
+	if( ! $theme_location ) return false;
+ 
+	$theme_locations = get_nav_menu_locations();
+	if( ! isset( $theme_locations[$theme_location] ) ) return false;
+ 
+	$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
+	if( ! $menu_obj ) $menu_obj = false;
+	if( ! isset( $menu_obj->name ) ) return false;
+ 
+	return $menu_obj->name;
+}
