@@ -1,8 +1,17 @@
 <div class="reveal" id="acces-direct" data-reveal>
-  <h1>Popup acces direct</h1>
+  <p><span class="icon-bolt"></span></p>
+  <p>
+    <strong class="caps">Accès direct</strong><br>
+    vers<br>
+    <strong>plus d'activités</strong>
+  </p>
   
-  <p>Icones des activites</p>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
+  <div class="grid-x align-middle align-center">
+    <?php for($i=0;$i<6;$i++) :?>
+      <div class="bulle">&nbsp;</div>
+    <?php endfor; ?>
+  </div>
+  <button class="close-button" data-close aria-label="Fermer la popup" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
