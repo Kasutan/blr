@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 add_action( 'cmb2_admin_init', function() {
 
 	$cmb_contact = new_cmb2_box( array(
-		'id'            => 'renscontact',
-		'title'         => __( 'Section Contact', 'cmb2' ),
+		'id'            => 'Renscontact',
+		'title'         => __( 'Section contact', 'cmb2' ),
 		'object_types' => array( 'page' ), // post type
 		'show_on'      => array( 'key' => 'id', 'value' => array( 13) ),
 		'context'       => 'normal',
@@ -15,37 +15,36 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 	$cmb_contact->add_field( array(
-		'name'       => __( 'Titre Contact', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_contact_titre',
+		'name'       => __( 'Titre 1', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_contact_titre1',
 		'type'       => 'text',
 		'default'	=> 'Contact',		
 	) );
 
-	$cmb_reseaux->add_field( array(
-		'name'       => __( 'Titre guide', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_guide',
+	$cmb_contact->add_field( array(
+		'name'       => __( 'Titre 2', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_contact_titre2',
 		'type'       => 'text',
-		'default'	=> 'GUIDE 2017-2018',		
+		'default'	=> 'CAEL',		
 	) );
 
-	$cmb_reseaux->add_field( array(
-		'name'       => __( 'Titre lien plaquette', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_lien_plaquette',
+	$cmb_contact->add_field( array(
+		'name'       => __( 'Titre 3', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_contact_titre3',
 		'type'       => 'text',
-		'default'	=> 'Téléchargez la plaquette des activités',		
+		'default'	=> 'Centre Animation Expression & Loisirs',		
 	) );
 
-	$cmb_reseaux->add_field( array(
-		'name'       => __( 'Lien plaquette', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_lien_calendrier',
-		'type'       => 'file',
-		'text'    => array(	'add_upload_file_text' => 'Charger la plaquette' ),	
+	$cmb_contact->add_field( array(
+		'name'       => __( 'Adresse', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_contact_adresse',
+		'type'       => 'wysiwyg',		
 	) );
 
-	$cmb_reseaux->add_field( array(
-		'name'       => __( 'Image', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_image',
-		'type'       => 'file',
-		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
+	$cmb_contact->add_field( array(
+		'name'       => __( 'Autre site', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_contact_autre',
+		'type'       => 'wysiwyg',		
 	) );
+
 });

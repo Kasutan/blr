@@ -30,14 +30,14 @@ add_action( 'cmb2_admin_init', function() {
 
 	$cmb_reseaux->add_field( array(
 		'name'       => __( 'Titre lien plaquette', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_lien_plaquette',
+		'id'         => CMB_PREFIX . '_accueil_titre_lien_plaquette',
 		'type'       => 'text',
 		'default'	=> 'Téléchargez la plaquette des activités',		
 	) );
 
 	$cmb_reseaux->add_field( array(
 		'name'       => __( 'Lien plaquette', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_lien_calendrier',
+		'id'         => CMB_PREFIX . '_accueil_lien_plaquette',
 		'type'       => 'file',
 		'text'    => array(	'add_upload_file_text' => 'Charger la plaquette' ),	
 	) );

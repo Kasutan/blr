@@ -30,5 +30,8 @@ require_once( 'includes/cael-famille.php' );
 require_once( 'includes/cael-senior.php' );
 require_once( 'includes/cael-bafa.php' );
 
-// Champs de la page Renseignements
+// Champs de la page Contact
 require_once( 'includes/cael-contact.php' );
+require_once( 'includes/cael-horaires.php' );
+require_once( 'includes/cael-acces.php' );
+require_once( 'includes/cael-inscriptions.php' );

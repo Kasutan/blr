@@ -44,3 +44,46 @@ add_action( 'cmb2_admin_init', function() {
 
 });
 
+function affiche_calendrier() {			
+
+		$lastposts = get_posts( array(
+    		'posts_per_page' => 3
+			) );
+
+	
+	
+	$ID=get_the_ID();
+	ob_start();
+	?>
+	<section id="calendrier" class="scrollify">
+		<div>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_actualites', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+			<?php
+			foreach ( $lastposts as $post ) :
+				echo test2;
+				$lien= $post->post_content;
+				echo $lien;
+          	endforeach; ?>
+
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_actualites', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+		</div>
+		<div>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_calendrier', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_calendrier', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+		</div>
+	</section>
+	<?php
+    echo ob_get_clean();
+}
