@@ -35,3 +35,6 @@ require_once( 'includes/cael-contact.php' );
 require_once( 'includes/cael-horaires.php' );
 require_once( 'includes/cael-acces.php' );
 require_once( 'includes/cael-inscriptions.php' );
+
+// Champs supplémentaires pour les activités niveau 1
+require_once( 'includes/cael-catactivites.php' );

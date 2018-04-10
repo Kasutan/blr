@@ -42,3 +42,28 @@ add_action( 'cmb2_admin_init', function() {
 		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
 	) );
 });
+
+function affiche_apropos() {			
+
+	$ID=get_the_ID();
+	ob_start();
+	?>
+	<section id="apropos" class="scrollify">
+		<div>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+			<h2 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre3', true ); 
+			echo esc_html( $text ); ?>
+			</h2>
+		</div>
+	</section>
+	<?php
+	echo ob_get_clean();
+	}

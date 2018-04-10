@@ -78,6 +78,7 @@ function affiche_calendrier() {
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_calendrier', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
+			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ]'); ?>
 			<h2 class="titre">
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_calendrier', true ); 
 			echo esc_html( $text ); ?>
