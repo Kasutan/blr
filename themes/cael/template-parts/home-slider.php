@@ -1,8 +1,16 @@
 <section id="slider">
 <?php
 $lastposts = get_posts( array(
-    'posts_per_page' => 3
+    'posts_per_page' => 3,
+    'category' => '17',
+    'meta_key' => 'cael__actualites_ordre',
+    'orderby' => 'meta_value',
+    'order'   => 'ASC',
+    'post_type'        => 'post',
+    'post_status'      => 'publish',
 ) );
+
+var_dump($lastposts);
 ?>
 
 <div class="orbit" role="region" aria-label="Actualités" data-orbit>
