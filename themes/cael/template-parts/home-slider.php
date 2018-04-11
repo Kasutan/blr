@@ -10,7 +10,6 @@ $lastposts = get_posts( array(
     'post_status'      => 'publish',
 ) );
 
-var_dump($lastposts);
 ?>
 
 <div class="orbit" role="region" aria-label="Actualités" data-orbit>
