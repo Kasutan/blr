@@ -3,7 +3,7 @@
 $lastposts = get_posts( array(
     'posts_per_page' => 3,
     'category' => '17',
-    'meta_key' => 'cael__actualites_ordre',
+    'meta_key' => 'cael__actualites_ordre1',
     'orderby' => 'meta_value',
     'order'   => 'ASC',
     'post_type'        => 'post',

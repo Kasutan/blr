@@ -43,8 +43,15 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 	$cmb_reseaux->add_field( array(
-		'name'       => __( 'Image', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_accueil_image',
+		'name'       => __( 'Image Logo', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_accueil_image_logo',
+		'type'       => 'file',
+		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
+	) );
+
+	$cmb_reseaux->add_field( array(
+		'name'       => __( 'Image plaquette', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_accueil_image_plaquette',
 		'type'       => 'file',
 		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
 	) );
@@ -52,7 +59,12 @@ add_action( 'cmb2_admin_init', function() {
 
 function affiche_reseaux() {			
 
+
+
 	$ID=get_the_ID();
+	$lienpdf  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_plaquette', true );
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_logo', true);
+	$imageplaquette = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_plaquette', true);
 	ob_start();
 	?>
 	<section id="reseaux" class="scrollify">
@@ -61,16 +73,21 @@ function affiche_reseaux() {
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_réseaux', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
+			<?php echo do_shortcode('[fts_mashup posts=3 social_network_posts=1 words=45 center_container=yes show_social_icon=right show_media=bottom show_date=no show_name=yes]'); ?>
 		</div>
 		<div>
 			<h2 class="titre">
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_guide', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
+			<a href= <?php echo ($lienpdf); ?> class="lien">
 			<h2 class="titre">
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
+			<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $text ); ?>>
+			<img src=<?php echo ($imageplaquette); ?> alt=<?php  echo esc_html( $text ); ?>>
+			</a>
 		</div>
 	</section>
 	<?php

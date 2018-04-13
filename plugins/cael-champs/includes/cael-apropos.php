@@ -46,22 +46,36 @@ add_action( 'cmb2_admin_init', function() {
 function affiche_apropos() {			
 
 	$ID=get_the_ID();
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_apropos_image', true);
 	ob_start();
 	?>
 	<section id="apropos" class="scrollify">
 		<div>
+			<img src=<?php echo ($imagelien); ?> alt="Illustration CAEL">
 			<h2 class="titre">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
-			echo esc_html( $text ); ?>
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
+				echo esc_html( $text ); ?>
 			</h2>
+			<p>
+				<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
+				echo esc_html( $para1 ); ?>
+			</p>
 			<h2 class="titre">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
-			echo esc_html( $text ); ?>
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
+				echo esc_html( $text ); ?>
 			</h2>
+			<p>
+				<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
+				echo esc_html( $para2 ); ?>
+			</p>
 			<h2 class="titre">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre3', true ); 
-			echo esc_html( $text ); ?>
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre3', true ); 
+				echo esc_html( $text ); ?>
 			</h2>
+			<p>
+				<?php $para3  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte2', true ); 
+				echo esc_html( $para3 ); ?>
+			</p>
 		</div>
 	</section>
 	<?php

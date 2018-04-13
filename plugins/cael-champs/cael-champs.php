@@ -38,3 +38,6 @@ require_once( 'includes/cael-inscriptions.php' );
 
 // Champs supplémentaires pour les activités niveau 1
 require_once( 'includes/cael-catactivites.php' );
+
+// Champs supplémentaires pour les actualités
+require_once( 'includes/cael-actualites.php' );
