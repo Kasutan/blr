@@ -63,8 +63,8 @@ function affiche_reseaux() {
 
 	$ID=get_the_ID();
 	$lienpdf  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_plaquette', true );
-	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_logo', true);
-	$imageplaquette = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_plaquette', true);
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_logo_id', true);
+	$imageplaquette = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_plaquette_id', true);
 	ob_start();
 	?>
 	<section id="reseaux" class="scrollify">
@@ -85,8 +85,8 @@ function affiche_reseaux() {
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
-			<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $text ); ?>>
-			<img src=<?php echo ($imageplaquette); ?> alt=<?php  echo esc_html( $text ); ?>>
+			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
+			<?php echo wp_get_attachment_image( $imageplaquette, 'large' ); ?>
 			</a>
 		</div>
 	</section>

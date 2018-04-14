@@ -44,9 +44,9 @@ $lastposts = get_posts( array(
     </ul>
   </div>
   <nav class="orbit-bullets">
-    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+    <button class="is-active" data-slide="0"><span class="show-for-sr">Premier slide.</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">Second slide.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
   </nav>
 </div>				
 </section>

@@ -104,11 +104,11 @@ function affiche_calendrier() {
 					</ul>
 				</div>
 				<nav class="orbit-bullets">
-					<button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-					<button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-					<button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-					<button data-slide="3"><span class="show-for-sr">fourth slide details.</span></button>
-					<button data-slide="4"><span class="show-for-sr">fifth slide details.</span></button>
+					<button class="is-active" data-slide="0"><span class="show-for-sr">Premier slide.</span><span class="show-for-sr">Current Slide</span></button>
+					<button data-slide="1"><span class="show-for-sr">Deuxième slide.</span></button>
+					<button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
+					<button data-slide="3"><span class="show-for-sr">Quatrième slide.</span></button>
+					<button data-slide="4"><span class="show-for-sr">Cinquième slide.</span></button>
 				</nav>
 			</div>				
 		</div>

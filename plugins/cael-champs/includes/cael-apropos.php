@@ -46,12 +46,12 @@ add_action( 'cmb2_admin_init', function() {
 function affiche_apropos() {			
 
 	$ID=get_the_ID();
-	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_apropos_image', true);
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_apropos_image_id', true);
 	ob_start();
 	?>
 	<section id="apropos" class="scrollify">
 		<div>
-			<img src=<?php echo ($imagelien); ?> alt="Illustration CAEL">
+			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
 			<h2 class="titre">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
 				echo esc_html( $text ); ?>
