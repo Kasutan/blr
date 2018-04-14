@@ -41,3 +41,8 @@ require_once( 'includes/cael-catactivites.php' );
 
 // Champs supplémentaires pour les actualités
 require_once( 'includes/cael-actualites.php' );
+
+// Intègre les Custom Post Types
+require_once('includes/CPTequipe.php');
+require_once('includes/CPTadministration.php');
+require_once('includes/CPTpartenaires.php');

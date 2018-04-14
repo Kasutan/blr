@@ -29,3 +29,22 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 });
+
+function affiche_chiffres() {			
+
+	$ID=get_the_ID();
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_image_id', true);
+	ob_start();
+	?>
+	<section id="chiffres" class="scrollify">
+		<div>
+			<h2 class="titre">
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true ); 
+				echo esc_html( $text ); ?>
+			</h2>
+			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
+		</div>
+	</section>
+	<?php
+	echo ob_get_clean();
+	}

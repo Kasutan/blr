@@ -37,7 +37,7 @@ add_action( 'cmb2_admin_init', function() {
 	$cmb_association->add_field( array(
 		'name'       => __( 'Texte 2', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_lecael_asso_texte2',
-		'type'       => 'textarea',		
+		'type'       => 'wysiwyg',		
 	) );
 
 	$cmb_association->add_field( array(
@@ -47,3 +47,34 @@ add_action( 'cmb2_admin_init', function() {
 		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
 	) );
 });
+
+function affiche_association() {			
+
+	$ID=get_the_ID();
+	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_image_asso_id', true);
+	ob_start();
+	?>
+	<section id="association" class="scrollify">
+		<div>
+			<h2 class="titre">
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true ); 
+				echo esc_html( $text ); ?>
+			</h2>
+			<p>
+				<?php $para1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_texte1', true ); 
+				echo esc_html( $para1 ); ?>
+			</p>
+			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
+			<h2 class="titre">
+				<?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre2', true ); 
+				echo esc_html( $text2 ); ?>
+			</h2>
+			<p>
+				<?php $para2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_texte2', true ); 
+				echo esc_html( $para2 ); ?>
+			</p>
+		</div>
+	</section>
+	<?php
+	echo ob_get_clean();
+	}
