@@ -116,7 +116,7 @@ function affiche_calendrier() {
 			<h2 class="titre">
 			<?php echo esc_html( $text2 ); ?>
 			</h2>
-			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ]'); ?>
+			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ft_event_priority="yes"]'); ?>
 			<h2 class="titre">
 			<?php  echo esc_html( $text3 ); 
 			wp_reset_postdata();?>
