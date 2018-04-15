@@ -47,3 +47,9 @@ function gm_get_theme_menu_name( $theme_location ) {
  
 	return $menu_obj->name;
 }
+
+// fonction pour récupérer le niveau hierarchique d'une taxonomie
+function get_tax_level($id, $tax){
+    $ancestors = get_ancestors($id, $tax);
+    return count($ancestors)+1;
+}
