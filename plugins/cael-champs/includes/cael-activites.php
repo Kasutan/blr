@@ -67,7 +67,7 @@ $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_activites', true );
 $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 
 ?>
-<section id="calendrier" class="scrollify">
+<section id="activites" class="scrollify">
 	<div>
 		<h2 class="titre">
 		<?php  echo esc_html( $text ); ?>
