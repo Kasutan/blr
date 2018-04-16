@@ -56,3 +56,4 @@ function get_tax_level($id, $tax){
 
 //Ajouter tailles d'images
 add_image_size('banniere',1200,450,true);
+add_image_size('actu',400,425,true);

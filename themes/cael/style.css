@@ -1,9 +1,9 @@
 /*!
 Theme Name: cael
 Theme URI: http://underscores.me/
-Author: Rodolphe Cazemajou-Tournié
+Author: Rodolphe Cazemajou-TourniÃ©
 Author URI: https://www.kasutan.pro/
-Description: Thème sur mesure pour le CAEL
+Description: ThÃ¨me sur mesure pour le CAEL
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -520,8 +520,15 @@ textarea {
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
 	clear: both;
+	font-family:'MuseoSansDisplay';
+	font-weight:500;
+	text-transform:uppercase;
+}
+h2, .h2 {
+	font-size:1.8rem;
 }
 
 p {
@@ -1247,6 +1254,9 @@ font-size: 1.5em;
 	margin-bottom:-60px;
 	
 }
+#slider .orbit, #slider .orbit-container {
+	min-height:41vh;
+}
 #slider .orbit-caption {
 	background-color:transparent;
 	bottom:15%;
@@ -1268,14 +1278,14 @@ font-size: 1.5em;
 bottom:60px;
 }
 
-#slider .orbit-bullets button {
+.orbit-bullets button {
 	background-color: rgba(200,200,200,0.5);
 	border:solid 1px #777;
-	height:20px;
+	height:15px;
 	padding:0;
-	width:20px;
+	width:15px;
 }
-#slider .orbit-bullets button.is-active {
+.orbit-bullets button.is-active {
 	background-color:#fff;
 }
 
@@ -1284,7 +1294,153 @@ bottom:60px;
 --------------------------------------------------------------*/
 #calendrier {
 	background-color: var(--vert-clair);
+	padding:20px;
 }
+
+#calendrier .slider {
+	background-color:transparent;
+	min-height:125vw;	
+}
+
+#calendrier .slider .orbit-container {
+	min-height:120vw;
+	overflow-y: visible;
+}
+
+#calendrier .orbit-caption {
+	background-color:var(--rose-clair);
+	bottom:-50px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:flex-start;
+	min-height:200px;
+	width:300px;
+}
+#calendrier .orbit-caption span {
+	flex-grow:0;
+}
+#calendrier .orbit-caption .h2{
+	margin-bottom:40px;
+}
+
+#calendrier .orbit-caption .titre {
+	font-size:1.5em;
+}
+#calendrier .orbit-caption .lien {
+	justify-self:self-end;
+	padding-right:10px;
+	text-align:right;
+	width:100%;
+}
+#calendrier .orbit-bullets {
+	bottom:20px;
+}
+
+@media screen and (min-width:1024px) {
+	#calendrier {
+		padding:70px 200px;
+		padding:70px calc(50% - 400px);
+	}
+	#calendrier .slider,
+	#calendrier .slider .orbit-container {
+	 min-height:500px;
+	}
+	#calendrier .orbit-bullets {
+		position:absolute;
+		right:10px;
+		bottom:100px;
+		display:flex;
+		flex-direction:column;
+
+	}	
+}
+
+#calendrier .events .titre {
+	color:#fff;
+	font-size:1.5rem;
+}
+
+#calendrier .events {
+	padding-left:10px;
+}
+
+
+
+/*Reutilisable*/
+
+.avec-fond-oblique {
+	padding:5px;
+	position:relative;
+	display:inline-block;
+	
+}
+.avec-fond-oblique span {
+	position:relative;
+	z-index:1;
+}
+.fond-oblique {
+	width:100%;
+	height:100%;
+	background-color: var(--rose-clair);
+	position:absolute;
+	bottom:0;
+	left:0;
+	transform-origin:bottom left;
+	transform:rotateZ(-2deg);
+
+}
+
+/*Reutilisable*/
+
+.lien-surligne  {
+	background-color:var(--rose-clair);
+	color:#fff;
+	font-size:1.2em;
+	font-weight:700;
+	display:flex;
+	padding:5px 10px;
+}
+.lien-surligne:hover, 
+.lien-surligne:focus,
+.lien-surligne:active,
+.lien-surligne:visited {
+	color:#fff;
+}
+.lien-surligne span {
+	flex-shrink:0; 
+}
+.lien-surligne:after {
+	content:'>>>>>>>>>>>>>>>>>>>>>>>>>>';
+	font-weight:300;
+	padding-left:10px;
+	overflow-x:hidden;	
+}
+
+#calendrier .eventon_events_list .eventon_list_event .desc_trig{
+	background-color:transparent;
+	border-left:none;
+}
+#calendrier  #evcal_list .eventon_list_event .evcal_cblock, 
+#calendrier #evcal_list .eventon_list_event .evcal_desc span.evcal_event_title, 
+#calendrier .eventon_events_list .eventon_list_event .evcal_desc span.evcal_event_subtitle
+{
+	color:var(--rose-clair);
+	font-family:'MuseoDisplaySans', sans-serif;
+	font-size:1rem;
+	text-transform:none;
+}
+#calendrier .eventon_events_list .eventon_list_event a.evcal_list_a {
+	border-color: var(--rose-clair) !important;
+	/*Speci ?*/
+}
+#calendrier .evcal_cblock .evo_end::before {
+	background-color:var(--rose-clair);	
+}
+#calendrier .eventon_events_list .eventon_list_event .evcal_desc span.evcal_event_subtitle {
+	display: none;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

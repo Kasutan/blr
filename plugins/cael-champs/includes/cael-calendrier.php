@@ -60,16 +60,16 @@ function affiche_calendrier() {
 	$ID=get_the_ID();
 	ob_start();
 	$text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_actualites', true );
-	$text1  = get_post_meta( $ID, CMB_PREFIX.'_accueil_actualites', true );
+	$text1  = esc_html(get_post_meta( $ID, CMB_PREFIX.'_accueil_actualites', true ));
 	$text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_calendrier', true );
 	$text3  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_calendrier', true );
 	?>
-	<section id="calendrier" class="scrollify">
-		<div>
-			<h2 class="titre">
+	<section id="calendrier" class="grid-x align-top align-center">
+		<div class="slider cell large-6">
+			<h2 class="titre show-for-sr">
 				<?php  
 
-				echo esc_html( $text1 ); ?>
+				echo $text1; ?>
 			</h2>
 			<div class="orbit" role="region" aria-label="Actualités" data-orbit>
 				<div class="orbit-wrapper">
@@ -82,16 +82,16 @@ function affiche_calendrier() {
 									$ID=$post->ID;
 									$lien= get_the_permalink($ID);
 									$image_id=get_post_thumbnail_id( $post );
-									$imageData = wp_get_attachment_image_src($image_id);
+									$imageData = wp_get_attachment_image_src($image_id,'actu');
 									$titre=get_the_title($ID);
 									$extrait=get_the_excerpt($ID);
 									
 									$output='';
 									$output.='<li class="orbit-slide'.$is_active.'">';
-									$output.='<a href="'.$lien.'" class="bouton show-for-medium">';
+									$output.='<a href="'.$lien.'">';
 									$output.='<figure class="orbit-figure">';
 									$output.='<img class="orbit-image" src="'.$imageData[0].'" alt="'.$titre.'">';
-									$output.='<figcaption class="orbit-caption">'.$titre.'<br/>'.$extrait.'<br/>'.$text.'</figcaption>';
+									$output.='<figcaption class="orbit-caption"><span class="h2">'.$text1.'</span><br><span class="titre">'.$titre.'</span><br><span class="extrait">'.$extrait.'</span><br><span class="lien">'.$text.' > </span></figcaption>';
 									$output.='</figure>';
 									$output.='</a>';
 									$output.='</li>';
@@ -104,7 +104,7 @@ function affiche_calendrier() {
 					</ul>
 				</div>
 				<nav class="orbit-bullets">
-					<button class="is-active" data-slide="0"><span class="show-for-sr">Premier slide.</span><span class="show-for-sr">Current Slide</span></button>
+					<button class="is-active" data-slide="0"><span class="show-for-sr">Première slide.</span><span class="show-for-sr">Slide actuelle</span></button>
 					<button data-slide="1"><span class="show-for-sr">Deuxième slide.</span></button>
 					<button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
 					<button data-slide="3"><span class="show-for-sr">Quatrième slide.</span></button>
@@ -112,17 +112,20 @@ function affiche_calendrier() {
 				</nav>
 			</div>				
 		</div>
-		<div>
-			<h2 class="titre">
-			<?php echo esc_html( $text2 ); ?>
+		<div class="cell large-6 events">
+			<h2 class="titre avec-fond-oblique"> 
+			<div class="fond-oblique"></div>				
+			<span><?php echo esc_html( $text2 ); ?></span>
 			</h2>
 			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ft_event_priority="yes"]'); ?>
-			<h2 class="titre">
-			<?php  echo esc_html( $text3 ); 
-			wp_reset_postdata();?>
-			</h2>
+			<a href="/events-directory" class="lien-surligne">
+			<span>
+			<?php  echo esc_html( $text3 ); ?>
+					</span>
+			</a>
 		</div>
 	</section>
 	<?php
+	wp_reset_postdata();
     echo ob_get_clean();
 }
