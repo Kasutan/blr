@@ -937,7 +937,7 @@ font-size: 1.5em;
 	max-width: 45px;
 }
 .sticky {
-	z-index:0;
+	z-index:1;
 }
 .header-sticky {
 	background-color: #fff;
@@ -1269,7 +1269,7 @@ font-size: 1.5em;
 	width:unset;
 }
 #slider .orbit-caption span {
-	background-color:var(--rose-clair);
+	background-color:var(--rose);
 	line-height:1;
 	padding:0.4em;
 }
@@ -1310,7 +1310,7 @@ bottom:60px;
 }
 
 #calendrier .orbit-caption {
-	background-color:var(--rose-clair);
+	background-color:var(--rose);
 	bottom:-50px;
 	display:flex;
 	flex-direction:column;
@@ -1343,6 +1343,13 @@ bottom:60px;
 	#calendrier {
 		padding:70px 200px;
 		padding:70px calc(50% - 400px);
+	}
+	/*Quand le slider et le calendirer sont cote à cote, afficher le slider à gauche*/
+	#calendrier .slider {
+		order:1;
+	}
+	#calendrier .events {
+		order:2;
 	}
 	#calendrier .slider,
 	#calendrier .slider .orbit-container {
@@ -1442,7 +1449,208 @@ bottom:60px;
 #calendrier .eventon_events_list .eventon_list_event .evcal_desc span.evcal_event_subtitle {
 	display: none;
 }
+/*--------------------------------------------------------------
+### Activites
+--------------------------------------------------------------*/
+#activites {
+	background-color:var(--rose);
+	border-bottom:solid lightpink 150px;
+	border-image:url(/wp-content/themes/cael/images/decor.png);
+	/*Extraire le décor d'Adobe CC au format png ou svg*/
+	color:#fff;
+	padding:20px;
+}
+#activites .zoom img {
+	max-width:95%;
+}
+#activites .oblique {
+	background-color:#fff;
+	bottom:20px;
+	color:var(--rose);
+	display: inline-block;
+	padding:0 3px;
+	position:relative;
+	transform-origin: left bottom;
+	transform : rotateZ(-3deg);
+}
+#activites .pictos {
+	flex-wrap:wrap;
+}
+#activites .pictos .lien {
+	flex-basis:100px;
+	flex-grow:0;
+	margin:0 10px;
+}
+#activites .picto {
+	border:solid 2px #fff;
+	border-radius:50%;
+	width:100px;
+	height:100px;
+}
+@media screen and (min-width:1024px) {
+	#activites {
+		padding:50px 200px;
+		padding:50px calc(50% - 400px);
+	}
+}
 
+/*--------------------------------------------------------------
+### Reseaux
+--------------------------------------------------------------*/
+/*Retutiliser*/
+.fond-vert {
+  background-color:var(--vert);
+}
+.fond-vert-clair {
+  background-color:var(--vert-clair);
+}
+.fond-rose {
+	background-color:var(--rose);
+  }
+.fond-rose-clair {
+	background-color:var(--rose-clair);
+  }
+  .vert {
+	color:var(--vert);
+  }
+  .vert-clair {
+	color:var(--vert-clair);
+  }
+  .rose {
+	  color:var(--rose);
+	}
+  .rose-clair {
+	  color:var(--rose-clair);
+	}
+#reseaux {
+	padding:30px 10px 0;
+}
+#reseaux .cell {
+	background-color:#fff;
+	margin-bottom:30px;
+}
+
+#reseaux .decor {
+		background-image:url(/wp-content/themes/cael/images/decor-hachures.png);
+	/*Extraire le décor d'Adobe CC au format png ou svg ou repeating-linear-gradient*/
+	height:30px;
+}
+#reseaux .flux .titre {
+	background-color:var(--rose-clair);
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	padding:5px;
+	text-transform: none;
+}
+
+#reseaux .guide {
+	margin-left:10px;
+
+}
+#reseaux .guide .fond-vert {
+	color:#fff;
+	padding:20px 10px;
+	position:relative;
+}
+
+#reseaux .guide .fond-vert .titre,
+#reseaux .guide .fond-vert .lien {
+	max-width: calc(100% - 160px);
+}
+#reseaux .guide .fond-vert .lien  {
+	text-decoration:underline;
+}
+#reseaux .guide .fond-vert .image {
+	/*Ajouter box-shadow*/
+	display:inline-block;
+	position:absolute;
+	right:5px;
+	top:-5px;
+	transform-origin:center center;
+	transform:rotateZ(-3deg);
+}
+#reseaux .guide > .image {
+	text-align:center;
+	width:100%;
+}
+#reseaux .guide > .image a {
+	display: inline-block;
+	position:relative;
+	margin: 0 auto;
+}
+
+
+
+
+/*--------------------------------------------------------------
+### A propos
+--------------------------------------------------------------*/
+#apropos {
+	background: repeating-linear-gradient(
+    -45deg,
+    #fff,
+    #fff 2px,
+    #e0f8e2 2px,
+    #e0f8e2 30px
+  );
+	/* A ajuster*/
+
+  padding:60px 0;
+}
+#apropos .bandeau {
+	height:30px
+}
+#apropos .titre {
+	color:#fff;
+	
+	font-size:25px;
+	line-height:30px;
+	padding-left:20px;
+	text-transform:none;
+}
+
+#apropos p {
+	max-width:80%;
+	padding-left:20px;
+}
+#apropos .image {
+	position:relative;
+}
+
+#apropos .image img {
+	width:100%;
+}
+
+#apropos .bandeau.transparent {
+	opacity:0.4;
+	position:absolute;
+	height:30px;
+	top:0;
+	width:100%;
+}
+#apropos  a {
+	display:inline-block;
+	padding:10px;
+}
+#apropos .icon-triangle-right {
+	font-size:50px;
+}
+
+@media screen and (min-width:1024px) {
+	#apropos .titre {
+	   width:50%;
+		
+	}
+#apropos .titre.fond-vert {
+		width:68.75%;
+}
+}
+
+/*Reutiliser*/
+.nowrap {
+	flex-wrap:nowrap;
+}
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

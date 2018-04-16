@@ -67,28 +67,35 @@ function affiche_reseaux() {
 	$imageplaquette = get_post_meta( $ID, CMB_PREFIX.'_accueil_image_plaquette_id', true);
 	ob_start();
 	?>
-	<section id="reseaux" class="scrollify">
-		<div>
+	<section id="reseaux" class="grid-x align-stretch align-center fond-vert-clair">
+		<div class="cell medium-4 large-3 flux">
 			<h2 class="titre">
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_réseaux', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
 			<?php echo do_shortcode('[fts_mashup posts=3 social_network_posts=1 words=45 center_container=yes show_social_icon=right show_media=bottom show_date=no show_name=yes]'); ?>
 		</div>
-		<div>
-			<h2 class="titre">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_guide', true ); 
-			echo esc_html( $text ); ?>
-			</h2>
-			<a href= <?php echo ($lienpdf); ?> class="lien">
-			<h2 class="titre">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
-			echo esc_html( $text ); ?>
-			</h2>
-			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
-			<?php echo wp_get_attachment_image( $imageplaquette, 'large' ); ?>
-			</a>
+		<div class=" cell medium-6 large-5 guide grid-y">
+			<div class="fond-vert">
+				<h2 class="titre">
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_guide', true ); 
+				echo esc_html( $text ); ?>
+				</h2>
+				<a href= <?php echo ($lienpdf); ?> class="lien">
+					<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
+					echo esc_html( $text ); ?>
+				</a>
+				<a href= <?php echo ($lienpdf); ?> class="image" >
+					<?php echo wp_get_attachment_image( $imagelien, 'small' ); ?>
+				</a>
+			</div>
+			<div class="image">
+				<a href= <?php echo ($lienpdf); ?> >
+				<?php echo wp_get_attachment_image( $imageplaquette, 'large' ); ?>
+				</a>
+			</div>
 		</div>
+		<div class="decor cell small-12  medium-10 large-8"></div>
 	</section>
 	<?php
 	echo ob_get_clean();
