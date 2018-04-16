@@ -54,21 +54,32 @@ $ID=get_the_ID();
 					Les activités de A à Z
 				</h2>
 				<?php
-					$events = new WP_Query(array(
-						'posts_per_page'=>-1,
-						'post_type' => 'ajde_events',
-						'post_status'=>'any'			
-					));
-		
-					if ( $events->have_posts() ) {
-						while($events->have_posts()): $events->the_post();
-							$titre = get_the_title();
-							$lien= get_the_permalink();
-							?>
-							<a href=<?php echo ($lien); ?>> <?php echo esc_html( $titre ); ?> </a>
-							<?php
-						endwhile;
-					}
+
+					$events = get_terms(
+						'event_type',
+						array(
+							'orderby'=>'name',
+							'hide_empty'=>false
+						)
+					);
+
+	 				if(!empty($events) && !is_wp_error($events)){
+						foreach($events as $event){
+							$lien= get_term_link($event);
+            				$titreevent=$event->name;
+							$eventid=$event->term_id;
+							$current_term_level = get_tax_level($eventid, 'event_type');
+
+    						if ($current_term_level == 3) {
+								?>
+								<a href= <?php echo ($lien); ?> class="lien">
+								<?php echo($titreevent); ?>
+									</a>
+								<?php
+    						}
+
+						}
+					};
 					wp_reset_postdata();
 				?>
 			</section>
