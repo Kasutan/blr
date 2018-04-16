@@ -936,7 +936,9 @@ font-size: 1.5em;
 	border: solid 1px pink;
 	max-width: 45px;
 }
-
+.sticky {
+	z-index:0;
+}
 .header-sticky {
 	background-color: #fff;
 }
