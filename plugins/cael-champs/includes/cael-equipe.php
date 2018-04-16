@@ -35,30 +35,6 @@ add_action( 'cmb2_admin_init', function() {
 		'default'	=> 'd&acute;administration',		
 	) );
 
-	/*$group_field_id = $cmb_admin->add_field( array(
-		'id'          => '_cael_equipe_administration',
-		'type'        => 'group',
-		'description' => __( 'Membres du conseil d&acute;administration', 'cmb2' ),
-		'options'     => array(
-			'group_title'   => __( 'Entry {#}', 'cmb2' ), 
-			'add_button'    => __( 'Ajouter un membre', 'cmb2' ),
-			'remove_button' => __( 'Retirer le membre', 'cmb2' ),
-			'sortable'      => true, // beta
-		),
-	) );
-	
-	$cmb_admin->add_group_field( $group_field_id, array(
-		'name' => 'Fonction',
-		'id'   => '_cael_equipe_fonction',
-		'type' => 'text',
-	) );
-
-	$cmb_admin->add_group_field( $group_field_id, array(
-		'name' => 'Noms',
-		'id'   => '_cael_equipe_noms',
-		'type' => 'textarea',
-	) );*/
-
 	$cmb_membre_equipe = new_cmb2_box( array(
 		'id'            => 'CAELmembreequipe',
 		'title'         => __( 'Ordre d&acute;affichage', 'cmb2' ),
