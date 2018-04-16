@@ -65,6 +65,18 @@ function affiche_calendrier() {
 	$text3  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_calendrier', true );
 	?>
 	<section id="calendrier" class="grid-x align-top align-center">
+		<div class="cell large-6 events">
+			<h2 class="titre avec-fond-oblique"> 
+			<div class="fond-oblique"></div>				
+			<span><?php echo esc_html( $text2 ); ?></span>
+			</h2>
+			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ft_event_priority="yes"]'); ?>
+			<a href="/events-directory" class="lien-surligne">
+			<span>
+			<?php  echo esc_html( $text3 ); ?>
+					</span>
+			</a>
+		</div>
 		<div class="slider cell large-6">
 			<h2 class="titre show-for-sr">
 				<?php  
@@ -110,19 +122,7 @@ function affiche_calendrier() {
 					<button data-slide="3"><span class="show-for-sr">Quatrième slide.</span></button>
 					<button data-slide="4"><span class="show-for-sr">Cinquième slide.</span></button>
 				</nav>
-			</div>				
-		</div>
-		<div class="cell large-6 events">
-			<h2 class="titre avec-fond-oblique"> 
-			<div class="fond-oblique"></div>				
-			<span><?php echo esc_html( $text2 ); ?></span>
-			</h2>
-			<?php echo do_shortcode('[add_eventon_list event_count="3" hide_month_headers="yes" ft_event_priority="yes"]'); ?>
-			<a href="/events-directory" class="lien-surligne">
-			<span>
-			<?php  echo esc_html( $text3 ); ?>
-					</span>
-			</a>
+			</div>			
 		</div>
 	</section>
 	<?php

@@ -1269,7 +1269,7 @@ font-size: 1.5em;
 	width:unset;
 }
 #slider .orbit-caption span {
-	background-color:var(--rose-clair);
+	background-color:var(--rose);
 	line-height:1;
 	padding:0.4em;
 }
@@ -1310,7 +1310,7 @@ bottom:60px;
 }
 
 #calendrier .orbit-caption {
-	background-color:var(--rose-clair);
+	background-color:var(--rose);
 	bottom:-50px;
 	display:flex;
 	flex-direction:column;
@@ -1343,6 +1343,13 @@ bottom:60px;
 	#calendrier {
 		padding:70px 200px;
 		padding:70px calc(50% - 400px);
+	}
+	/*Quand le slider et le calendirer sont cote à cote, afficher le slider à gauche*/
+	#calendrier .slider {
+		order:1;
+	}
+	#calendrier .events {
+		order:2;
 	}
 	#calendrier .slider,
 	#calendrier .slider .orbit-container {
@@ -1442,7 +1449,21 @@ bottom:60px;
 #calendrier .eventon_events_list .eventon_list_event .evcal_desc span.evcal_event_subtitle {
 	display: none;
 }
+/*--------------------------------------------------------------
+### Activites
+--------------------------------------------------------------*/
+#activites {
+	background-color:var(--rose);
+	color:#fff;
+	padding:20px;
+}
 
+@media screen and (min-width:1024px) {
+	#activites {
+		padding:50px 200px;
+		padding:50px calc(50% - 400px);
+	}
+}
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
