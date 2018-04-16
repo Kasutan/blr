@@ -72,7 +72,7 @@ $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 		<?php  echo esc_html( $text2 ); ?>
 		</h2>
 		<a href= <?php echo ($lieneventacti); ?> class="lien">
-            <?php echo wp_get_attachment_image( $imageeventacti, 'thumbnail' ); ?>
+            <?php echo wp_get_attachment_image( $imageeventacti, 'medium' ); ?>
         </a>
 		<h3 class="titre">
 		<?php  echo ( $titreacti ); ?>
