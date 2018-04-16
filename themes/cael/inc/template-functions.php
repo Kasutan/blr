@@ -53,3 +53,6 @@ function get_tax_level($id, $tax){
     $ancestors = get_ancestors($id, $tax);
     return count($ancestors)+1;
 }
+
+//Ajouter tailles d'images
+add_image_size('banniere',1200,450,true);

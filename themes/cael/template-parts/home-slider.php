@@ -22,7 +22,7 @@ $lastposts = get_posts( array(
             $ID=$post->ID;
             $lien= get_the_permalink($ID);
             $image_id=get_post_thumbnail_id( $post );
-            $imageData = wp_get_attachment_image_src($image_id);
+            $imageData = wp_get_attachment_image_src($image_id,'banniere');
             $titre=get_the_title($ID);
             $extrait=get_the_excerpt($ID);
             
@@ -31,7 +31,7 @@ $lastposts = get_posts( array(
               $output.='<a href="'.$lien.'" class="bouton show-for-medium">';
                 $output.='<figure class="orbit-figure">';
                   $output.='<img class="orbit-image" src="'.$imageData[0].'" alt="'.$titre.'">';
-                  $output.='<figcaption class="orbit-caption">'.$titre.'<br/>'.$extrait.'</figcaption>';
+                  $output.='<figcaption class="orbit-caption"><span class="titre">'.$titre.'</span><br/><span>'.$extrait.'<span></figcaption>';
                 $output.='</figure>';
               $output.='</a>';
             $output.='</li>';

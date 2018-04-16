@@ -1238,6 +1238,54 @@ font-size: 1.5em;
 }
 
 /*--------------------------------------------------------------
+## Accueil
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+### Slider
+--------------------------------------------------------------*/
+#slider {
+	margin-bottom:-60px;
+	
+}
+#slider .orbit-caption {
+	background-color:transparent;
+	bottom:15%;
+	left:10%;
+	font-family: 'MuseoSansDisplay', sans-serif;
+	font-size:1.5em;
+	font-weight:300;
+	width:unset;
+}
+#slider .orbit-caption span {
+	background-color:var(--rose-clair);
+	line-height:1;
+	padding:0.4em;
+}
+#slider span.titre {
+	font-weight:500;
+}
+#slider .orbit-bullets {
+bottom:60px;
+}
+
+#slider .orbit-bullets button {
+	background-color: rgba(200,200,200,0.5);
+	border:solid 1px #777;
+	height:20px;
+	padding:0;
+	width:20px;
+}
+#slider .orbit-bullets button.is-active {
+	background-color:#fff;
+}
+
+/*--------------------------------------------------------------
+### Actus et calendrier
+--------------------------------------------------------------*/
+#calendrier {
+	background-color: var(--vert-clair);
+}
+/*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 .comment-content a {
