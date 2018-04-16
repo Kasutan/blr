@@ -937,7 +937,7 @@ font-size: 1.5em;
 	max-width: 45px;
 }
 .sticky {
-	z-index:0;
+	z-index:1;
 }
 .header-sticky {
 	background-color: #fff;
@@ -1492,6 +1492,75 @@ bottom:60px;
 		padding:50px 200px;
 		padding:50px calc(50% - 400px);
 	}
+}
+
+/*--------------------------------------------------------------
+### Reseaux
+--------------------------------------------------------------*/
+/*Retutiliser*/
+.fond-vert {
+  background-color:var(--vert);
+}
+.fond-vert-clair {
+  background-color:var(--vert-clair);
+}
+
+#reseaux {
+	padding:30px 10px 0;
+}
+#reseaux .cell {
+	background-color:#fff;
+	margin-bottom:30px;
+}
+
+#reseaux .decor {
+		background-image:url(/wp-content/themes/cael/images/decor-hachures.png);
+	/*Extraire le décor d'Adobe CC au format png ou svg*/
+	height:30px;
+}
+#reseaux .flux .titre {
+	background-color:var(--rose-clair);
+	color:#fff;
+	font-size:1em;
+	font-weight:300;
+	padding:5px;
+	text-transform: none;
+}
+
+#reseaux .guide {
+	margin-left:10px;
+
+}
+#reseaux .guide .fond-vert {
+	color:#fff;
+	padding:20px 10px;
+	position:relative;
+}
+
+#reseaux .guide .fond-vert .titre,
+#reseaux .guide .fond-vert .lien {
+	max-width: calc(100% - 160px);
+}
+#reseaux .guide .fond-vert .lien  {
+	text-decoration:underline;
+}
+#reseaux .guide .fond-vert .image {
+	/*Ajouter box-shadow*/
+	display:inline-block;
+	position:absolute;
+	right:5px;
+	top:-5px;
+	transform-origin:center center;
+	transform:rotateZ(-3deg);
+}
+#reseaux .guide > .image {
+	text-align:center;
+	width:100%;
+}
+#reseaux .guide > .image a {
+	display: inline-block;
+	position:relative;
+	margin: 0 auto;
 }
 /*--------------------------------------------------------------
 ## Comments
