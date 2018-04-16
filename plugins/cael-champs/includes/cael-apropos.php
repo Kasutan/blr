@@ -49,33 +49,59 @@ function affiche_apropos() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_accueil_apropos_image_id', true);
 	ob_start();
 	?>
-	<section id="apropos" class="scrollify">
-		<div>
+	<section id="apropos" class="grid-x">
+		<div class="show-for-medium cell medium-1 large-2">
+			<div class="bandeau fond-rose"></div>
+		</div>
+		<div class="cell small-12 medium-4 large-3 image">
 			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
-			<h2 class="titre">
-				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
-				echo esc_html( $text ); ?>
+			<div class="bandeau fond-rose transparent"></div>
+		</div>
+		<div class="cell small-12 medium-6 large-5">
+			<h2 class="titre fond-rose">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
+			echo esc_html( $text ); ?>
 			</h2>
-			<p>
-				<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
-				echo esc_html( $para1 ); ?>
-			</p>
-			<h2 class="titre">
+			<div class="grid-x align-middle align-justify nowrap">
+				<p>
+					<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
+					echo esc_html( $para1 ); ?>
+				</p>
+				<a href="" title="En savoir plus"><span class="icon-triangle-right rose"></span></a>
+			</div>
+			<h2 class="titre fond-rose-clair">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
 				echo esc_html( $text ); ?>
 			</h2>
-			<p>
-				<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
-				echo esc_html( $para2 ); ?>
-			</p>
-			<h2 class="titre">
+			<div class="grid-x align-middle  align-justify nowrap">
+				<p>
+					<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
+					echo esc_html( $para2 ); ?>
+				</p>
+				<a href="" title="En savoir plus"><span class="icon-triangle-right rose-clair"></span></a>
+			</div>
+		</div>
+		<div class="show-for-medium cell medium-1 large-2">
+			&nbsp;
+		</div>
+		<div class="show-for-medium cell medium-1 large-2">
+			<div class="bandeau fond-vert"></div>
+		</div>
+		<div class="cell small-12 medium-10 large-8">
+			<h2 class="titre fond-vert">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre3', true ); 
 				echo esc_html( $text ); ?>
 			</h2>
-			<p>
-				<?php $para3  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte2', true ); 
-				echo esc_html( $para3 ); ?>
-			</p>
+			<div class="grid-x align-middle align-justify nowrap">
+				<p>
+					<?php $para3  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte2', true ); 
+					echo esc_html( $para3 ); ?>
+				</p>
+				<a href="" title="En savoir plus"><span class="icon-triangle-right vert"></span></a>
+			</div>
+		</div>
+		<div class="show-for-medium cell medium-1 large-2">
+			&nbsp;
 		</div>
 	</section>
 	<?php

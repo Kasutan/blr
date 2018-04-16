@@ -1504,7 +1504,24 @@ bottom:60px;
 .fond-vert-clair {
   background-color:var(--vert-clair);
 }
-
+.fond-rose {
+	background-color:var(--rose);
+  }
+.fond-rose-clair {
+	background-color:var(--rose-clair);
+  }
+  .vert {
+	color:var(--vert);
+  }
+  .vert-clair {
+	color:var(--vert-clair);
+  }
+  .rose {
+	  color:var(--rose);
+	}
+  .rose-clair {
+	  color:var(--rose-clair);
+	}
 #reseaux {
 	padding:30px 10px 0;
 }
@@ -1515,7 +1532,7 @@ bottom:60px;
 
 #reseaux .decor {
 		background-image:url(/wp-content/themes/cael/images/decor-hachures.png);
-	/*Extraire le décor d'Adobe CC au format png ou svg*/
+	/*Extraire le décor d'Adobe CC au format png ou svg ou repeating-linear-gradient*/
 	height:30px;
 }
 #reseaux .flux .titre {
@@ -1561,6 +1578,78 @@ bottom:60px;
 	display: inline-block;
 	position:relative;
 	margin: 0 auto;
+}
+
+
+
+
+/*--------------------------------------------------------------
+### A propos
+--------------------------------------------------------------*/
+#apropos {
+	background: repeating-linear-gradient(
+    -45deg,
+    #fff,
+    #fff 2px,
+    #e0f8e2 2px,
+    #e0f8e2 30px
+  );
+	/* A ajuster*/
+
+  padding:60px 0;
+}
+#apropos .bandeau {
+	height:30px
+}
+#apropos .titre {
+	color:#fff;
+	
+	font-size:25px;
+	line-height:30px;
+	padding-left:20px;
+	text-transform:none;
+}
+
+#apropos p {
+	max-width:80%;
+	padding-left:20px;
+}
+#apropos .image {
+	position:relative;
+}
+
+#apropos .image img {
+	width:100%;
+}
+
+#apropos .bandeau.transparent {
+	opacity:0.4;
+	position:absolute;
+	height:30px;
+	top:0;
+	width:100%;
+}
+#apropos  a {
+	display:inline-block;
+	padding:10px;
+}
+#apropos .icon-triangle-right {
+	font-size:50px;
+}
+
+@media screen and (min-width:1024px) {
+	#apropos .titre {
+	   width:50%;
+		
+	}
+#apropos .titre.fond-vert {
+		width:68.75%;
+}
+}
+
+/*Reutiliser*/
+.nowrap {
+	flex-wrap:nowrap;
 }
 /*--------------------------------------------------------------
 ## Comments
