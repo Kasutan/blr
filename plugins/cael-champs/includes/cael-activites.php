@@ -63,22 +63,21 @@ $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_activites', true );
 $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 
 ?>
-<section id="activites" class="scrollify">
-	<div>
+<section id="activites" class="grid-x align-middle justify-between" >
+	<div class="cell medium-6 zoom">
 		<h2 class="titre">
 		<?php  echo esc_html( $text ); ?>
 		</h2>
-		<h2 class="titre">
-		<?php  echo esc_html( $text2 ); ?>
-		</h2>
+		
 		<a href= <?php echo ($lieneventacti); ?> class="lien">
             <?php echo wp_get_attachment_image( $imageeventacti, 'medium' ); ?>
         </a>
-		<h3 class="titre">
+		<span class="oblique h4">			<?php  echo esc_html( $text2 ); ?></span>
+		<span class="titre">
 		<?php  echo ( $titreacti ); ?>
-		</h3>
+		</span>
 	</div>
-	<div>
+	<div class="cell medium-6 pictos flex-container">
 		<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){
 		foreach($event_terms as $event_term){
 			$lien= get_term_link($event_term);
@@ -88,7 +87,8 @@ $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 		?>
 		<a href= <?php echo ($lien); ?> class="lien">
 			<figure>
-                <img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
+				<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>
+				class="picto">
 				<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
 			</figure>
         </a>

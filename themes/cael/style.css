@@ -1454,10 +1454,39 @@ bottom:60px;
 --------------------------------------------------------------*/
 #activites {
 	background-color:var(--rose);
+	border-bottom:solid lightpink 150px;
+	border-image:url(/wp-content/themes/cael/images/decor.png);
+	/*Extraire le décor d'Adobe CC au format png ou svg*/
 	color:#fff;
 	padding:20px;
 }
-
+#activites .zoom img {
+	max-width:95%;
+}
+#activites .oblique {
+	background-color:#fff;
+	bottom:20px;
+	color:var(--rose);
+	display: inline-block;
+	padding:0 3px;
+	position:relative;
+	transform-origin: left bottom;
+	transform : rotateZ(-3deg);
+}
+#activites .pictos {
+	flex-wrap:wrap;
+}
+#activites .pictos .lien {
+	flex-basis:100px;
+	flex-grow:0;
+	margin:0 10px;
+}
+#activites .picto {
+	border:solid 2px #fff;
+	border-radius:50%;
+	width:100px;
+	height:100px;
+}
 @media screen and (min-width:1024px) {
 	#activites {
 		padding:50px 200px;
