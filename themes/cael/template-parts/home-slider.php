@@ -28,7 +28,7 @@ $lastposts = get_posts( array(
             
             $output='';
             $output.='<li class="orbit-slide'.$is_active.'">';
-              $output.='<a href="'.$lien.'" class="bouton show-for-medium">';
+              $output.='<a href="'.$lien.'" >';
                 $output.='<figure class="orbit-figure">';
                   $output.='<img class="orbit-image" src="'.$imageData[0].'" alt="'.$titre.'">';
                   $output.='<figcaption class="orbit-caption"><span class="titre">'.$titre.'</span><br/><span>'.$extrait.'<span></figcaption>';
