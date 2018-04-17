@@ -65,9 +65,10 @@
 						$debut = get_post_meta( $IDquery, 'evcal_srow', true );
 						$fin = get_post_meta( $IDquery, 'evcal_erow', true );
 
-						?><div class"cell small-1 medium-2 large-3"><?php
-							echo($niveauevent);
-							echo date_i18n($format . 'l G\hi', $debut );
+						?><div class="cell small-12 medium-6 large-4">
+						<strong> <?php echo($niveauevent); ?> </strong>
+						</br>
+						<?php	echo date_i18n($format . 'l G\hi', $debut );
 							echo date_i18n($format . ' > G\hi', $fin );
 						?></div><?php
 					endwhile;

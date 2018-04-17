@@ -59,7 +59,7 @@ add_image_size('banniere',1200,450,true);
 add_image_size('actu',400,425,true);
 
 // fonction pour avoir les liens [suivant] et [précédent] pour naviguer dans des pages de catégories
-// fonction donnée par Pieter Goosen sur le forum https://wordpress.stackexchange.com
+// fonction donnée par Pieter Goosen sur le forum https://wordpress.stackexchange.com/questions/222498/is-it-possible-to-get-a-previous-next-taxonomy-term-archive-url
 	function get_tax_navigation( $taxonomy = 'category', $direction = '' ) 
 	{
 		// Make sure we are on a taxonomy term/category/tag archive page, if not, bail
@@ -137,10 +137,10 @@ add_image_size('actu',400,425,true);
 		$link = [];
 		// Build the links
 		if ( $previous_term ) 
-			$link[] = 'Previous Term: <a href="' . esc_url( get_term_link( $previous_term ) ) . '">' . $previous_term->name . '</a>';
+			$link[] = '<a href="' . esc_url( get_term_link( $previous_term ) ) . '">' . '< Activité précédente' . '</a>';
 	
 		if ( $next_term ) 
-			$link[] = 'Next Term: <a href="' . esc_url( get_term_link( $next_term ) ) . '">' . $next_term->name . '</a>';
+			$link[] = '<a href="' . esc_url( get_term_link( $next_term ) ) . '">' . 'Activité suivante >' . '</a>';
 	
 		return implode( ' ...|... ', $link );
 	}
