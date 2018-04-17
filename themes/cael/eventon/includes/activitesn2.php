@@ -14,14 +14,19 @@
 		)
     );
 ?>
-
+<main id="main" class="site-main act2">
+	<p class="fil-ariane fond-vert">Fil d'ariane</p>
+	
 	<header class="entry-header">
-		<h1>
+		<div class="fond fond-vert-clair">&nbsp;</div>
+		
+		<h1 class="fond-rose">
         	<?php echo($term->name); ?>
     	</h1>
-		<?php echo wp_get_attachment_image($imagelienid, 'large' ); ?>
+		<?php echo wp_get_attachment_image($imagelienid, 'banniere' ); ?>
+		<div class="filtre">Filtre</div>
 	</header><!-- .entry-header -->
-	<div class="entry-content">
+	<div class="entry-content grid-x align-justify">
 
 
 		<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){
@@ -31,6 +36,8 @@
             $detail=$event_term->description;
 			$eventid=$event_term->term_id;
 			$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
+			//$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
+			//$imagelien2 = wp_get_attachment_image_url( $image, 'thumbnail' );
 		?>
 		<a href= <?php echo ($lien); ?> class="lien">
 			<figure>
@@ -43,3 +50,4 @@
 	};?>
 	
 	</div><!-- .entry-content -->
+</main>
