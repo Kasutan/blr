@@ -65,14 +65,22 @@ $ID=get_the_ID();
 
 	 				if(!empty($events) && !is_wp_error($events)){
 						foreach($events as $event){
-							$lien= get_term_link($event);
-            				$titreevent=$event->name;
+
 							$eventid=$event->term_id;
 							$current_term_level = get_tax_level($eventid, 'event_type');
 
+
+
     						if ($current_term_level == 3) {
+								$lien= get_term_link($event);
+								$titreevent=$event->name;
+								$agemin = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemin', true );
+								$agemax = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemax', true );
+
+								$classe = get_age_class($agemin, $agemax);
+
 								?>
-								<a href= <?php echo ($lien); ?> class="lien">
+								<a href= <?php echo ($lien); ?> class="<?php echo ($classe); ?>">
 								<?php echo($titreevent); ?>
 									</a>
 								<?php

@@ -144,3 +144,31 @@ add_image_size('actu',400,425,true);
 	
 		return implode( ' ...|... ', $link );
 	}
+
+
+	function get_age_class($agemin, $agemax){
+
+		$class = '';
+		if ($agemin >= 18) {
+			$class = $class . ' adulte';
+
+		} else if ($agemin <= 0 && ($agemax <= 0 || $agemax > 18)) {
+			$class = $class . ' toutage';
+		}
+
+		else {
+			$class = $class . ' enfant';
+			$indice = $agemin;
+			while ( $indice <= 18 && ($indice <= $agemax || $agemax > 18 || $agemax <= 0 ))
+				{
+					$class = $class . ' ' . $indice;
+					$indice = $indice + 1;
+				}
+
+			if ($agemax > 18 || $agemax <= 0) {
+				$class = $class . ' adulte';
+			}
+		}
+
+		return $class;
+	}
