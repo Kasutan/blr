@@ -35,21 +35,24 @@
 		}
 
 	?>
+<main id="main" class="site-main act3">
+	<p class="fil-ariane fond-vert">Fil d'ariane</p>
 
-	<header class="entry-header">
-		<h1>
+	<header class="entry-header ">
+		<div class="fond fond-vert-clair">&nbsp;</div>
+		<?php echo wp_get_attachment_image($imagelienid, 'banniere' ); ?>
+		<h1 class="fond-vert">
         	<?php echo($term->name); ?>
     	</h1>
-		<?php echo wp_get_attachment_image($imagelienid, 'large' ); ?>
 	</header><!-- .entry-header -->
-	<div class="entry-content">
+	<div class="entry-content fond-rose-clair">
 
 		<h2>
         	<?php echo($term->name); ?>
     	</h2>
 		
 		<?php echo($texte1); ?>
-		<?php echo($organizer_terms[0]->name);?>
+		<strong><?php echo($organizer_terms[0]->name);?></strong>
 		
 		<p>
 			<?php echo($term->description); ?>
@@ -76,21 +79,23 @@
 				
 			?>
 		</div>
-		<div class"adresse">
-			<?php echo($texte2); ?>	
+		<div class="adresse">
+			<img alt="picto boussole" src=""/>
+			<span><?php echo($texte2); ?></span>	
 			<br/>
 			<?php echo($texte3); echo(' '); echo($location_terms[0]->name);?>
 		</div>
-
-		<div>
-		<?php echo($texte4); ?>	
+	</div><!-- .entry-content -->
+	<footer class="entry-footer">
+		<p class="inscription">
+		<strong><?php echo($texte4); ?></strong>	
 			<br/>
 			<?php echo($texte5); echo(' '); ?><a href=""><?php echo($texte6);?></a>
+		</p>
+		<div class="navigation grid-x align-justify">
+			<?php echo get_tax_navigation( 'event_type', 'previous' ); ?>
+			<?php echo get_tax_navigation( 'event_type', 'next' ); ?>
 		</div>
-
-	<?php echo get_tax_navigation( 'event_type', 'previous' ); ?>
-	<?php echo get_tax_navigation( 'event_type', 'next' ); ?>
-
-	<?php 
-	wp_reset_postdata();?>
-	</div><!-- .entry-content -->
+	</footer>
+</main>
+<?php 	wp_reset_postdata();?>
