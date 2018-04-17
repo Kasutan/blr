@@ -1663,11 +1663,88 @@ bottom:60px;
 ## Activités
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-### Activités N2
+### Activités N1
 --------------------------------------------------------------*/
 .fil-ariane {
 	padding:5px;
 }
+
+.act1 .entry-header {
+	text-align: center;
+}
+
+.act1 h1 {
+	display:inline-block;
+	padding:0 10px;	
+}
+.act1 .entry-content a {
+	align-items:stretch;
+	justify-content:center;
+	margin-bottom:50px;
+	position:relative;
+}
+.act1 .entry-content a h2 {
+	background-color:#fff;
+	display:inline-block;
+	font-size:1.2em;
+	padding:0 10px;	
+	transform:rotateZ(-3deg);
+}
+
+.act1 .entry-content a img {
+	border-radius:50%;
+	max-width:200px;
+	max-height:200px;
+}
+.act1 .entry-content a .details {
+	padding:20px;	
+}
+
+
+.act1 .entry-content a:nth-of-type(2n+1) .details {
+	background-color:var(--vert-clair);
+	color:var(--rose);
+	text-align:right;
+	
+}
+
+.act1 .entry-content a:nth-of-type(2n+1) h2 {
+	transform:rotateZ(3deg);
+	
+}
+.act1 .entry-content a:nth-of-type(2n+1) .details p {
+	text-align:left;
+}
+@media screen and (min-width:768px) {
+	.act1 .entry-content a:nth-of-type(2n) .large-1 {
+		order:4;
+	}
+	.act1 .entry-content a:nth-of-type(2n) img {
+		order:3;
+	}
+	.act1 .entry-content a:nth-of-type(2n) .details {
+		order:2;
+		padding-right:120px;
+	}
+	.act1 .entry-content a:nth-of-type(2n) div.large-2 {
+		order:1;
+	}
+	.act1 .entry-content a:nth-of-type(2n+1) .details {
+		padding-left:120px;
+	}
+	.act1 .entry-content a img {
+		position:relative;
+		left:100px; 
+	}
+	.act1 .entry-content a:nth-of-type(2n) img {
+		left:-100px; 
+	}
+}
+
+/*--------------------------------------------------------------
+### Activités N2
+--------------------------------------------------------------*/
+
 .act2 .entry-header {
 	margin-bottom:0;
 	margin-top:0px;
