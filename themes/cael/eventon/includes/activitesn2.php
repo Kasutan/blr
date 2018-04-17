@@ -35,9 +35,9 @@
             $titreevent=$event_term->name;
             $detail=$event_term->description;
 			$eventid=$event_term->term_id;
-			$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
-			//$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
-			//$imagelien2 = wp_get_attachment_image_url( $image, 'thumbnail' );
+			//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
+			$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
+			$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
 		?>
 		<a href= <?php echo ($lien); ?> class="lien">
 			<figure>
