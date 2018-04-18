@@ -47,18 +47,6 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 	$cmb_bafa->add_field( array(
-		'name'       => __( 'Titre lien 2', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_titrelien2',
-		'type'       => 'text',
-	) );
-
-	$cmb_bafa->add_field( array(
-		'name'       => __( 'lien 2', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_lien2',
-		'type'       => 'text_url',		
-	) );
-
-	$cmb_bafa->add_field( array(
 		'name'       => __( 'Titre 3', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_actions_bafa_titre3',
 		'type'       => 'text',
@@ -68,18 +56,6 @@ add_action( 'cmb2_admin_init', function() {
 		'name'       => __( 'Texte 3', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_actions_bafa_texte3',
 		'type'       => 'wysiwyg',		
-	) );
-
-	$cmb_bafa->add_field( array(
-		'name'       => __( 'Titre lien 3', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_titrelien3',
-		'type'       => 'text',		
-	) );
-
-	$cmb_bafa->add_field( array(
-		'name'       => __( 'lien 3', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_lien3',
-		'type'       => 'text_url',		
 	) );
 
 	$cmb_bafa->add_field( array(
@@ -94,16 +70,70 @@ add_action( 'cmb2_admin_init', function() {
 		'type'       => 'wysiwyg',		
 	) );
 
-	$cmb_bafa->add_field( array(
-		'name'       => __( 'Titre lien 4', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_titrelien4',
-		'type'       => 'text',		
-	) );
-
-	$cmb_bafa->add_field( array(
-		'name'       => __( 'lien 4', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_actions_bafa_lien4',
-		'type'       => 'text_url',		
-	) );
-
 });
+
+function affiche_bafa() {			
+
+	$ID=get_the_ID();
+	ob_start();
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre1', true );
+	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte1', true );
+	$image = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_image_id', true);
+
+	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre2', true );
+	$texte2  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte2', true );
+
+	$titre3  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre3', true );
+	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte3', true );
+
+	$titre4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre4', true );
+	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte4', true );
+	
+	?>
+	<section id="senior" class="align-middle justify-between" >
+
+			<div class="cell medium-6">
+				<h1 class="fond-rose">
+					<?php echo esc_html($titre1); ?>
+				</h1>
+				<p>
+					<?php echo wp_kses_post($texte1); ?>
+				</p>
+			</div>
+			
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre2 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte2 ); ?>
+				</p>
+			</div>
+
+
+
+			<div>
+			<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre3 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte3 ); ?>
+				</p>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre4 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte4 ); ?>
+				</p>
+			</div>
+
+	</section>
+	<?php
+	
+	echo ob_get_clean();
+	
+	}

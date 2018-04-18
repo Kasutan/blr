@@ -41,3 +41,32 @@ add_action( 'cmb2_admin_init', function() {
 		'text'    => array(	'add_upload_file_text' => 'Charger l image' ),	
 	) );
 });
+
+function affiche_social() {			
+
+$ID=get_the_ID();
+ob_start();
+$titre1  = get_post_meta( $ID, CMB_PREFIX.'_actions_social_titre1', true );
+$titre2  = get_post_meta( $ID, CMB_PREFIX.'_actions_social_titre2', true );
+$texte  = get_post_meta( $ID, CMB_PREFIX.'_actions_social_texte2', true );
+$imagelien = get_post_meta( $ID, CMB_PREFIX.'_actions_social_image_id', true);
+
+?>
+<section id="social" class="align-middle justify-between fond-rose-clair" >
+		<h1 class="titre">
+			<?php  echo esc_html( $titre1 ); ?>
+		</h1>
+		<h2 class="titre">
+			<?php  echo esc_html( $titre2 ); ?>
+		</h2>
+		<p>
+			<?php  echo wp_kses_post( $texte ); ?>
+		</p>
+		<?php echo wp_get_attachment_image( $imagelien, 'medium' ); ?>
+		
+</section>
+<?php
+
+echo ob_get_clean();
+
+}

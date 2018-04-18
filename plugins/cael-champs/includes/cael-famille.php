@@ -220,3 +220,174 @@ add_action( 'cmb2_admin_init', function() {
 		'type'       => 'text_url',		
 	) );
 });
+
+function affiche_famille() {			
+
+	$ID=get_the_ID();
+	ob_start();
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre1', true );
+	$titre1bis  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre1bis', true );
+	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte1', true );
+	$image = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_image_id', true);
+
+	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre2', true );
+	$texte2  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte2', true );
+	$titrelien2  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien2', true );
+	$lien2  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien2', true );
+
+	$titre3  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre3', true );
+	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte3', true );
+	$titrelien3  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien3', true );
+	$lien3  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien3', true );
+
+	$titre4  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre4', true );
+	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte4', true );
+	$titrelien4  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien4', true );
+	$lien4  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien4', true );
+
+	$titre5  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre5', true );
+	$texte5  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte5', true );
+	$titrelien5  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien5', true );
+	$lien5  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien5', true );
+
+	$titre6  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre6', true );
+	$texte6  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte6', true );
+	$titrelien6  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien6', true );
+	$lien6  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien6', true );
+
+	$titre7  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre7', true );
+	$texte7  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte7', true );
+	$titrelien7  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien7', true );
+	$lien7  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien7', true );
+
+	$titre8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titre8', true );
+	$texte8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_texte8', true );
+	$titrelien8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_titrelien8', true );
+	$lien8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien8', true );
+	
+	?>
+	<section id="famille" class="align-middle justify-between" >
+		<header class="entry-header grid-x">
+
+			<div class="cell medium-6">
+				<h1 class="fond-rose">
+					<?php echo($titre1); ?>
+				</h1>
+				<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
+			</div>
+			<div class="cell medium-6">
+				<h2 class="titre">
+					<?php echo($titre1bis); ?>
+				</h2>
+				<p>
+					<?php echo wp_kses_post($texte1); ?>
+				</p>
+			</div>
+		</header>
+
+		<div class="entry-content">
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre2 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte2 ); ?>
+				</p>
+				<?php  if (!empty($lien2)) { ?>
+					<a href= <?php echo ($lien2); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien2 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre3 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte3 ); ?>
+				</p>
+				<?php  if (!empty($lien3)) { ?>
+					<a href= <?php echo ($lien3); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien3 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre4 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte4 ); ?>
+				</p>
+				<?php  if (!empty($lien4)) { ?>
+					<a href= <?php echo ($lien4); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien4 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+			
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre5 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte5 ); ?>
+				</p>
+				<?php  if (!empty($lien5)) { ?>
+					<a href= <?php echo ($lien5); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien5 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre6 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte6 ); ?>
+				</p>
+				<?php  if (!empty($lien6)) { ?>
+					<a href= <?php echo ($lien6); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien6 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre7 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte7 ); ?>
+				</p>
+				<?php  if (!empty($lien7)) { ?>
+					<a href= <?php echo ($lien7); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien7 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+			<div>
+				<h2 class="titre">
+					<?php  echo esc_html( $titre8 ); ?>
+				</h2>
+				<p>
+					<?php  echo wp_kses_post( $texte8 ); ?>
+				</p>
+				<?php  if (!empty($lien8)) { ?>
+					<a href= <?php echo ($lien8); ?> class="lien">
+						<?php  echo wp_kses_post( $titrelien8 ); ?>
+					</a>
+				<?php  } ?>
+			</div>
+
+		</div>
+	</section>
+	<?php
+	
+	echo ob_get_clean();
+	
+	}
