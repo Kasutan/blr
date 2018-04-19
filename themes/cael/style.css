@@ -1663,6 +1663,88 @@ bottom:60px;
 ## Activités
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+### Activités Sommaire
+--------------------------------------------------------------*/
+.nos-activites {
+	border-top: solid 40px var(--vert);
+	text-align:center;
+}
+.nos-activites .intro p {
+	margin-bottom:0.5em;
+	font-weight:700;
+}
+.nos-activites .pictos {
+	align-items:stretch;
+	flex-wrap:wrap;
+	justify-content: center;
+	padding: 30px 20px 50px;
+}
+.nos-activites .picto  {
+	flex-basis:200px;
+	margin:0 20px;
+	
+}
+.nos-activites .picto:hover,
+.nos-activites .picto:focus,
+.nos-activites .picto:visited,
+.nos-activites .picto:active {
+	color:var(--rose);
+}
+.nos-activites .picto figure {
+	background-color:var(--vert-clair);
+	border:solid 10px var(--rose-clair);
+	border-radius:50%;
+	display:flex;
+	height:200px;
+	margin:0 0 0.5em;
+	width:200px;
+}
+.nos-activites .picto img {
+	border-radius:50%;
+	object-fit: contain;
+}
+.nos-activites .picto h3 {
+	font-size:1em;
+	text-transform: none;
+}
+
+.nos-activites .az {
+	padding: 30px 20px 50px;
+}
+.nos-activites .az h2 {
+	font-weight:400;
+	font-size:1.5em;
+	text-transform:none;
+	
+}
+.nos-activites .az h2 strong {
+	font-size: 2.5em;
+	font-weight:400;
+	padding:0 2px;
+	position:relative;
+	bottom:-10px;
+}
+.nos-activites .az a {
+	display:inline-block;
+	margin:3px;
+	padding:0 3px;
+}
+
+.nos-activites .az a:hover,
+.nos-activites .az a:focus {
+	background-color:#fff;
+	color:var(--rose-clair);
+}
+
+@media screen and (min-width:1024px) {
+	.nos-activites .pictos {
+	   padding: 30px calc(50% - 400px) 50px;
+	}
+		.nos-activites .az {
+	   padding: 100px calc(50% - 500px) 50px;
+	}
+}
+/*--------------------------------------------------------------
 ### Activités N1
 --------------------------------------------------------------*/
 .fil-ariane {

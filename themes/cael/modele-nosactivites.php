@@ -7,21 +7,20 @@ get_header();
 $ID=get_the_ID();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area nos-activites">
 		<main id="main" class="site-main">
 
-			<section id="nosactivites" class="scrollify">
-				<div>
-					<h2 class="titre">
-						<?php the_title(); ?>
-					</h2>
-					<p>
-						<?php the_content(); ?>
-					</p>
+			<section class="rose-clair" >
+				<h1 class="titre">
+					<?php the_title(); ?>
+				</h1>
+				<div class="intro">
+					<?php the_content(); ?>
 				</div>
 			</section>
 
-			<section>
+			<section class="pictos grid-x">
+				<h2 class="show-for-sr">Catégories d'activités</h2>
 				<?php
 					$event_terms = get_terms(
 							'event_type',
@@ -38,21 +37,22 @@ $ID=get_the_ID();
 							$eventid=$event_term->term_id;
 							$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
 						?>
-						<a href= <?php echo ($lien); ?> class="lien">
+						<a href= <?php echo ($lien); ?> class="cell picto rose">
 							<figure>
 								<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
-								<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
 							</figure>
+							<h3><?php  echo esc_html( $titreevent ); ?></h3>							
 						</a>
 						<?php
 						}
 					};?>
 			</section>
 
-			<section>
+			<section class="az fond-rose-clair">
 				<h2>
-					Les activités de A à Z
+					Les activités de <strong>A</strong> à <strong>Z</strong>
 				</h2>
+				<p class="filtre">Filtre</p>
 				<?php
 
 					$events = get_terms(
@@ -64,6 +64,9 @@ $ID=get_the_ID();
 					);
 
 	 				if(!empty($events) && !is_wp_error($events)){
+						 ?>
+						 <div class="liste-activites">
+						<?php
 						foreach($events as $event){
 
 							$eventid=$event->term_id;
@@ -87,6 +90,7 @@ $ID=get_the_ID();
     						}
 
 						}
+						?></div><?php
 					};
 					wp_reset_postdata();
 				?>
