@@ -39,6 +39,9 @@ require_once( 'includes/cael-inscriptions.php' );
 // Champs supplémentaires pour les activités
 require_once( 'includes/cael-catactivites.php' );
 
+// Champs supplémentaires pour les événements
+require_once( 'includes/cael-evenements.php' );
+
 // Champs supplémentaires pour les actualités
 require_once( 'includes/cael-actualites.php' );
 
