@@ -437,13 +437,51 @@ template {
 	font-style: normal;
 	font-weight: 300;
 }
-@font-face {
-	font-family: 'MuseoSansRounded';
-	src: url('inc/fonts/MuseoSansRounded.rtf');
-	font-style: normal;
-	font-weight: 400;
-}
 
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3560592, 2018-04-18T06:29:22-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: MuseoSansRounded-300 by exljbris
+ * URL: https://www.myfonts.com/fonts/exljbris/museo-sans-rounded/300/
+ * 
+ * Webfont: MuseoSansRounded-500 by exljbris
+ * URL: https://www.myfonts.com/fonts/exljbris/museo-sans-rounded/500/
+ * 
+ * Webfont: MuseoSansRounded-700 by exljbris
+ * URL: https://www.myfonts.com/fonts/exljbris/museo-sans-rounded/700/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3560592
+ * Licensed pageviews: 500,000
+ * Webfonts copyright: Copyright (c) 2011 by Jos Buivenga. All rights reserved.
+ * 
+ * © 2018 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/365490");
+
+  
+@font-face {font-family: 'MuseoSansRounded-300';src: url('inc/fonts/webfonts/365490_0_0.eot');src: url('inc/fonts/webfonts/365490_0_0.eot?#iefix') format('embedded-opentype'),url('inc/fonts/webfonts/365490_0_0.woff2') format('woff2'),url('inc/fonts/webfonts/365490_0_0.woff') format('woff'),url('inc/fonts/webfonts/365490_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'MuseoSansRounded-500';src: url('inc/fonts/webfonts/365490_1_0.eot');src: url('inc/fonts/webfonts/365490_1_0.eot?#iefix') format('embedded-opentype'),url('inc/fonts/webfonts/365490_1_0.woff2') format('woff2'),url('inc/fonts/webfonts/365490_1_0.woff') format('woff'),url('inc/fonts/webfonts/365490_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'MuseoSansRounded-700';src: url('inc/fonts/webfonts/365490_2_0.eot');src: url('inc/fonts/webfonts/365490_2_0.eot?#iefix') format('embedded-opentype'),url('inc/fonts/webfonts/365490_2_0.woff2') format('woff2'),url('inc/fonts/webfonts/365490_2_0.woff') format('woff'),url('inc/fonts/webfonts/365490_2_0.ttf') format('truetype');}
+
+
+
+/* Police d'icones */
 @font-face {
 	font-family: 'icomoon';
 	src:  url('inc/fonts/icomoon.eot?v7szwv');
@@ -514,7 +552,7 @@ select,
 optgroup,
 textarea {
 	color: #000;
-	font-family: 'MuseoSansRounded', sans-serif;
+	font-family: 'MuseoSansRounded-300', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
