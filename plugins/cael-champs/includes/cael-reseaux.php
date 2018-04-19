@@ -73,7 +73,7 @@ function affiche_reseaux() {
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_réseaux', true ); 
 			echo esc_html( $text ); ?>
 			</h2>
-			<?php echo do_shortcode('[fts_mashup posts=3 social_network_posts=1 words=45 center_container=yes show_social_icon=right show_media=bottom show_date=no show_name=yes]'); ?>
+			<?php echo do_shortcode('[fts_mashup posts=3 social_network_posts=3 words=45 center_container=yes show_social_icon=right show_media=bottom show_date=yes show_name=yes facebook_name=CAEL.MJC]'); ?>
 		</div>
 		<div class=" cell medium-6 large-5 guide grid-y">
 			<div class="fond-vert">
