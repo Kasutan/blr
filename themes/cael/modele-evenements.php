@@ -7,21 +7,20 @@ get_header();
 $ID=get_the_ID();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area nos-activites">
 		<main id="main" class="site-main">
 
-			<section id="evenements">
-				<div>
-					<h2 class="titre">
-						<?php the_title(); ?>
-					</h2>
-					<p>
-						<?php the_content(); ?>
-					</p>
+			<section class="rose-clair" >
+				<h1 class="titre">
+					<?php the_title(); ?>
+				</h1>
+				<div class="intro">
+					<?php the_content(); ?>
 				</div>
 			</section>
 
-			<section>
+			<section class="pictos grid-x">
+				<h2 class="show-for-sr">Catégories d'activités</h2>
 				<?php
 					$event_terms = get_terms(
 							'event_type_2',
@@ -38,17 +37,16 @@ $ID=get_the_ID();
 							$eventid=$event_term->term_id;
 							$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
 						?>
-						<a href= <?php echo ($lien); ?> class="lien">
+						<a href= <?php echo ($lien); ?> class="cell picto rose">
 							<figure>
 								<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
-								<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
 							</figure>
+							<h3><?php  echo esc_html( $titreevent ); ?></h3>							
 						</a>
 						<?php
 						}
 					};?>
 			</section>
-
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

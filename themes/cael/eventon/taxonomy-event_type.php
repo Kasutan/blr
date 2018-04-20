@@ -28,9 +28,9 @@
         if ($current_term_level <= 1) {
             // on est au premier niveau des catégories
             require_once( 'includes/evenementsn1.php' );
-        } else if ($current_term_level == 2) {
+        } else {
             // on est au second niveau des catégories
-            require_once( 'includes/activitesn2.php' );
+            require_once( 'includes/evenementsn2.php' );
         }
     }
 
