@@ -54,26 +54,26 @@ function affiche_association() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_image_asso_id', true);
 	ob_start();
 	?>
-	<section id="association" class="scrollify">
-		<div>
-			<h2 class="titre">
-				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true ); 
-				echo esc_html( $text ); ?>
-			</h2>
-			<p>
-				<?php $para1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_texte1', true ); 
-				echo esc_html( $para1 ); ?>
-			</p>
-			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
+	<section id="association" >
+		<h1 class="titre">
+			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true ); 
+			echo esc_html( $text ); ?>
+		</h1>
+		<p class="intro">
+			<?php $para1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_texte1', true ); 
+			echo wp_kses_post( $para1 ); ?>
+		</p>
+		<?php echo wp_get_attachment_image( $imagelien, 'banniere' ); ?>
+		<div class="fond-rose mjc">
 			<h2 class="titre">
 				<?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre2', true ); 
 				echo esc_html( $text2 ); ?>
 			</h2>
-			<p>
+			<div class="texte">
 				<?php $para2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_texte2', true ); 
-				echo esc_html( $para2 ); ?>
-			</p>
-		</div>
+				echo wpautop(wp_kses_post( $para2 )); ?>
+			</div>
+		</div>	
 	</section>
 	<?php
 	echo ob_get_clean();

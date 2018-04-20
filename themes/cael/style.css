@@ -1288,7 +1288,7 @@ font-size: 1.5em;
 ## Accueil
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-### Slider
+### Slider Accueil
 --------------------------------------------------------------*/
 #slider {
 	margin-bottom:-60px;
@@ -1330,7 +1330,7 @@ bottom:60px;
 }
 
 /*--------------------------------------------------------------
-### Actus et calendrier
+### Actus et calendrier Accueil
 --------------------------------------------------------------*/
 #calendrier {
 	background-color: var(--vert-clair);
@@ -1488,7 +1488,7 @@ bottom:60px;
 	display: none;
 }
 /*--------------------------------------------------------------
-### Activites
+### Activites Accueil
 --------------------------------------------------------------*/
 #activites {
 	background-color:var(--rose);
@@ -1533,7 +1533,7 @@ bottom:60px;
 }
 
 /*--------------------------------------------------------------
-### Reseaux
+### Reseaux Accueil
 --------------------------------------------------------------*/
 /*Retutiliser*/
 .fond-vert {
@@ -1629,7 +1629,7 @@ bottom:60px;
 
 
 /*--------------------------------------------------------------
-### A propos
+### A propos Accueil
 --------------------------------------------------------------*/
 #apropos {
 	background: repeating-linear-gradient(
@@ -1696,7 +1696,54 @@ bottom:60px;
 .nowrap {
 	flex-wrap:nowrap;
 }
+@media screen and (min-width : 123px) {
+	
+}
 
+/*--------------------------------------------------------------
+## Le CAEL
+--------------------------------------------------------------*/
+.site-main nav {
+	border:solid 5px var(--vert-clair);
+	display:inline-block;
+	position:relative;
+	margin:10px auto;
+}
+
+.site-main nav a {
+	color:var(--rose-clair);
+	display:inline-block;
+	font-family: MuseoSansDisplay;
+	font-weight:400;
+	font-size:0.8em;
+	padding:8px;
+}
+.lecael {
+	text-align: center;
+	
+}
+.lecael #association {
+	color:var(--rose-clair);
+}
+.lecael  #association .intro {
+	max-width:750px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+}
+.lecael #association .mjc {
+	left:0;
+	padding:60px 20px 70px;
+	position:relative;
+	text-align: left;
+	top:-40px;
+	z-index: -1;
+}
+@media screen and (min-width:1024px) {
+	.lecael #association .mjc {
+  	padding:100px calc(50% - 375px) 70px;		
+	}
+}
 /*--------------------------------------------------------------
 ## Activités
 --------------------------------------------------------------*/
