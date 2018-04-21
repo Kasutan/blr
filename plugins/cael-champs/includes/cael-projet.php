@@ -87,41 +87,47 @@ function affiche_projet() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_image_id', true);
 	ob_start();
 	?>
-	<section id="projet" class="scrollify">
-		<div>
-			<h2 class="titre">
+	<section id="projet" class="grid-x fond-vert-clair" >
+		<div class="cell medium-6 image">
+			<h2 class="titre fond-rose blanc oblique">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre1', true ); 
 				echo esc_html( $text ); ?>
 			</h2>
 			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
+		</div>
+		<div class="cell medium-6 citation rose-clair">
 			<blockquote>
-				<?php $cita  = get_post_meta( $ID, CMB_PREFIX.'_lecael_citation', true ); 
-				echo esc_html( $cita ); ?>
+				<span class="icon-quote-left"></span>
+				<div><?php $cita  = get_post_meta( $ID, CMB_PREFIX.'_lecael_citation', true ); 
+				echo wp_kses_post( $cita ); ?></div>
+				<span class="icon-quote-right"></span>				
 			</blockquote>
 			<p>
 				<?php $para1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_texte1', true ); 
 				echo esc_html( $para1 ); ?>
 			</p>
-			<h2 class="titre">
+		</div>
+		<div class="cell small-12 ">
+			<h3 class="titre rose-clair">
 				<?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre2', true ); 
 				echo esc_html( $text2 ); ?>
-			</h2>
+			</h3>
 			<p>
 				<?php $para2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_texte2', true ); 
 				echo esc_html( $para2 ); ?>
 			</p>
-			<h2 class="titre">
+			<h3 class="titre rose-clair">
 				<?php $text3  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre3', true ); 
 				echo esc_html( $text3 ); ?>
-			</h2>
+			</h3>
 			<p>
 				<?php $para3  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_texte3', true ); 
 				echo esc_html( $para3 ); ?>
 			</p>
-			<h2 class="titre">
+			<h3 class="titre rose-clair">
 				<?php $text4  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre4', true ); 
 				echo esc_html( $text4 ); ?>
-			</h2>
+			</h3>
 			<p>
 				<?php $para4  = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_texte4', true ); 
 				echo esc_html( $para4 ); ?>
