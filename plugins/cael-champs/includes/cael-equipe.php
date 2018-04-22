@@ -100,22 +100,20 @@ function affiche_equipe() {
 
 	ob_start();
 	?>
-	<section id="equipe" class="scrollify">
-		<div>
-			<h2 class="titre">
+	<section id="equipe" class="fond-vert-clair">
+			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true ); 
 				echo esc_html( $text ); ?>
 			</h2>
-		</div>
-		<div>
+		<div class="grid-x">
 			<?php 
 			if($membres->have_posts()) :
 				while ($membres->have_posts()) : $membres->the_post();
 				?>
-					<div class="membre">
+					<div class="membre col">
 						<?php the_post_thumbnail('thumbnail'); ?>
-						<?php the_title(); ?>
-						<?php the_content(); ?>
+						<p class="nom"><?php the_title(); ?></p>
+						<div class="role"><?php the_content(); ?></div>
 					</div>
 				<?php endwhile; 
 			endif;
@@ -123,30 +121,30 @@ function affiche_equipe() {
 			?>
 		</div>
 	</section>
-			<h2 class="titre">
-				<?php $text1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre21', true ); 
-				echo esc_html( $text1 ); ?>
-			</h2>
-			<h2 class="titre">
-				<?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre22', true ); 
-				echo esc_html( $text2 ); ?>
-			</h2>
+		<div class="motif"></div>
 
-	<section id="administration" class="scrollify">
-
-			<?php 
-			if($conseils->have_posts()) :
-				while ($conseils->have_posts()) : $conseils->the_post();
-				?>
-					<div class="conseil">
-						<?php the_title(); ?>
-						<?php the_content(); ?>
-					</div>
-				<?php endwhile; 
-			endif;
-			wp_reset_postdata();
+	<section id="administration">
+		<h2 class="titre">
+			<span><?php $text1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre21', true ); 
+			echo esc_html( $text1 ); ?></span><br>
+			<span><strong><?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre22', true ); 
+			echo esc_html( $text2 ); ?></strong></span>
+		</h2>
+		<?php 
+		if($conseils->have_posts()) :
+			?><div class="conseil"><?php
+			while ($conseils->have_posts()) : $conseils->the_post();
 			?>
-
+				<p class="role">
+					<?php the_title(); ?>
+				</p><div class="nom">
+					<?php the_content(); ?>
+		</div>
+			<?php endwhile; ?>
+		</div>
+		<?php endif;
+		wp_reset_postdata();
+		?>
 	</section>
 
 	<?php

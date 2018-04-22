@@ -62,27 +62,27 @@ function affiche_partenaires() {
 	));
 	ob_start();
 	?>
-	<section id="partenaires" class="scrollify">
-		<div>
-			<h2 class="titre">
+	<section id="partenaires" >
+			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_part_titre1', true ); 
 				echo esc_html( $text ); ?>
 			</h2>
-			<p>
+			<div  class="rose-clair">
 				<?php $para1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_part_texte1', true ); 
-				echo ( $para1 ); ?>
-			</p>
-		</div>
+				echo wp_kses_post( $para1 ); ?>
+			</div>
 		<?php 
-			if($cptpartenaires->have_posts()) :
+			if($cptpartenaires->have_posts()) :?>
+				<div class="cptpartenaires grid-x align-center">
+			<?php			
 				while ($cptpartenaires->have_posts()) : $cptpartenaires->the_post();
 				?>
-					<div class="cptpartenaires">
-						<a class="lien" href= <?php echo esc_html(get_the_content()); ?> >
+						<a class="col" href= <?php echo esc_html(get_the_content()); ?> >
 							<?php the_post_thumbnail('thumbnail'); ?>
         				</a>
-					</div>
-				<?php endwhile; 
+				<?php endwhile; ?>
+				</div>
+			<?php				
 			endif;
 			wp_reset_postdata();
 			?>

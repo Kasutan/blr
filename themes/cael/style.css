@@ -507,7 +507,12 @@ template {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
   }
-  
+  .icon-quote-right:before {
+	content: "\e907";
+  }
+  .icon-quote-left:before {
+	content: "\e908";
+  }
   .icon-triangle-right:before {
 	content: "\e900";
   }
@@ -1538,16 +1543,13 @@ bottom:60px;
 /*Retutiliser*/
 .fond-vert {
   background-color:var(--vert);
-  color:#fff;
 }
 .fond-vert-clair {
   background-color:var(--vert-clair);
-  color:#fff;
   
 }
 .fond-rose {
 	background-color:var(--rose);
-	color:#fff;
 	
   }
 .fond-rose-clair {
@@ -1566,6 +1568,9 @@ bottom:60px;
 	}
   .rose-clair {
 	  color:var(--rose-clair);
+	}
+	.blanc {
+		color:#fff;
 	}
 #reseaux {
 	padding:30px 10px 0;
@@ -1724,15 +1729,19 @@ bottom:60px;
 }
 .lecael #association {
 	color:var(--rose-clair);
+	margin-bottom: 0;
 }
-.lecael  #association .intro {
+.lecael  #association .intro, 
+.lecael #association img {
 	max-width:750px;
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
 }
 .lecael #association .mjc {
+	color:#fff;
 	left:0;
+	margin-bottom:-40px;
 	padding:60px 20px 70px;
 	position:relative;
 	text-align: left;
@@ -1742,6 +1751,193 @@ bottom:60px;
 @media screen and (min-width:1024px) {
 	.lecael #association .mjc {
   	padding:100px calc(50% - 375px) 70px;		
+	}
+}
+
+.lecael #projet {
+	text-align:left;
+	justify-content:center;
+	padding:40px 20px 10px;
+}
+.lecael #projet .image {
+	position:relative;
+	padding-top:30px;
+	display:flex;
+}
+.lecael #projet .image img {
+	object-fit:cover;
+	width:100%;
+}
+.lecael #projet .oblique {
+	display: inline-block;
+	padding:0 3px;
+	position:absolute;
+	transform-origin: left bottom;
+	transform : rotateZ(-3deg);
+	left:10px;
+	top:20px;
+	
+}
+.lecael #projet .citation {
+	padding-left:5px;
+}
+.lecael #projet .citation blockquote {
+	color:var(--rose);
+	border:none;
+	font-size:1.2em;
+	margin:0;
+	padding:30px 0;
+	position:relative;
+}
+.lecael #projet .citation span {
+	display:inline-block;
+	font-size:3em;
+	font-family:arial;
+	line-height:1rem;
+	position:relative;
+	bottom:-5px;
+	padding-right:5px;
+}
+.lecael #projet .citation div {
+	display: inline;
+}
+.lecael #projet .citation span.icon-quote-right {
+	padding-left:5px;
+	position:relative;
+	 font-size:1.5em;
+	top:2px;
+}
+
+.lecael #projet h3 {
+	margin-top:0.5em;
+	text-transform: none;
+}
+
+@media screen and (min-width:1024px) {
+	.lecael #projet {
+  	padding:100px calc(50% - 375px) 70px;		
+	}
+}
+.lecael #chiffres {
+	position:relative;
+}
+.lecael #chiffres img {
+	width:100%
+}
+.lecael #chiffres .titre {
+	display:inline-block;
+	position:absolute;
+	top:8%;
+	left:22%;
+	font-weight:300;
+	padding:12px;
+}
+.lecael #equipe {
+	position:relative;
+	padding:30px;
+}
+.lecael #equipe .titre {
+	display:inline-block;
+	padding:10px;
+	
+}
+.lecael #equipe .grid-x {
+	justify-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+.lecael #equipe .membre {
+	flex-basis:130px;
+	margin:30px;
+}
+.lecael #equipe .membre img {
+	border-radius:50%;
+	border:solid 4px var(--rose);
+	margin-bottom:15px;
+}
+.lecael #equipe .membre p {
+	margin-bottom:0;
+}
+.lecael #equipe .membre p.nom {
+	border-top: solid 1px var(--rose-clair);
+	margin-bottom:0;
+}
+.lecael #equipe .membre .role {
+	border-bottom: solid 1px var(--rose-clair);
+	font-weight:700;
+	padding-bottom:0.5em;
+}
+@media screen and (min-width:1024px) {
+	.lecael #equipe {
+  	padding:50px calc(50% - 300px) 100px;		
+	}
+	
+	.lecael #equipe .titre {
+	position:absolute;
+	top:0;
+	left:0;
+	transform-origin: top right;
+	transform: rotateZ(-90deg);	
+}
+}
+
+.lecael .motif {
+	background-image:url('/wp-content/themes/cael/images/motif-triangles.jpg');
+	background-repeat: no-repeat;
+	background-size:100%;
+	height:calc(22.2vw + 30px);
+	max-height:326px;
+}
+
+.lecael #administration {
+	background:var(--rose-clair);
+	background:url('/wp-content/themes/cael/images/fond-triangles.png');
+	background-repeat: no-repeat;
+	background-size:cover;
+	color:#fff;
+	padding:50px;
+	position:relative;
+	top:-60px;
+	margin-bottom:-60px;
+	text-align:left;
+}
+.lecael #administration .titre span {
+	background-color:var(--rose);
+	font-weight:300;
+	padding:10px;
+}
+.lecael #administration .conseil {
+	display:grid;
+	grid-template-columns: 150px 1fr;
+	margin-top:30px;
+}
+.lecael #administration .conseil p{
+	margin-bottom:0;
+}
+.lecael #administration .conseil .nom {
+	font-family: 'MuseoSansRounded-500';
+}
+.lecael #partenaires {
+	padding:20px;
+}
+.lecael #partenaires .titre {
+	display: inline-block;
+	padding:10px;
+}
+.lecael #partenaires .cptpartenaires {
+	align-items: stretch;
+	flex-wrap:wrap;
+}
+.lecael #partenaires .col {
+	flex-basis:100px;
+	margin:10px;
+}
+@media screen and (min-width:1024px) {
+	.lecael #administration {
+  	padding:70px calc(50% - 400px);		
+	}
+	.lecael #partenaires {
+  	padding:20px calc(50% - 400px);		
 	}
 }
 /*--------------------------------------------------------------

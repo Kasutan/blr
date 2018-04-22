@@ -17,7 +17,7 @@ add_action( 'cmb2_admin_init', function() {
 	$cmb_chiffres->add_field( array(
 		'name'       => __( 'Titre 1', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_lecael_chiffres_titre1',
-		'type'       => 'text',
+		'type'       => 'wysiwyg',
 		'default'	=> 'Le CAEL en chiffres',		
 	) );
 
@@ -37,13 +37,11 @@ function affiche_chiffres() {
 	ob_start();
 	?>
 	<section id="chiffres" class="scrollify">
-		<div>
-			<h2 class="titre">
+			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true ); 
-				echo esc_html( $text ); ?>
+				echo wp_kses_post( $text ); ?>
 			</h2>
 			<?php echo wp_get_attachment_image( $imagelien, 'large' ); ?>
-		</div>
 	</section>
 	<?php
 	echo ob_get_clean();
