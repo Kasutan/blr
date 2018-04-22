@@ -44,8 +44,8 @@
 		$idphoto5  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_5_id', true );
 		$idphoto6  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_6_id', true );
 
-
-		var_dump($testevent);
+		var_dump($location_terms);
+		
 	?>
 <main id="main" class="site-main">
 
@@ -80,28 +80,34 @@
 			<?php echo esc_html( $titreprog ); ?>
 		</h1>
 		<div>
-			<?php echo ('programmation à récupérer'); ?>
 
-				<?php 	if(!empty($speakers) && !is_wp_error($speakers)){
-					foreach($speakers as $speaker){
-						$lien= get_term_link($event_term);
-						$titreevent=$event_term->name;
-						$detail=$event_term->description;
-						$eventid=$event_term->term_id;
-						//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
-						$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
-						$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
-					?>
-					<a href= <?php echo ($lien); ?> class="lien">
-						<figure>
-							<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
-							<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
-						</figure>
-					</a>
-					<?php
-					}
-				};?>
-
+		<?php 	
+		if(!empty($speakers) && !is_wp_error($speakers)){
+		foreach($speakers as $speaker){
+			echo('données des intervenants <br>');
+			var_dump($speaker);
+			echo '<br>';
+			foreach($speaker as $key => $content) {
+				if ($key!=0) {
+					echo '<strong>'.$content["evo_sch_title"].'<br>';
+					echo $content["evo_sch_desc"].'<br>';
+					echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';															
+				}
+			}
+			//echo($speaker->evo_sch_title]);
+			//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
+			//$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
+			//$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
+		}
+	};?>
+			<?php 
+			//var_dump($speakers);
+			
+			echo ('programmation à récupérer'); 
+			
+			//$speakers_terms = wp_get_post_terms($IDevent, 'event_speaker');
+			//var_dump($speakers_terms);
+						?>
 
 		</div>
 		<div>
