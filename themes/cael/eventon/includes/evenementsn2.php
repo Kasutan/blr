@@ -6,6 +6,7 @@
 	$ID = $term->term_id;
 
 
+
 	$args = array(
 		'post_type' => 'ajde_events',
 		'tax_query' => array(
@@ -18,16 +19,10 @@
 
 	$query = new WP_Query( $args );
 
-	//var_dump($query);	
-
 	if ( $query->have_posts() ) {
-			$query->the_post();
-			$IDevent = get_the_id();
-			$organizer_terms = wp_get_post_terms($IDevent, 'event_organizer');
-			$location_terms = wp_get_post_terms($IDevent, 'event_location');
-			$testevent = wp_get_post_terms($IDevent, 'event_speaker');
-		}
-
+		$query->the_post();
+		$IDevent = get_the_id();
+		
 		$textelien  = get_post_meta( $IDevent, CMB_PREFIX.'_events_lien', true );
 		$lienpdf  = get_post_meta( $IDevent, CMB_PREFIX.'events_pdf', true );
 		$idimagepdf  = get_post_meta( $IDevent, CMB_PREFIX.'events_image_id', true );
@@ -43,11 +38,11 @@
 		$idphoto4  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_4_id', true );
 		$idphoto5  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_5_id', true );
 		$idphoto6  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_6_id', true );
+		}	
 
-		var_dump($location_terms);
-		
 	?>
-<main id="main" class="site-main">
+
+	<main id="main" class="site-main">
 
 	<header class="entry-header ">
 		<?php echo get_the_post_thumbnail( $IDevent, 'large' ); ?>
@@ -79,37 +74,31 @@
 		<h1>
 			<?php echo esc_html( $titreprog ); ?>
 		</h1>
+		
 		<div>
+			<?php 	
+			if(!empty($speakers) && !is_wp_error($speakers)){
+				foreach($speakers as $speaker){
+					foreach($speaker as $key => $content) {
+						if ($key!=0) {
+							$cleterm = key($content["evo_sch_spk"]);		
+							$termMeta = get_option( "evo_tax_meta");
+							$termmeta2 = evo_get_term_meta('event_speaker',$cleterm, $termMeta);
+							$speaker_link = get_term_link( $cleterm );
 
-		<?php 	
-		if(!empty($speakers) && !is_wp_error($speakers)){
-		foreach($speakers as $speaker){
-			echo('données des intervenants <br>');
-			var_dump($speaker);
-			echo '<br>';
-			foreach($speaker as $key => $content) {
-				if ($key!=0) {
-					echo '<strong>'.$content["evo_sch_title"].'<br>';
-					echo $content["evo_sch_desc"].'<br>';
-					echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';															
+							echo '<a href='.$speaker_link.'>';
+							echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' ).'<br>'.'</a>';
+							echo '<strong>'.$content["evo_sch_title"].'<br>';
+							echo $content["evo_sch_desc"].'<br>';
+							echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';
+
+
+						}
+					}
 				}
-			}
-			//echo($speaker->evo_sch_title]);
-			//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
-			//$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
-			//$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
-		}
-	};?>
-			<?php 
-			//var_dump($speakers);
-			
-			echo ('programmation à récupérer'); 
-			
-			//$speakers_terms = wp_get_post_terms($IDevent, 'event_speaker');
-			//var_dump($speakers_terms);
-						?>
-
+			};?>
 		</div>
+		
 		<div>
 			<?php echo wp_get_attachment_image($idphoto1, 'thumbnail' ); ?>
 			<?php echo wp_get_attachment_image($idphoto2, 'thumbnail' ); ?>
@@ -138,5 +127,5 @@
 		</div>
 	</section>
 
-</main>
+	</main>
 <?php	wp_reset_postdata();?>
