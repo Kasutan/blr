@@ -12,24 +12,24 @@ $ID=get_the_ID();
 
 		<nav class = "ancres">
 			<a href="#association">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true )); ?>
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true )); ?>
 			</a>
 			<a href="#projet">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre1', true )); ?>
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_titre1', true )); ?>
 			</a>
 			<a href="#chiffres">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true )); ?>
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true )); ?>
 			</a>
 			<a href="#equipe">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true )); ?>
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true )); ?> 
 			</a>
 			<a href="#administration">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre21', true ));
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre21', true ));
 				echo (" ");
-				echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre22', true )); ?>
+				echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre22', true )); ?>
 			</a>
 			<a href="#partenaires">
-				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_lecael_part_titre1', true )); ?>
+				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_part_titre1', true )); ?>
 			</a>
 </nav>
 
