@@ -1708,14 +1708,14 @@ bottom:60px;
 /*--------------------------------------------------------------
 ## Le CAEL
 --------------------------------------------------------------*/
-.site-main nav {
+.site-main nav.ancres {
 	border:solid 5px var(--vert-clair);
 	display:inline-block;
 	position:relative;
 	margin:10px auto;
 }
 
-.site-main nav a {
+.site-main nav.ancres a {
 	color:var(--rose-clair);
 	display:inline-block;
 	font-family: MuseoSansDisplay;
