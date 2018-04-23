@@ -51,7 +51,9 @@
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
-					//'menu_class'	=> 'dropdown menu'
+					//'menu_class'	=> 'dropdown menu',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
+					'walker'         => new Foundation_Menu_Walker(),
 				) );
 				?>
 			</nav><!-- #site-navigation -->
