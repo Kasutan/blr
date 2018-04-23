@@ -185,7 +185,7 @@ class Foundation_Menu_Walker extends Walker_Nav_Menu
 }
 
 /*https://wordpress.stackexchange.com/questions/282861/dynamically-add-sub-categories-to-any-category-in-the-menu*/
-/*add_filter("wp_get_nav_menu_items", function ($items, $menu, $args) {
+add_filter("wp_get_nav_menu_items", function ($items, $menu, $args) {
 
     // don't add child categories in administration of menus
     if (is_admin()) {
@@ -194,13 +194,14 @@ class Foundation_Menu_Walker extends Walker_Nav_Menu
 
 
     foreach ($items as $index => $i) {
-
-        if ("category" !== $i->object) {
+        if ("event_type" !== $i->object) {
             continue;
-        }
+		}
+		if(get_tax_level($i->object_id,'event_type')<2){
+			continue;
+		}
 
-
-        $term_children = get_term_children($i->object_id, "category");
+		$term_children = get_term_children($i->object_id, "event_type");	
 
 
         // add child categories
@@ -209,7 +210,9 @@ class Foundation_Menu_Walker extends Walker_Nav_Menu
 
             $child = get_term($child_id);
 
-            $url = get_term_link($child);
+			$url = get_term_link($child);
+			
+			//var_dump(get_ancestors($child_id,'event_type'));
 
 
             $e = new \stdClass();
@@ -227,8 +230,7 @@ class Foundation_Menu_Walker extends Walker_Nav_Menu
             $e->object_id = 0;
             $e->db_id = 0;
             $e->ID = 0;
-            $e->classes = array();
-
+            $e->classes = array('');
             $items[] = $e;
 
         }
@@ -239,4 +241,4 @@ class Foundation_Menu_Walker extends Walker_Nav_Menu
 
     return $items;
 
-}, 10, 3);*/
+}, 10, 3);
