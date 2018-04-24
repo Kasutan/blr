@@ -2259,13 +2259,32 @@ bottom:60px;
 	height:unset;
   margin-right: 5px;
 	margin-bottom:0;
-	
+	text-align:right;
 	width:100px;
 }
 a.inactif {
 	opacity:0.5;
 	pointer-events:none;
 	cursor:default;
+}
+
+/*Filtre sur page N2*/
+#filtre.n2 {
+	padding:30px;
+}
+#filtre.n2 label {
+	color:var(--rose);
+}
+#filtre.n2  input[type="radio"] {
+	border-color:var(--rose)
+	;
+}
+#filtre.n2 #age {
+	color:var(--rose);
+}
+
+.act2 .entry-content a.inactif {
+	display:none;
 }
 
 /*--------------------------------------------------------------
