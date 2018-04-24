@@ -109,4 +109,38 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 
+	// champs ajoutés dans les pages de catégories event_speaker du plugin eventon
+	$cmb_speaker = new_cmb2_box( array(
+		'id'            => 'speaker',
+		'title'         => __( 'informations des pages de détail du programme', 'cmb2' ),
+		'object_types' => array( 'term' ), // term data
+		'taxonomies'       => array( 'category', 'event_speaker' ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, 
+		'closed'     => true,
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone partage', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_partage',
+		'type'       => 'text',
+		'default'	=> 'Envie de partager !',		
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone d&acute;adresse', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_adresse',
+		'type'       => 'text',
+		'default'	=> 'Où ça se passe ?',		
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone réservation', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_resa',
+		'type'       => 'text',
+		'default'	=> 'Réservation',		
+	) );
+
+
 });

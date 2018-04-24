@@ -5,8 +5,6 @@
 	$term = get_term_by( 'slug', $term_name, $tax );
 	$ID = $term->term_id;
 
-
-
 	$args = array(
 		'post_type' => 'ajde_events',
 		'tax_query' => array(
@@ -81,14 +79,16 @@
 				foreach($speakers as $speaker){
 					foreach($speaker as $key => $content) {
 						if ($key!=0) {
-							$cleterm = key($content["evo_sch_spk"]);		
+
+							$cleterm = key($content["evo_sch_spk"]);	
+								
 							$termMeta = get_option( "evo_tax_meta");
 							$termmeta2 = evo_get_term_meta('event_speaker',$cleterm, $termMeta);
 							$speaker_link = get_term_link( $cleterm );
 							echo '<a href='.$speaker_link.'>';
 							echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' ).'<br>'.'</a>';
 							echo '<strong>'.$content["evo_sch_title"].'<br>';
-							echo $content["evo_sch_desc"].'<br>';
+							echo $termmeta2["evo_speaker_title"].'<br>';
 							echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';
 						}
 					}
