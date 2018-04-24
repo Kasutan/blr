@@ -38,8 +38,11 @@
 			//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
 			$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
 			$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
+			$agemin = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemin', true );
+			$agemax = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemax', true );
+			$classe = get_age_class($agemin, $agemax);
 		?>
-		<a href= <?php echo ($lien); ?> class="lien">
+		<a href= <?php echo ($lien);?> class="<?php echo ($classe); ?>">
 			<figure>
                 <img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
 				<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
