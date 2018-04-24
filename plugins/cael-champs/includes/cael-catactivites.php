@@ -136,11 +136,35 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 	$cmb_speaker->add_field( array(
-		'name'       => __( 'Zone réservation', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_speaker_resa',
+		'name'       => __( 'Zone des tarifs', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_tarifs',
+		'type'       => 'wysiwyg',	
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone réservation : titre', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_resa_titre',
 		'type'       => 'text',
 		'default'	=> 'Réservation',		
 	) );
 
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone réservation : texte', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_resa_texte',
+		'type'       => 'wysiwyg',	
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone réservation : texte lien', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_resa_texte_lien',
+		'type'       => 'text',
+		'default'	=> 'Téléchargez le bulletin d&acute;inscription',	
+	) );
+
+	$cmb_speaker->add_field( array(
+		'name'       => __( 'Zone réservation : fichier', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_speaker_resa_fichier',
+		'type'       => 'file',	
+	) );
 
 });
