@@ -2217,6 +2217,57 @@ bottom:60px;
 	   padding: 100px calc(50% - 500px) 50px;
 	}
 }
+
+/*Filtre*/
+#filtre {
+	justify-content:center;
+	align-items:center;
+}
+#filtre label {
+	color:#fff;
+	display:inline-block;
+	
+}
+#filtre fieldset {
+	align-items:center;
+	display:flex;
+}
+
+#filtre input[type="radio"] {
+ -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #fff;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+#filtre input[type="radio"]:checked {
+  border: 8px solid #fff;
+}
+#filtre input[type="number"] {
+	display:inline-block;
+	height:unset;
+  margin-right: 5px;
+	margin-bottom:0;
+	
+	width:100px;
+}
+a.inactif {
+	opacity:0.5;
+	pointer-events:none;
+	cursor:default;
+}
+
 /*--------------------------------------------------------------
 ### Activités N1
 --------------------------------------------------------------*/
