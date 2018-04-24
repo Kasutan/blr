@@ -172,3 +172,73 @@ add_image_size('actu',400,425,true);
 
 		return $class;
 	}
+
+
+//Ajouter les classes  Foundation au menu principal
+class Foundation_Menu_Walker extends Walker_Nav_Menu
+{
+    function start_lvl( &$output, $depth = 0, $args = Array() )
+    {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"menu\">\n";
+    }
+}
+
+/*https://wordpress.stackexchange.com/questions/282861/dynamically-add-sub-categories-to-any-category-in-the-menu*/
+add_filter("wp_get_nav_menu_items", function ($items, $menu, $args) {
+
+    // don't add child categories in administration of menus
+    if (is_admin()) {
+        return $items;
+    }
+
+
+    foreach ($items as $index => $i) {
+        if ("event_type" !== $i->object) {
+            continue;
+		}
+		if(get_tax_level($i->object_id,'event_type')<2){
+			continue;
+		}
+
+		$term_children = get_term_children($i->object_id, "event_type");	
+
+
+        // add child categories
+
+        foreach ($term_children as $index2 => $child_id) {
+
+            $child = get_term($child_id);
+
+			$url = get_term_link($child);
+			
+			//var_dump(get_ancestors($child_id,'event_type'));
+
+
+            $e = new \stdClass();
+
+            $e->title = $child->name;
+            $e->url = $url;
+            $e->menu_order = 500 * ($index + 1) + $index2;
+            $e->post_type = "nav_menu_item";
+            $e->post_status = "published";
+            $e->post_parent = $i->ID;
+            $e->menu_item_parent = $i->ID;
+            $e->type = "custom";
+            $e->object = "custom";
+            $e->description = "";
+            $e->object_id = 0;
+            $e->db_id = 0;
+            $e->ID = 0;
+            $e->classes = array('');
+            $items[] = $e;
+
+        }
+
+
+    }
+
+
+    return $items;
+
+}, 10, 3);
