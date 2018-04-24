@@ -37,7 +37,8 @@ add_action( 'cmb2_admin_init', function() {
 	$cmb_inscriptions->add_field( array(
 		'name'       => __( 'lien 1', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_rens_inscriptions_lien1',
-		'type'       => 'text_url',		
+		'type'       => 'file',	
+		'text'    => array(	'add_upload_file_text' => 'Charger le fichier pdf' ),	
 	) );
 
 	$cmb_inscriptions->add_field( array(
@@ -50,6 +51,45 @@ add_action( 'cmb2_admin_init', function() {
 	$cmb_inscriptions->add_field( array(
 		'name'       => __( 'lien 2', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_rens_inscriptions_lien2',
-		'type'       => 'text_url',		
+		'type'       => 'file',	
+		'text'    => array(	'add_upload_file_text' => 'Charger le fichier pdf' ),		
 	) );
 });
+
+function affiche_inscriptions() {			
+
+	$ID=get_the_ID();
+	ob_start();
+
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_titre1', true );
+	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_texte1', true );
+
+	$titrelien1  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_titrelien1', true );
+	$titrelien2  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_titrelien2', true );
+
+	$lien1  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_lien1', true );
+	$lien2  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_lien2', true );
+	
+	?>
+	<section id="inscriptions" >
+
+				<h2>
+					<?php  echo esc_html( $titre1 ); ?>
+				</h2>
+				<p>
+					<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
+				</p>
+				<a href="<?php  echo esc_html( $lien1 ); ?>">
+					<?php  echo esc_html( $titrelien1 ); ?>
+				</a>
+				<br>
+				<a href="<?php  echo esc_html( $lien2 ); ?>">
+					<?php  echo esc_html( $titrelien2 ); ?>
+				</a>
+
+	</section>
+	<?php
+	
+	echo ob_get_clean();
+	
+	}

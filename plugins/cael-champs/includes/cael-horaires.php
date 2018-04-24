@@ -159,24 +159,6 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 	$cmb_horaires->add_field( array(
-		'name'       => __( 'Jour 7', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_rens_horaires_jour7',
-		'type'       => 'text',		
-	) );
-
-	$cmb_horaires->add_field( array(
-		'name'       => __( 'Jour 7 matin', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_rens_horaires_jour7am',
-		'type'       => 'text',		
-	) );
-
-	$cmb_horaires->add_field( array(
-		'name'       => __( 'Jour 7 après-midi', 'cmb2' ),
-		'id'         => CMB_PREFIX . '_rens_horaires_jour7pm',
-		'type'       => 'text',
-	) );
-
-	$cmb_horaires->add_field( array(
 		'name'       => __( 'Texte 2', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_rens_horaires_texte2',
 		'type'       => 'wysiwyg',	
@@ -189,3 +171,91 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 });
+
+function affiche_horaires() {			
+
+	$ID=get_the_ID();
+	ob_start();
+
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_titre1', true );
+	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_texte1', true );
+	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_titre2', true );
+	$jour1  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour1', true );
+	$jour1am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour1am', true );
+	$jour1pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour1pm', true );
+	$jour2  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour2', true );
+	$jour2am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour2am', true );
+	$jour2pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour2pm', true );
+	$jour3  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour3', true );
+	$jour3am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour3am', true );
+	$jour3pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour3pm', true );
+	$jour4  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour4', true );
+	$jour4am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour4am', true );
+	$jour4pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour4pm', true );
+	$jour5  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour5', true );
+	$jour5am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour5am', true );
+	$jour5pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour5pm', true );
+	$jour6  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour6', true );
+	$jour6am  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour6am', true );
+	$jour6pm  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_jour6pm', true );
+	$texte2  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_texte2', true );
+	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_pave', true );
+	
+	?>
+	<section id="horaires" >
+
+			<div>
+				<h2>
+					<?php  echo esc_html( $titre1 ); ?>
+				</h2>
+				<p>
+					<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
+				</p>
+				<strong>
+					<?php  echo esc_html( $titre2 ); ?>
+				</strong>
+
+				<table>
+					<tr>
+						<th> <?php  echo esc_html( $jour1 ); ?> </th>
+						<th> <?php  echo esc_html( $jour2 ); ?> </th>
+						<th> <?php  echo esc_html( $jour3 ); ?> </th>
+						<th> <?php  echo esc_html( $jour4 ); ?> </th>
+						<th> <?php  echo esc_html( $jour5 ); ?> </th>
+						<th> <?php  echo esc_html( $jour6 ); ?> </th>
+					</tr>
+					<tr>
+						<td> <?php  echo esc_html( $jour1am ); ?> </td>
+						<td> <?php  echo esc_html( $jour2am ); ?> </td>
+						<td> <?php  echo esc_html( $jour3am ); ?> </td>
+						<td> <?php  echo esc_html( $jour4am ); ?> </td>
+						<td> <?php  echo esc_html( $jour5am ); ?> </td>
+						<td> <?php  echo esc_html( $jour6am ); ?> </td>
+					</tr>
+					<tr>
+						<td> <?php  echo esc_html( $jour1pm ); ?> </td>
+						<td> <?php  echo esc_html( $jour2pm ); ?> </td>
+						<td> <?php  echo esc_html( $jour3pm ); ?> </td>
+						<td> <?php  echo esc_html( $jour4pm ); ?> </td>
+						<td> <?php  echo esc_html( $jour5pm ); ?> </td>
+						<td> <?php  echo esc_html( $jour6pm ); ?> </td>
+					</tr>
+				</table>
+
+				<p>
+					<?php  echo wpautop(wp_kses_post( $texte2 )); ?>
+				</p>
+			</div>
+			
+			<div>
+				<p>
+					<?php  echo wpautop(wp_kses_post( $texte3 )); ?>
+				</p>
+			</div>
+
+	</section>
+	<?php
+	
+	echo ob_get_clean();
+	
+	}

@@ -48,3 +48,42 @@ add_action( 'cmb2_admin_init', function() {
 	) );
 
 });
+
+function affiche_contact() {			
+
+	$ID=get_the_ID();
+	ob_start();
+
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_titre1', true );
+
+	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_titre2', true );
+	$titre3  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_titre3', true );
+	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_adresse', true );
+	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_autre', true );
+	
+	?>
+	<section id="contact" >
+
+			<div class="cell medium-6">
+				<h2>
+					<?php  echo esc_html( $titre1 ); ?>
+				</h2>
+				<?php echo do_shortcode('[caldera_form id="CF5adf29f365274"]'); ?>
+			</div>
+			
+			<div>
+				<p>
+					<?php  echo esc_html( $titre2 ); ?>
+					<br>
+					<?php  echo wpautop(wp_kses_post( $titre3 )); ?>
+					<?php  echo wpautop(wp_kses_post( $texte3 )); ?>
+					<?php  echo wpautop(wp_kses_post( $texte4 )); ?>
+				</p>
+			</div>
+
+	</section>
+	<?php
+	
+	echo ob_get_clean();
+	
+	}
