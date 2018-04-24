@@ -52,7 +52,25 @@ $ID=get_the_ID();
 				<h2>
 					Les activités de <strong>A</strong> à <strong>Z</strong>
 				</h2>
-				<p class="filtre">Filtre</p>
+				<form id="filtre" class=" grid-x">
+					<fieldset>
+						<input type="radio" id="tous"
+						name="groupe" value="tous" checked>
+						<label for="tous">Tous</label>
+
+						<input type="radio" id="adulte"
+						name="groupe" value="adulte">
+						<label for="adulte">Adulte</label>
+						
+						<input type="radio" id="enfant"
+						name="groupe" value="enfant">
+						<label for="enfant">Enfant</label>		
+					</fieldset>
+					<fieldset>
+						<input type="number" id="age" name="age"  placeholder="12" min="0" max="17">
+						<label for="age">ans</label>
+					</fieldset>
+				</form>
 				<?php
 
 					$events = get_terms(
@@ -83,7 +101,7 @@ $ID=get_the_ID();
 								$classe = get_age_class($agemin, $agemax);
 
 								?>
-								<a href= <?php echo ($lien); ?> class="<?php echo ($classe); ?>">
+								<a href= <?php echo ($lien); ?> class="lien <?php echo ($classe); ?>">
 								<?php echo($titreevent); ?>
 									</a>
 								<?php

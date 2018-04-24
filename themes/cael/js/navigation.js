@@ -6,13 +6,11 @@
  */
 ( function() {
 	var container, button, menu, links, i, len;
-	console.log('start');
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
 		return;
 	}
-	console.log('stop');
 
 	button = document.getElementById( 'menu-toggle' );
 	if ( 'undefined' === typeof button ) {

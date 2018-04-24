@@ -24,9 +24,27 @@
         	<?php echo($term->name); ?>
     	</h1>
 		<?php echo wp_get_attachment_image($imagelienid, 'banniere' ); ?>
-		<div class="filtre">Filtre</div>
+		<form id="filtre" class=" grid-x n2">
+			<fieldset>
+				<input type="radio" id="tous"
+				name="groupe" value="tous" checked>
+				<label for="tous">Tous</label>
+
+				<input type="radio" id="adulte"
+				name="groupe" value="adulte">
+				<label for="adulte">Adulte</label>
+				
+				<input type="radio" id="enfant"
+				name="groupe" value="enfant">
+				<label for="enfant">Enfant</label>		
+			</fieldset>
+			<fieldset>
+				<input type="number" id="age" name="age"  placeholder="12" min="0" max="17">
+				<label for="age">ans</label>
+			</fieldset>
+		</form>
 	</header><!-- .entry-header -->
-	<div class="entry-content grid-x align-justify">
+	<div class="entry-content grid-x align-justify liste-activites">
 
 
 		<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){
@@ -42,7 +60,7 @@
 			$agemax = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemax', true );
 			$classe = get_age_class($agemin, $agemax);
 		?>
-		<a href= <?php echo ($lien);?> class="<?php echo ($classe); ?>">
+		<a href= <?php echo ($lien);?> class="lien <?php echo ($classe); ?>">
 			<figure>
                 <img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
 				<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
