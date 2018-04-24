@@ -13,7 +13,11 @@ $ID = $term->term_id;
 
 $textepartage = get_term_meta( $ID, CMB_PREFIX.'_speaker_partage', 1 );
 $textelocalisation = get_term_meta( $ID, CMB_PREFIX.'_speaker_adresse', 1 );
-$texteresa = get_term_meta( $ID, CMB_PREFIX.'_speaker_resa', 1 );
+$textetarif = get_term_meta( $ID, CMB_PREFIX.'_speaker_tarifs', 1 );
+$titreresa = get_term_meta( $ID, CMB_PREFIX.'_speaker_resa_titre', 1 );
+$texteresa = get_term_meta( $ID, CMB_PREFIX.'_speaker_resa_texte', 1 );
+$textelienresa = get_term_meta( $ID, CMB_PREFIX.'_speaker_resa_texte_lien', 1 );
+$pdfidresa  = get_term_meta( $ID, CMB_PREFIX.'_speaker_resa_fichier', true );
 
 $args = array(
     'post_type' => 'ajde_events',
@@ -90,12 +94,16 @@ if ( $query->have_posts() ) {
             <?php echo ($term_location["location_address"]);?><br>
             <?php echo ($term_location["location_city"]);?>
         </p>
+        <p>
+            <?php echo wpautop(wp_kses_post($textetarif));?>
+        </p>
     </div>
     <div>
-        <?php echo ($texteresa);?>
+        <?php echo ($titreresa);?>
         <br>
         <p>
-            <?php echo ($resa);?>
+            <?php echo wpautop(wp_kses_post($texteresa));?>
+            <a href="<?php echo ($pdfidresa);?>"><?php echo ($textelienresa);?></a>
         </p>
     </div>
 </section>
