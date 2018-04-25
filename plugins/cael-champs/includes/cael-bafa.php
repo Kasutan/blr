@@ -76,21 +76,21 @@ function affiche_bafa() {
 
 	$ID=get_the_ID();
 	ob_start();
-	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre1', true );
-	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte1', true );
-	$image = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_image_id', true);
+	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_titre1', true );
+	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte1', true );
+	$image = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_image_id', true);
 
-	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre2', true );
-	$texte2  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte2', true );
+	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_titre2', true );
+	$texte2  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte2', true );
 
-	$titre3  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre3', true );
-	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte3', true );
+	$titre3  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_titre3', true );
+	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte3', true );
 
-	$titre4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre4', true );
-	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_texte4', true );
+	$titre4  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_titre4', true );
+	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte4', true );
 	
 	?>
-	<section id="senior" class="align-middle justify-between" >
+	<section id="bafa" class="align-middle justify-between" >
 
 			<div class="cell medium-6">
 				<h1 class="fond-rose">
