@@ -2514,6 +2514,214 @@ a.inactif {
 		padding:50px 16%;
 	}
 }
+
+/*--------------------------------------------------------------
+## Evènements
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+### Evènements n2
+--------------------------------------------------------------*/
+.ev2 .entry-header{
+	text-align: center;
+		display:flex;
+	flex-direction:column;
+	align-items: center;
+	margin-bottom:50px;
+}
+
+.ev2 .titre {
+	display:inline-block;
+	padding:0 10px;
+	margin:0;
+}
+.ev2 #festival .titre, .ev2 #histoire .titre  {
+	transform:rotateZ(-5deg);
+	
+}
+.ev2 #programmation, .ev2 #histoire {
+	padding:20px;
+}
+
+.ev2 #festival .image {
+	text-align:right;
+	
+}
+
+.ev2 #festival .titre {
+	position:relative;
+	right:-20px;
+	top:-10px;
+	
+}
+.ev2 #festival figure  {
+	background-color:#fcebf3;
+	height:100%;
+}
+.ev2 #festival figcaption {
+	color:var(--rose);
+	font-size:0.8em;
+	padding:20px;
+	text-align:center;
+}
+
+.ev2 #festival .texte {
+		padding: 20px;
+}
+.ev2 #festival  blockquote {
+	border:none;
+	font-size:1.5em;
+	margin:1em 0;
+	max-width:250px;
+	padding:0;
+	position:relative;
+}
+.ev2 #festival blockquote span {
+	display:inline-block;
+	font-size:1.8em;
+	font-family:arial;
+	line-height:1rem;
+	position:relative;
+	bottom:-5px;
+	padding-right:5px;
+}
+.ev2 #festival blockquote div {
+	display: inline;
+	line-height:1.1;
+	font-family:'MuseoSansRounded-700', sans-serif;
+	font-weight:700;
+}
+.ev2 #festival blockquote span.icon-quote-right {
+	position:relative;
+	 font-size:0.8em;
+	top:-5px;
+}
+
+.ev2 #festival .texte p {
+	line-height:1.1;
+	font-weight:600;
+}
+
+.ev2 #programmation .titre {
+	margin-left:16%;
+}
+.ev2 .liste-spectacles {
+	padding-top:20px;
+}
+.ev2 .liste-spectacles a {
+	color:var(--rose);
+	flex-basis:150px;
+	margin:10px 50px;
+	text-align: center;
+	
+}
+
+.ev2 .liste-spectacles a p {
+	line-height:1.1;
+	
+}
+
+.ev2 .liste-spectacles a img {
+	border-radius: 50%;
+	margin-bottom: 20px;
+	 filter: brightness(0.8) sepia(1) hue-rotate(-70deg) ;
+}
+.ev2 .liste-spectacles a:nth-of-type(2n)  {
+	color:#75ab7c;
+ 	
+}
+.ev2 .liste-spectacles a:nth-of-type(2n) img {
+	 filter: brightness(0.8) sepia(1) hue-rotate(60deg) ;
+	
+}
+.ev2 .galerie {
+	background:var(--rose-clair);
+	background:url(/wp-content/themes/cael/images/fond-uni-biseau.svg);
+	background-size:100%;
+	background-repeat: no-repeat;
+	background-position:top right;
+	
+	padding:16vw 20px 20px;
+	
+}
+.ev2 .galerie div {
+	display:flex;
+	flex-grow:1;
+	height:15vw;
+	max-height:150px;
+}
+.ev2 .galerie div img {
+	object-fit: cover;
+	width:100%;
+	
+}
+.ev2 #histoire {
+	text-align: center;
+}
+.ev2 #histoire .titre {
+	margin-bottom: 2rem;
+}
+.ev2 #histoire div{
+	text-align: left;
+}
+
+.ev2 .liste-editions {
+	padding:20px;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+}
+
+.ev2 .liste-editions a {
+	color:var(--rose);
+	font-family:'MuseoSansRounded-700', sans-serif;
+	font-size:1.5em;
+	font-weight:700;
+	margin:1em;
+}
+.ev2 #editions .titre {
+	margin-left:20px;
+}
+@media screen and (min-width:768px) {
+	.ev2 #festival 
+	{
+		margin-bottom:50px
+	}
+	.ev2 #festival figure  {
+	height:100%;
+}
+	.ev2 #festival .texte {
+		padding: 0 50px 50px;
+}
+}
+
+@media screen and (min-width:1024px) {
+	
+	.ev2 #festival .titre {
+		margin-left:50%;
+	}
+	 .ev2 #festival figure {
+		padding-left:50%;
+	}
+		.ev2 #festival .texte {
+		padding: 0 25% 12.5% 12.5%;
+}
+	.ev2 #programmation  {
+		padding:100px 16%;
+	}
+	.ev2 .galerie  {
+		padding:200px 16% 100px;
+	}
+	.ev2 #histoire {
+		padding:100px 25%;
+	}
+	.ev2 .liste-editions {
+		padding:20px 25% 100px;
+	}
+	.ev2 #editions .titre {
+		margin-left: 25%;
+	}
+}
+
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

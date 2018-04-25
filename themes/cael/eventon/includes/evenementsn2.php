@@ -40,10 +40,13 @@
 
 	?>
 
-	<main id="main" class="site-main">
+	<main id="main" class="site-main ev2">
 
+		
+
+	<header class="entry-header ">
 		<nav class = "ancres">
-			<a href="#Lefestival">
+			<a href="#festival">
 				<?php the_title(); ?>
 			</a>
 			<a href="#programmation">
@@ -53,39 +56,42 @@
 				<?php echo esc_html( $titrehisto ); ?>
 			</a>
 		</nav>
-
-	<header class="entry-header ">
+		<h1 class="show-for-sr">
+			<?php the_title(); ?>
+		</h1>
 		<?php echo get_the_post_thumbnail( $IDevent, 'large' ); ?>
 	</header><!-- .entry-header -->
 
-	<section id="Lefestival">
-		<div>
-			<h1>
+	<section id="festival" class="grid-x">
+		<div class="image cell small-12 medium-4">
+			<h2 class="titre blanc fond-rose-clair">
 				<?php the_title(); ?>
-			</h1>
-			<a href= <?php echo ($lienpdf); ?> >
+			</h2>
+			<a href="<?php echo ($lienpdf); ?>">
 				<figure>
 					<?php echo wp_get_attachment_image($idimagepdf, 'medium' ); ?>
 					<figcaption><?php  echo esc_html( $textelien ); ?></figcaption>
 				</figure>
         	</a>
 		</div>
-		<div>
-			<blockquote>
-				<?php echo esc_html( $citation ); ?>
+		<div class="fond-vert-clair texte cell small-12 medium-8">
+			<blockquote class="vert">
+				<span class="icon-quote-left"></span>
+				<div><?php echo esc_html( $citation ); ?></div>
+				<span class="icon-quote-right"></span>				
 			</blockquote>
-			<p>
+			<div class="rose-clair">
 				<?php the_content(); ?>
-			</p>
+			</div>
 		</div>
 	</section>
 
 	<section id="programmation">
-		<h1>
+		<h2 class="titre blanc fond-rose-clair">
 			<?php echo esc_html( $titreprog ); ?>
-		</h1>
+		</h2>
 		
-		<div>
+		<div class="liste-spectacles grid-x align-justify wrap align-stretch">
 			<?php 	
 			if(!empty($speakers) && !is_wp_error($speakers)){
 				foreach($speakers as $speaker){
@@ -98,43 +104,50 @@
 							$termmeta2 = evo_get_term_meta('event_speaker',$cleterm, $termMeta);
 							$speaker_link = get_term_link( $cleterm );
 							echo '<a href='.$speaker_link.'>';
-							echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' ).'<br>'.'</a>';
-							echo '<strong>'.$content["evo_sch_title"].'<br>';
-							echo $termmeta2["evo_speaker_title"].'<br>';
-							echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';
+							echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' );
+							echo '<p><strong>'.$content["evo_sch_title"].'<br>';
+							echo $termmeta2["evo_speaker_title"].'</strong><br><small>';
+							echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</small></p></a>';
 						}
 					}
 				}
 			};?>
 		</div>
-		
-		<div>
-			<?php echo wp_get_attachment_image($idphoto1, 'thumbnail' ); ?>
-			<?php echo wp_get_attachment_image($idphoto2, 'thumbnail' ); ?>
-			<?php echo wp_get_attachment_image($idphoto3, 'thumbnail' ); ?>
-			<?php echo wp_get_attachment_image($idphoto4, 'thumbnail' ); ?>
-			<?php echo wp_get_attachment_image($idphoto5, 'thumbnail' ); ?>
-			<?php echo wp_get_attachment_image($idphoto6, 'thumbnail' ); ?>
-		</div>
+	</section>
+	<section id="galerie" class="galerie grid-x align-center">
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto1, 'medium' ).'</div>'; ?>
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto2, 'medium' ).'</div>'; ?>
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto3, 'medium' ).'</div>'; ?>
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto4, 'medium' ).'</div>'; ?>
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto5, 'medium' ).'</div>'; ?>
+			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto6, 'medium' ).'</div>'; ?>
 	</section>
 
 	<section id="histoire">
-		<h1>
+		<h2 class="titre blanc fond-rose-clair">
 			<?php echo esc_html( $titrehisto ); ?>
-		</h1>
-		<p>
-			<?php echo esc_html( $textehisto ); ?>
-		</p>
-	</section>
-
-	<section>
-		<h1>
-			<?php echo esc_html( $titreprece ); ?>
-		</h1>
-		<div>
-			<?php echo ('historique à récupérer'); ?>
+		</h2>
+		<div class="vert">
+			<?php echo wpautop( wp_kses_post(( $textehisto ))); ?>
 		</div>
 	</section>
 
+	<section id="editions">
+		<h2  class="titre blanc fond-rose-clair">
+			<?php echo esc_html( $titreprece ); ?>
+		</h2>
+		<p>Historique à récupérer</p>
+		
+		<div class="fond-vert-clair grid-x liste-editions">
+			<a href="#">2016</a>
+			<a href="#">2015</a>
+			<a href="#">2014</a>
+			
+		</div>
+	</section>
+
+	<section class="newsletter blanc fond-rose-clair">
+		Bandeau newsletter
+	</section>
 	</main>
 <?php	wp_reset_postdata();?>
