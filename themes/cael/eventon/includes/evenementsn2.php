@@ -42,6 +42,18 @@
 
 	<main id="main" class="site-main">
 
+		<nav class = "ancres">
+			<a href="#Lefestival">
+				<?php the_title(); ?>
+			</a>
+			<a href="#programmation">
+				<?php echo esc_html( $titreprog ); ?>
+			</a>
+			<a href="#histoire">
+				<?php echo esc_html( $titrehisto ); ?>
+			</a>
+		</nav>
+
 	<header class="entry-header ">
 		<?php echo get_the_post_thumbnail( $IDevent, 'large' ); ?>
 	</header><!-- .entry-header -->
