@@ -2668,6 +2668,7 @@ a.inactif {
 .ev2 #editions .titre {
 	margin-left:20px;
 }
+
 @media screen and (min-width:768px) {
 	.ev2 #festival .image {
 	text-align:right;
@@ -2784,6 +2785,7 @@ a.inactif {
 }
 
 .speaker .pratique {
+	margin-bottom:50px;
 	padding:20px;
 }
 
@@ -2811,6 +2813,7 @@ a.inactif {
 .speaker .pratique a {
 	text-decoration: underline;
 }
+
 @media screen and (min-width:1024px) {
 	padding: 20px 16% 50px;
 }
