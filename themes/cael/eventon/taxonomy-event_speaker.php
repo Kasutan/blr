@@ -45,33 +45,37 @@ if ( $query->have_posts() ) {
     $termmeta2 = evo_get_term_meta('event_speaker',$ID, $termMeta);
 
 ?>
-<section>
-    <div>
-        <?php echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' );?>
+<main id="main" class="site-main speaker">
+<p class="fil-ariane fond-vert">Fil d'ariane</p>
+    
+<section class="grid-x align-center align-stretch contenu">
+    <div class="show-for-large cell large-2"></div>    
+    <div class="image cell small-12 medium-5 large-3">
+        <div class="tramage"></div>
+        <?php echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'medium' );?>
     </div>
-
-    <div>
-        <div>
+    <div class="show-for-medium cell medium-1"></div>
+    <div class="texte cell small-12 medium-6 large-4">
+        <div class="vert">
             <?php if(!empty($speakers) && !is_wp_error($speakers)){
-                    foreach($speakers as $speaker){
-                        foreach($speaker as $key => $content) {
-                            if ($key!=0) {
-                                $cleterm = key($content["evo_sch_spk"]);		
- 
-                                if($cleterm == $ID){
-                                    echo '<strong>'.$content["evo_sch_title"].'<br>';
-                                    echo $termmeta2["evo_speaker_title"].'<br>';
-                                    echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</strong>'.'<br>';
+                foreach($speakers as $speaker){
+                    foreach($speaker as $key => $content) {
+                        if ($key!=0) {
+                            $cleterm = key($content["evo_sch_spk"]);		
+                            if($cleterm == $ID){
+                                    echo '<h1>'.$content["evo_sch_title"].'</h1>';
+                                    echo '<h2>'.$termmeta2["evo_speaker_title"].'</h2>';
+                                    echo '<p>'.$content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</p>';
                                     echo $term->description;
                                     $resa = $content["evo_sch_desc"];
                                 }
                             }
                         }
                     }
-                };       
+                }       
                 ?>
         </div>
-        <div>
+        <div class="rose partage">
             <?php echo ($textepartage);
             echo '<a href="https://www.facebook.com/sharer/sharer.php?u='.str_replace(":", "%3A", get_term_link($ID)).'">';
             echo '<span class="icon-facebook"></span></a>';
@@ -82,31 +86,32 @@ if ( $query->have_posts() ) {
             ?>
             
         </div>
-
     </div>
+    <div class="show-for-large cell large-2"></div>
 </section>
 
-<section>
-    <div>
-        <?php echo ($textelocalisation);?><br>
-        <p>
+<section class="pratique grid-x align-stretch align-center fond-rose-clair blanc">
+    <div class="cell small-12 medium-6">
+        <h2><?php echo ($textelocalisation);?></h2>
+        <div class="encadre">
             <?php echo ($location_terms[0]->name);?><br>
             <?php echo ($term_location["location_address"]);?><br>
             <?php echo ($term_location["location_city"]);?>
-        </p>
-        <p>
+            </div>
+        <div class="encadre tarifs">
             <?php echo wpautop(wp_kses_post($textetarif));?>
-        </p>
+        </div>
     </div>
-    <div>
-        <?php echo ($titreresa);?>
-        <br>
-        <p>
+    <div class="cell small-12 medium-6">
+        <h2><?php echo ($titreresa);?></h2>
+        <div class="encadre">
             <?php echo wpautop(wp_kses_post($texteresa));?>
             <a href="<?php echo ($pdfidresa);?>"><?php echo ($textelienresa);?></a>
-        </p>
+        </div>
     </div>
 </section>
-
+<section class="newsletter blanc fond-rose-clair">
+		Bandeau newsletter
+	</section>
 <?php
 get_footer(); ?>
