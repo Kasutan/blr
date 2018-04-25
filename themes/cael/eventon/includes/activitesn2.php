@@ -71,4 +71,48 @@
 	};?>
 	
 	</div><!-- .entry-content -->
+	<?php
+	// Affichage seulement pour l'activité de musique ancienne
+	if ($term->term_id == 62 ){
+		$titre1  = get_post_meta( 7, CMB_PREFIX.'_musique_titre1', true );
+		$titre2  = get_post_meta( 7, CMB_PREFIX.'_musique_titre2', true );
+		$texte  = get_post_meta( 7, CMB_PREFIX.'_musique_texte', true );
+
+		$revue=new WP_Query(array(
+			'post_type' => 'cael_musiqueancienne',
+		));
+	
+	?>
+		<h2>
+			<span><?php echo ($titre1); ?></span><?php echo ($titre2); ?>
+		</h2>
+		<p><?php echo wpautop( wp_kses_post(( $texte ))); ?></p>
+
+	<?php
+
+		if($revue->have_posts()) :
+			while ($revue->have_posts()) : $revue->the_post();
+			$ID=get_the_ID();
+
+			$nomlien  = get_post_meta( $ID, CMB_PREFIX.'_Musiqueancienne_bouton', true );
+			$lienpdf  = get_post_meta( $ID, CMB_PREFIX.'_Musiqueancienne_revue', true );
+
+			?>
+				<div>
+					<?php the_post_thumbnail('thumbnail'); ?>
+				</div>
+				<div>
+					<h3><?php the_title(); ?></h3>
+					<p><?php the_content(); ?></p>
+
+					<a href="<?php echo ($lienpdf);?>">
+                		<?php  echo esc_html( $nomlien ); ?>
+        			</a>
+
+				</div>
+			<?php endwhile; 
+		endif;
+
+	}
+	?>
 </main>

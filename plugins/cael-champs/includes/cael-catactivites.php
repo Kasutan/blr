@@ -108,6 +108,37 @@ add_action( 'cmb2_admin_init', function() {
 		'default'	=> 'inscription et tarifs',		
 	) );
 
+		// champs ajoutés dans la page des musiques anciennes 
+		$cmb_musique = new_cmb2_box( array(
+			'id'            => 'Musique',
+			'title'         => __( 'Pages des musiques anciennes', 'cmb2' ),
+			'object_types' => array( 'page' ), // post type
+			'show_on'      => array( 'key' => 'id', 'value' => array( 7) ),
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true, 
+			'closed'     => true,
+		) );
+	
+		$cmb_musique->add_field( array(
+			'name'       => __( 'Première partie du Titre de la revue des musiques anciennes', 'cmb2' ),
+			'id'         => CMB_PREFIX . '_musique_titre1',
+			'type'       => 'text',
+			'default'	=> 'La revue',		
+		) );
+
+		$cmb_musique->add_field( array(
+			'name'       => __( 'Deuxième partie du Titre de la revue des musiques anciennes', 'cmb2' ),
+			'id'         => CMB_PREFIX . '_musique_titre2',
+			'type'       => 'text',
+			'default'	=> 'de musique ancienne',		
+		) );
+
+		$cmb_musique->add_field( array(
+			'name'       => __( 'texte de présentation de la revue', 'cmb2' ),
+			'id'         => CMB_PREFIX . '_musique_texte',
+			'type'       => 'wysiwyg',	
+		) );
 
 	// champs ajoutés dans les pages de catégories event_speaker du plugin eventon
 	$cmb_speaker = new_cmb2_box( array(

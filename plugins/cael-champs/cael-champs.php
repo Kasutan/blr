@@ -49,3 +49,4 @@ require_once( 'includes/cael-actualites.php' );
 require_once('includes/CPTequipe.php');
 require_once('includes/CPTadministration.php');
 require_once('includes/CPTpartenaires.php');
+require_once('includes/CPTMusiqueAncienne.php');
