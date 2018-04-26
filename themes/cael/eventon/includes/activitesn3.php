@@ -15,6 +15,7 @@
 
 	$args = array(
 		'post_type' => 'ajde_events',
+		'posts_per_page' => -1,
 		'tax_query' => array(
 				array(
 					'taxonomy' => 'event_type',
