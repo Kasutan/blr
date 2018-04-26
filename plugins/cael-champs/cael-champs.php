@@ -16,6 +16,7 @@ require_once( 'includes/cael-calendrier.php' );
 require_once( 'includes/cael-activites.php' );
 require_once( 'includes/cael-reseaux.php' );
 require_once( 'includes/cael-apropos.php' );
+require_once( 'includes/cael-newsletter.php' );
 
 // Champs de la page Le CAEL
 require_once( 'includes/cael-association.php' );

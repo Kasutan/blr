@@ -146,8 +146,8 @@
 		</div>
 	</section>
 
-	<section class="newsletter blanc fond-rose-clair">
-		Bandeau newsletter
-	</section>
+
+		<?php get_template_part( 'template-parts/newsletter' ); ?>
+
 	</main>
 <?php	wp_reset_postdata();?>
