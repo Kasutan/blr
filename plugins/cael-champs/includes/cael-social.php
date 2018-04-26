@@ -52,7 +52,7 @@ $texte  = get_post_meta( $ID, CMB_PREFIX.'_actions_social_texte2', true );
 $imagelien = get_post_meta( $ID, CMB_PREFIX.'_actions_social_image_id', true);
 
 ?>
-<section id="social" class="align-middle justify-between fond-rose-clair" >
+<section id="social" class="align-middle justify-between fond-rose-clair blanc" >
 		<h1 class="titre">
 			<?php  echo esc_html( $titre1 ); ?>
 		</h1>
@@ -62,7 +62,7 @@ $imagelien = get_post_meta( $ID, CMB_PREFIX.'_actions_social_image_id', true);
 		<p>
 			<?php  echo wp_kses_post( $texte ); ?>
 		</p>
-		<?php echo wp_get_attachment_image( $imagelien, 'medium' ); ?>
+		<?php echo wp_get_attachment_image( $imagelien, 'banniere' ); ?>
 		
 </section>
 <?php

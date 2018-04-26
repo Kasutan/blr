@@ -146,33 +146,31 @@ function affiche_senior() {
 	$lien4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_lien4', true );
 	
 	?>
-	<section id="senior" class="align-middle justify-between" >
-		<header class="entry-header grid-x">
+	<section id="senior">
+		<header class="grid-x align-bottom justify-center">
 
 			<div class="cell medium-6">
-				<h1 class="fond-rose">
+				<h2 class="fond-rose blanc">
 					<?php echo($titre1); ?>
-				</h1>
+				</h2>
 				<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
 			</div>
 			<div class="cell medium-6">
-				<h2 class="titre">
-					<?php echo($titre1bis); ?>
-				</h2>
-				<p>
-					<?php echo wp_kses_post($texte1); ?>
-				</p>
+				<blockquote class="rose-fonce">
+					<div class="titre"><?php echo($titre1bis); ?></div>
+					<div class="citation"><?php echo wp_kses_post($texte1); ?></div>
+				</blockquote>
 			</div>
 		</header>
 
-		<div class="entry-content">
+		<div class="projets senior">
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre2 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte2 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien2)) { ?>
 					<a href= <?php echo ($lien2); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien2 ); ?>
@@ -181,12 +179,12 @@ function affiche_senior() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre3 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte3 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien3)) { ?>
 					<a href= <?php echo ($lien3); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien3 ); ?>
@@ -195,12 +193,12 @@ function affiche_senior() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre4 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte4 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien4)) { ?>
 					<a href= <?php echo ($lien4); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien4 ); ?>
