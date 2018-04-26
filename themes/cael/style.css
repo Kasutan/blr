@@ -1328,7 +1328,7 @@ button.acces:active .slide-top {
 	border: none;
 	color: transparent;
 	background-color: transparent;
-	background-image: url(/wp-content/themes/cael/images/search.svg);
+	background-image: url('/wp-content/themes/cael/images/search.svg');
 	background-repeat: no-repeat;
 	background-size: 50px;
 	height: 50px;
@@ -2050,7 +2050,47 @@ button.acces:active .slide-top {
 }
 
 @media screen and (min-width: 123px) {}
+/*--------------------------------------------------------------
+### Bandeau Newsletter
+--------------------------------------------------------------*/
+.newsletter {
+	padding:10px;
+}
+.newsletter label {
+	color:#fff;
+}
+.newsletter h3 {
+	margin:0;
+}
 
+.newsletter .email {
+	background-color:#ee50a7;
+	border:none;
+	padding-left:30px;
+	margin:0 30px 0 10px;
+}
+.newsletter input[type="submit"],
+.newsletter input[type="submit"]:hover,
+.newsletter input[type="submit"]:focus ,
+.newsletter input[type="submit"]:active  {
+	background:#fff;
+	background:url('/wp-content/themes/cael/images/fleche.png');
+	background-size:cover;
+	background-position:right;
+	border:none;
+	border-radius: 8px;
+	color:var(--rose-clair);
+	font-size:1.5em;
+	line-height: 1;
+	padding:10px 15px;
+	text-align: left;
+	text-transform:lowercase;
+	width:150px;
+}
+
+.newsletter .consentement p {
+	margin-bottom: 0;
+}
 /*--------------------------------------------------------------
 ## Le CAEL
 --------------------------------------------------------------*/
