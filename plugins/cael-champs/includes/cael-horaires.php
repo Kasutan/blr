@@ -202,15 +202,15 @@ function affiche_horaires() {
 	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_pave', true );
 	
 	?>
-	<section id="horaires" >
+	<section id="horaires" class="grid-x fond-rose-fonce blanc align-bottom align-center" >
 
-			<div>
-				<h2>
+			<div class="cell large-7 horaires">
+				<h2 class="titre">
 					<?php  echo esc_html( $titre1 ); ?>
 				</h2>
-				<p>
+				<div>
 					<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
-				</p>
+				</div>
 				<strong>
 					<?php  echo esc_html( $titre2 ); ?>
 				</strong>
@@ -242,12 +242,12 @@ function affiche_horaires() {
 					</tr>
 				</table>
 
-				<p>
+				<div>
 					<?php  echo wpautop(wp_kses_post( $texte2 )); ?>
-				</p>
+				</div>
 			</div>
 			
-			<div>
+			<div class="cell large-5 calendrier rose-fonce fond-blanc text-center">
 				<p>
 					<?php  echo wpautop(wp_kses_post( $texte3 )); ?>
 				</p>

@@ -62,25 +62,27 @@ function affiche_contact() {
 	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_autre', true );
 	
 	?>
-	<section id="contact" >
+	<section id="contact" class="grid-x align-bottom center-justify fond-rose-clair" >
 
-			<div class="cell medium-6">
-				<h2>
+			<div class="cell medium-6 formulaire vert">
+				<h2 class="rose-clair fond-blanc">
 					<?php  echo esc_html( $titre1 ); ?>
 				</h2>
 				<?php echo do_shortcode('[caldera_form id="CF5adf29f365274"]'); ?>
 			</div>
 			
-			<div>
-				<p>
-					<?php  echo esc_html( $titre2 ); ?>
-					<br>
+			<div class="cell medium-6 texte blanc">
+				<p class="titre"><?php  echo esc_html( $titre2 ); ?></p>
+				<strong>
 					<?php  echo wpautop(wp_kses_post( $titre3 )); ?>
+				</strong>
+				<div class='adresse'>
 					<?php  echo wpautop(wp_kses_post( $texte3 )); ?>
+				</div>
+				<div>
 					<?php  echo wpautop(wp_kses_post( $texte4 )); ?>
-				</p>
+				</div>
 			</div>
-
 	</section>
 	<?php
 	

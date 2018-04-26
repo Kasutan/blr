@@ -46,25 +46,23 @@ function affiche_acces() {
 	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_texte', true );
 	
 	?>
-	<section id="acces" >
-
-			<div class="cell medium-6">
-				<h2>
-					<?php  echo esc_html( $titre1 ); ?>
+	<section id="acces" class="grid-x align-top align-justify rose-clair" >
+			<div class="cell">
+				<h2 class="blanc fond-rose-clair">
+				<?php  echo esc_html( $titre1 ); ?>
 				</h2>
+			</div>
+			<div class="cell medium-6">
 				<h3>
 					<?php  echo esc_html( $titre2 ); ?>
 				</h3>
-				<p>
-					<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
-				</p>
+				<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
 			</div>
-			
-			<div>
+		
+			<div class="cell medium-6 carte">
 				<?php  echo ('Carte à afficher'); ?>
 				<?php  echo ('icônes acces à afficher'); ?>
 			</div>
-
 	</section>
 	<?php
 	

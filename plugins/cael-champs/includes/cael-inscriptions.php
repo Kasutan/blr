@@ -71,22 +71,20 @@ function affiche_inscriptions() {
 	$lien2  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_lien2', true );
 	
 	?>
-	<section id="inscriptions" >
-
-				<h2>
-					<?php  echo esc_html( $titre1 ); ?>
-				</h2>
-				<p>
-					<?php  echo wpautop(wp_kses_post( $texte1 )); ?>
-				</p>
-				<a href="<?php  echo esc_html( $lien1 ); ?>">
-					<?php  echo esc_html( $titrelien1 ); ?>
-				</a>
-				<br>
-				<a href="<?php  echo esc_html( $lien2 ); ?>">
-					<?php  echo esc_html( $titrelien2 ); ?>
-				</a>
-
+	<section id="inscriptions" class=" text-center" >
+		<h2 class="titre blanc fond-rose-clair">
+			<?php  echo esc_html( $titre1 ); ?>
+		</h2>
+		<div class="texte vert fond-blanc">
+			<?php echo wpautop(wp_kses_post( $texte1 )); ?>
+			<a href="<?php  echo esc_html( $lien1 ); ?>">
+				<?php  echo esc_html( $titrelien1 ); ?>
+			</a>
+			<br>
+			<a href="<?php  echo esc_html( $lien2 ); ?>">
+				<?php  echo esc_html( $titrelien2 ); ?>
+			</a>
+		</div>
 	</section>
 	<?php
 	
