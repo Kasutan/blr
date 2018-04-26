@@ -19,7 +19,9 @@ get_header();
 			affiche_activite();
 			affiche_reseaux();
 			// lien vers le bandeau Newsletter
+			get_template_part( 'template-parts/newsletter' );
 			affiche_apropos();
+
 		?>
 
 		</main><!-- #main -->
