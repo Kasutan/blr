@@ -266,33 +266,33 @@ function affiche_famille() {
 	$lien8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien8', true );
 	
 	?>
-	<section id="famille" class="align-middle justify-between" >
-		<header class="entry-header grid-x">
+	<section id="famille" class="fond-vert-clair">
+		<header class="grid-x align-bottom justify-center">
 
 			<div class="cell medium-6">
-				<h1 class="fond-rose">
+				<h2 class="fond-rose-clair blanc">
 					<?php echo($titre1); ?>
-				</h1>
+				</h2>
 				<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
 			</div>
-			<div class="cell medium-6">
-				<h2 class="titre">
+			<div class="cell medium-6 texte rose-fonce">
+				<p class="titre">
 					<?php echo($titre1bis); ?>
-				</h2>
-				<p>
-					<?php echo wp_kses_post($texte1); ?>
 				</p>
+				<div class="contenu">
+					<?php echo wp_kses_post($texte1); ?>
+				</div>
 			</div>
 		</header>
 
-		<div class="entry-content">
+		<div class="projets famille">
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre2 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div  class="rose-clair">
 					<?php  echo wp_kses_post( $texte2 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien2)) { ?>
 					<a href= <?php echo ($lien2); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien2 ); ?>
@@ -301,12 +301,12 @@ function affiche_famille() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre3 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte3 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien3)) { ?>
 					<a href= <?php echo ($lien3); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien3 ); ?>
@@ -315,12 +315,12 @@ function affiche_famille() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre4 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte4 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien4)) { ?>
 					<a href= <?php echo ($lien4); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien4 ); ?>
@@ -329,12 +329,12 @@ function affiche_famille() {
 			</div>
 			
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre5 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte5 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien5)) { ?>
 					<a href= <?php echo ($lien5); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien5 ); ?>
@@ -343,12 +343,12 @@ function affiche_famille() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre6 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte6 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien6)) { ?>
 					<a href= <?php echo ($lien6); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien6 ); ?>
@@ -357,12 +357,12 @@ function affiche_famille() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre7 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte7 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien7)) { ?>
 					<a href= <?php echo ($lien7); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien7 ); ?>
@@ -371,12 +371,12 @@ function affiche_famille() {
 			</div>
 
 			<div>
-				<h2 class="titre">
+				<h3 class="titre">
 					<?php  echo esc_html( $titre8 ); ?>
-				</h2>
-				<p>
+				</h3>
+				<div>
 					<?php  echo wp_kses_post( $texte8 ); ?>
-				</p>
+				</div>
 				<?php  if (!empty($lien8)) { ?>
 					<a href= <?php echo ($lien8); ?> class="lien">
 						<?php  echo wp_kses_post( $titrelien8 ); ?>
@@ -386,6 +386,7 @@ function affiche_famille() {
 
 		</div>
 	</section>
+	<div class="decor-rose"></div>
 	<?php
 	
 	echo ob_get_clean();

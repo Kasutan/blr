@@ -1751,6 +1751,10 @@ bottom:60px;
   .rose-clair {
 	  color:var(--rose-clair);
 	}
+.rose-fonce {
+	  color:var(--rose-fonce);
+	
+}
 	.blanc {
 		color:#fff;
 	}
@@ -2131,6 +2135,110 @@ bottom:60px;
 	.lecael #partenaires {
   	padding:20px calc(50% - 400px);		
 	}
+}
+/*--------------------------------------------------------------
+## Nos actions
+--------------------------------------------------------------*/
+
+#famille h2, #senior h2 {
+	display:inline-block;
+	margin-left:30px;
+	padding:0 10px;
+	transform: rotateZ(-3deg);
+	transform-origin: top right;
+}
+.projets h3 {
+	color:var(--rose-clair);
+}
+
+.projets {
+	color:var(--rose-fonce);
+	
+}
+
+
+.projets.senior {
+	color:#000;
+}
+.projets.senior h3 {
+	color:var(--rose);
+}
+.projets > div {
+	margin-bottom:40px;
+	text-align: right;
+	
+}
+.projets > div h3,
+.projets > div div {
+	text-align: left;
+}
+.projets a {
+	background-color:var(--rose-clair);
+	color:#fff;
+	display:inline-block;
+	font-weight:700;
+	margin-top:20px;
+	padding:5px 50px 5px 5px;
+}
+.projets a::after {
+	content:'>>>';
+}
+.actions blockquote {
+	font-weight:700;
+	line-height:1.1;
+	border:none;
+	margin-left:5px;
+}
+.actions blockquote .titre {
+	font-size:1.5em;
+	text-transform: uppercase;
+}
+
+.actions blockquote .titre:before {
+	color:var(--rose-clair);
+	content: "\e908";
+	font-family: 'icomoon';
+}
+.actions blockquote .citation:after {
+	color:var(--rose-clair);
+	content: "\e907";
+	font-family: 'icomoon';
+
+}
+
+.actions .decor-rose {
+	background-color:var(--rose-clair);
+	opacity:0.5;
+	height:200px;
+	
+}
+
+#bafa {
+	padding-top:30px;
+}
+#bafa .decor {
+	background: var(--vert-clair);
+	padding:50px;
+	position:relative;
+	top:30px;
+}
+#bafa h2 {
+	display: inline-block;
+	padding:20px 0px;
+	writing-mode: vertical-lr;
+	transform: rotateZ(180deg);
+	position:absolute;
+	top:0;
+	left:85px;
+}
+.fond-blanc {
+	background-color: #fff;
+	padding:30px;
+}
+
+#bafa .intro {
+	margin-left:100px;
+	margin-top:50px;
 }
 /*--------------------------------------------------------------
 ## Activités
@@ -2668,7 +2776,6 @@ a.inactif {
 .ev2 #editions .titre {
 	margin-left:20px;
 }
-
 @media screen and (min-width:768px) {
 	.ev2 #festival .image {
 	text-align:right;
@@ -2785,7 +2892,6 @@ a.inactif {
 }
 
 .speaker .pratique {
-	margin-bottom:50px;
 	padding:20px;
 }
 
@@ -2813,7 +2919,6 @@ a.inactif {
 .speaker .pratique a {
 	text-decoration: underline;
 }
-
 @media screen and (min-width:1024px) {
 	padding: 20px 16% 50px;
 }

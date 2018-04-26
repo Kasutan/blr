@@ -90,47 +90,49 @@ function affiche_bafa() {
 	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte4', true );
 	
 	?>
-	<section id="bafa" class="align-middle justify-between" >
-
-			<div class="cell medium-6">
-				<h1 class="fond-rose">
+	<section id="bafa" class="fond-rose-clair" >
+		<div class="decor">
+			<h2 class="titre blanc fond-rose-clair">
 					<?php echo esc_html($titre1); ?>
-				</h1>
-				<p>
+			</h2>
+			<div class="contenu fond-blanc rose-fonce">
+				<div class="intro ">
 					<?php echo wp_kses_post($texte1); ?>
-				</p>
+				</div>
+
+				<div>
+					<h3 class="titre">
+						<?php  echo esc_html( $titre2 ); ?>
+					</h3>
+					<div>
+						<?php  echo wp_kses_post( $texte2 ); ?>
+					</div>
+				</div>
+
+				<div class="grid-x align-stretch">
+					<div class="image cell medium-5">
+						<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
+					</div>
+					<div class="texte cell medium-7">
+						<h3 class="titre">
+							<?php  echo esc_html( $titre3 ); ?>
+						</h3>
+						<div>
+							<?php  echo wp_kses_post( $texte3 ); ?>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<h3 class="titre">
+						<?php  echo esc_html( $titre4 ); ?>
+					</h3>
+					<div>
+						<?php  echo wp_kses_post( $texte4 ); ?>
+					</div>
+				</div>
 			</div>
-			
-			<div>
-				<h2 class="titre">
-					<?php  echo esc_html( $titre2 ); ?>
-				</h2>
-				<p>
-					<?php  echo wp_kses_post( $texte2 ); ?>
-				</p>
-			</div>
-
-
-
-			<div>
-			<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
-				<h2 class="titre">
-					<?php  echo esc_html( $titre3 ); ?>
-				</h2>
-				<p>
-					<?php  echo wp_kses_post( $texte3 ); ?>
-				</p>
-			</div>
-
-			<div>
-				<h2 class="titre">
-					<?php  echo esc_html( $titre4 ); ?>
-				</h2>
-				<p>
-					<?php  echo wp_kses_post( $texte4 ); ?>
-				</p>
-			</div>
-
+		</div>
 	</section>
 	<?php
 	
