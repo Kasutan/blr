@@ -13,6 +13,13 @@ $title = $post_43->post_title;
 ?>
 
 	<div id="primary" class="content-area">
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+			');
+			}
+		?>
 		<main id="main" class="site-main">
 		<h1>
 			<?php echo($title); ?>

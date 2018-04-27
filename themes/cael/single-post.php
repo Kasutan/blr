@@ -12,7 +12,13 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+			');
+			}
+		?>
 		<?php
 			the_post();
 			?>

@@ -15,6 +15,13 @@
 ?>
 
 <main id="main" class="site-main act1">
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+			');
+			}
+		?>	
 	<header class="entry-header">
 	    <h1 class="fond-rose">
         <?php echo($term->name); ?>

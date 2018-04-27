@@ -37,7 +37,13 @@
 
 	?>
 <main id="main" class="site-main act3">
-	<p class="fil-ariane fond-vert">Fil d'ariane</p>
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+			');
+			}
+		?>
 
 	<header class="entry-header ">
 		<div class="fond fond-vert-clair">&nbsp;</div>

@@ -2586,7 +2586,6 @@ button.acces:active .slide-top {
 --------------------------------------------------------------*/
 
 .nos-activites {
-	border-top: solid 40px var(--vert);
 	text-align: center;
 }
 
@@ -2752,6 +2751,11 @@ a.inactif {
 
 .fil-ariane {
 	padding: 5px;
+	padding-left: 17%;
+	text-align: left;
+	color: #ffffff;
+	font-family: MuseoSansRounded;
+	font-size: 1.17em;
 }
 
 .act1 .entry-header {

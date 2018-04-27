@@ -4,18 +4,25 @@ Template Name: Nos activités
 */
 
 get_header();
-$ID=get_the_ID();
+
 ?>
 
 	<div id="primary" class="content-area nos-activites">
-		<main id="main" class="site-main">
 
+		<main id="main" class="site-main">
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+			');
+			}
+		?>
 			<section class="rose-clair" >
 				<h1 class="titre">
-					<?php the_title(); ?>
+					<?php echo get_the_title(7); ?>
 				</h1>
 				<div class="intro">
-					<?php the_content(); ?>
+					<?php echo apply_filters('the_content', get_post_field('post_content', 7)); ?>
 				</div>
 			</section>
 
