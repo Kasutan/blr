@@ -13,8 +13,8 @@ if (function_exists('gm_get_theme_menu_name')) {
 	$titre2=gm_get_theme_menu_name('menu-footer-2');
 	$titre3=gm_get_theme_menu_name('menu-footer-3');
 	$titresocial=gm_get_theme_menu_name('menu-footer-social');
-	
 }
+
 ?>
 
 	</div><!-- #content -->
@@ -34,6 +34,12 @@ if (function_exists('gm_get_theme_menu_name')) {
 				?>
 			</nav>
 			<nav class="cell medium-6 large-3">
+				<p class="footer-header">
+					<a href="<?php echo esc_url( get_permalink(43) ); ?>">
+						<?php echo get_the_title(43); ?>
+					</a>
+				</p>
+				<br>
 				<p class="footer-header">
 				<?php echo $titre2; ?>
 				</p>
