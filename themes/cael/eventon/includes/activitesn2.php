@@ -26,7 +26,7 @@
 	<header class="entry-header">
 		<div class="fond fond-vert-clair">&nbsp;</div>
 		
-		<h1 class="fond-rose">
+		<h1 class="fond-rose blanc">
         	<?php echo($term->name); ?>
     	</h1>
 		<?php echo wp_get_attachment_image($imagelienid, 'banniere' ); ?>
@@ -89,10 +89,11 @@
 		));
 	
 	?>
-		<h2>
-			<span><?php echo ($titre1); ?></span><?php echo ($titre2); ?>
+	<section class="musique rose">
+		<h2 class="blanc fond-rose-clair titre-musique">
+			<span><?php echo ($titre1); ?></span> <?php echo ($titre2); ?>
 		</h2>
-		<p><?php echo wpautop( wp_kses_post(( $texte ))); ?></p>
+		<div class="description"><?php echo wpautop( wp_kses_post(( $texte ))); ?></div>
 
 	<?php
 
@@ -104,21 +105,23 @@
 			$lienpdf  = get_post_meta( $ID, CMB_PREFIX.'_Musiqueancienne_revue', true );
 
 			?>
-				<div>
-					<?php the_post_thumbnail('thumbnail'); ?>
-				</div>
-				<div>
-					<h3><?php the_title(); ?></h3>
-					<p><?php the_content(); ?></p>
+				<div class="grid-x revue">
+					<div class="image cell">
+						<?php the_post_thumbnail('thumbnail'); ?>
+					</div>
+					<div class="texte cell">
+						<h3 class="titre rose-fonce"><?php the_title(); ?></h3>
+						<div class="contenu"><?php the_content(); ?></div>
 
-					<a href="<?php echo ($lienpdf);?>">
-                		<?php  echo esc_html( $nomlien ); ?>
-        			</a>
-
+						<a href="<?php echo ($lienpdf);?>" class="telecharger">
+							<?php  echo esc_html( $nomlien ); ?>
+						</a>
+					</div>
 				</div>
 			<?php endwhile; 
 		endif;
 
 	}
 	?>
+	</section>
 </main>

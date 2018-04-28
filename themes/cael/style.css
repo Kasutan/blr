@@ -2914,7 +2914,69 @@ a.inactif {
 		padding: 50px 16%;
 	}
 }
+/*--------------------------------------------------------------
+### Activités N2 page musiques anciennes
+--------------------------------------------------------------*/
+.act2 .musique {
+	padding:50px;
+}
+.act2 .titre-musique {
+	display:inline-block;
+	margin-bottom:3em;
+	padding:0 5px;
+}
+.act2 .titre-musique span {
+	font-weight:300;
+}
 
+.act2 .musique .description p {
+	font-weight:700;
+	margin-bottom:0;
+	line-height:1.2;
+}
+.act2 .musique .description {
+	margin-bottom:100px;
+}
+.act2 .revue {
+	flex-wrap:nowrap;
+	justify-content: space-between;
+	margin-bottom:50px;
+}
+
+.act2 .revue .image {
+	flex-basis:12.5%;
+	flex-grow:0;
+}
+
+.act2 .revue .texte {
+	flex-basis:87.5%;
+	flex-grow:0;
+	padding-left:40px;
+}
+
+.act2 .revue  .titre {
+	text-transform: none;
+	font-family:'MuseoSansRounded-700';
+	font-size:1.2em;
+	margin-bottom:0;
+}
+
+.act2 .revue .contenu p {
+	font-family:'MuseoSansRounded-700';
+	line-height:1.2;
+}
+.act2 .revue a.telecharger {
+	border:solid 2px var(--rose);
+	border-radius:5px;
+	font-family:'MuseoSansRounded-700';
+	
+	padding:5px 10px;
+}
+@media screen and (min-width:1024px) {
+	.act2 .musique {
+		padding: 50px 16%;
+	}
+}
 /*--------------------------------------------------------------
 ### Activités N3
 --------------------------------------------------------------*/
