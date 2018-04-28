@@ -1873,7 +1873,7 @@ button.acces:active .slide-top {
 }
 
 .fond-blanc {
-	background-color:#fff;
+	background-color: #fff;
 }
 
 .fond-rose-clair {
@@ -2050,47 +2050,53 @@ button.acces:active .slide-top {
 }
 
 @media screen and (min-width: 123px) {}
+
 /*--------------------------------------------------------------
 ### Bandeau Newsletter
 --------------------------------------------------------------*/
+
 .newsletter {
-	padding:10px;
+	padding: 10px;
 }
+
 .newsletter label {
-	color:#fff;
+	color: #fff;
 }
+
 .newsletter h3 {
-	margin:0;
+	margin: 0;
 }
 
 .newsletter .email {
-	background-color:#ee50a7;
-	border:none;
-	padding-left:30px;
-	margin:0 30px 0 10px;
+	background-color: #ee50a7;
+	border: none;
+	padding-left: 30px;
+	margin: 0 30px 0 10px;
 }
+
 .newsletter input[type="submit"],
 .newsletter input[type="submit"]:hover,
-.newsletter input[type="submit"]:focus ,
-.newsletter input[type="submit"]:active  {
-	background:#fff;
-	background:url('/wp-content/themes/cael/images/fleche.png');
-	background-size:cover;
-	background-position:right;
-	border:none;
+.newsletter input[type="submit"]:focus,
+.newsletter input[type="submit"]:active {
+	background: #fff;
+	background: url('/wp-content/themes/cael/images/fleche.png');
+	background-size: cover;
+	background-position: right;
+	border: none;
 	border-radius: 8px;
-	color:var(--rose-clair);
-	font-size:1.5em;
+	color: var(--rose-clair);
+	font-size: 1.5em;
 	line-height: 1;
-	padding:10px 15px;
+	padding: 10px 15px;
 	text-align: left;
-	text-transform:lowercase;
-	width:150px;
+	text-transform: lowercase;
+	width: 150px;
 }
 
 .newsletter .consentement p {
 	margin-bottom: 0;
 }
+
 /*--------------------------------------------------------------
 ## Le CAEL
 --------------------------------------------------------------*/
@@ -2482,52 +2488,58 @@ button.acces:active .slide-top {
 .rens section {
 	padding: 20px;
 }
+
 .rens label {
-	color:#fff;
+	color: #fff;
 }
+
 .rens input[type="submit"],
 .rens input[type="submit"]:hover,
-.rens input[type="submit"]:focus ,
-.rens input[type="submit"]:active  {
-	background:#fff;
-	background:url('/wp-content/themes/cael/images/fleche.png');
-	background-size:cover;
-	background-position:right;
-	color:var(--vert);
-	text-shadow:none;
-	font-weight:700;
-	font-family:'MuseoSansRounded-700',sans-serif;
-	border:none;
-	float:right;
-	text-transform:lowercase;
-	width:100px;
+.rens input[type="submit"]:focus,
+.rens input[type="submit"]:active {
+	background: #fff;
+	background: url('/wp-content/themes/cael/images/fleche.png');
+	background-size: cover;
+	background-position: right;
+	color: var(--vert);
+	text-shadow: none;
+	font-weight: 700;
+	font-family: 'MuseoSansRounded-700', sans-serif;
+	border: none;
+	float: right;
+	text-transform: lowercase;
+	width: 100px;
 }
 
 .rens .adresse p:last-of-type {
-	border-bottom : solid 1px rgba(255,255,255,0.5);
+	border-bottom: solid 1px rgba(255, 255, 255, 0.5);
 	display: inline-block;
-	padding-bottom:20px;
-	margin-bottom:15px;
-	
+	padding-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 .rens .horaires {
-	padding-right:5px;
+	padding-right: 5px;
 }
+
 .rens table tbody {
 	background-color: transparent;
-	border:none;
-	font-size:0.8em;
+	border: none;
+	font-size: 0.8em;
 }
+
 .rens table tbody tr:nth-child(2n) {
 	background-color: transparent;
 }
+
 .rens th {
 	background-color: #944d72;
 }
-.rens th, .rens td  {
+
+.rens th,
+.rens td {
 	border: solid 1px #944d72;
-	padding:5px;
+	padding: 5px;
 }
 
 .rens #inscriptions {
@@ -2536,29 +2548,26 @@ button.acces:active .slide-top {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
-	padding:50px;
+	padding: 50px;
 	padding-bottom: 0;
 }
 
 .rens #inscriptions h2 {
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 .rens #inscriptions .texte {
-	padding:30px;
+	padding: 30px;
 }
-
-
-
 
 .rens #inscriptions a {
 	border: solid 1px var(--rose-clair);
 	border-radius: 8px;
-	color:var(--rose-clair);
-	font-weight:700;
-	display:inline-block;
-	margin-bottom:30px;
-	padding:10px;
+	color: var(--rose-clair);
+	font-weight: 700;
+	display: inline-block;
+	margin-bottom: 30px;
+	padding: 10px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -2567,14 +2576,13 @@ button.acces:active .slide-top {
 	}
 	.rens #inscriptions {
 		padding: 60px 16% 0;
-		
 	}
 	.rens #inscriptions .texte {
-	padding-bottom:60px;
+		padding-bottom: 60px;
 	}
-	.rens #inscriptions .texte p:last-of-type  {
-	margin-bottom:80px;
-}
+	.rens #inscriptions .texte p:last-of-type {
+		margin-bottom: 80px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -3292,136 +3300,179 @@ a.inactif {
 }
 
 @media screen and (min-width:1024px) {
-	padding: 20px 16% 50px;
-}
+	.speaker .pratique {
+		padding: 20px 16% 50px;
+	}
+	}
+	/*--------------------------------------------------------------
+## Actualités
+--------------------------------------------------------------*/
+	/*--------------------------------------------------------------
+### Actualités page single
+--------------------------------------------------------------*/
+	.single-post .entry-header,
+	.single-post .content-area article,
+	.single-post .post-navigation {
+		padding: 20px;
+	}
+	.single-post .entry-header {
+		position: relative;
+		padding-bottom: 0;
+	}
+	.single-post .content-area .fond {
+		height: 70%;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+	}
+	.single-post .entry-title {
+		display: inline-block;
+		margin: 0;
+		padding:0 10px;
+		position: relative;
+		top:-20px;
+		left:10px;
+	}
+	.single-post article .titre {
+		font-size:1.2em;
+		margin-bottom:0;
+		text-transform: uppercase;
+	}
+	.single-post .extrait p {
+		line-height:1.2;
+		margin-bottom:0;
+	}
+	.single-post .meta {
+		font-size:0.8em;
+		margin-bottom:30px;
+		opacity:0.9;
+	}
+	.single-post .contenu a {
+		display:block;
+		font-size:0.9em;
+		text-align:right;
 
-/*--------------------------------------------------------------
+	}
+	.single-post .contenu a::after {
+		content:'>>>';
+
+		padding-left:5px;
+	}
+	.single-post .post-navigation a {
+		color:var(--rose-clair);
+		font-weight:700;
+
+	}
+	@media screen and (min-width:1024px) {
+		.single-post .content-area header,
+		.single-post .content-area article,
+		.single-post .content-area nav {
+			padding-left: 16%;
+			padding-right: 16%;
+		}
+	}
+	/*--------------------------------------------------------------
+### Actualités page archive
+--------------------------------------------------------------*/
+	/*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
-
-/*--------------------------------------------------------------
+	.comment-content a {
+		word-wrap: break-word;
+	}
+	.bypostauthor {
+		display: block;
+	}
+	/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .site-footer {
-	/* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
-/*--------------------------------------------------------------
+	/* Globally hidden elements when Infinite Scroll is supported and in use. */
+	.infinite-scroll .posts-navigation,
+	.infinite-scroll.neverending .site-footer {
+		/* Theme Footer (when set to scrolling) */
+		display: none;
+	}
+	/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+	.infinity-end.neverending .site-footer {
+		display: block;
+	}
+	/*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-}
-
-/* Make sure embeds and iframes fit their containers. */
-
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-/* Make sure logo link wraps around logo image. */
-
-.custom-logo-link {
-	display: inline-block;
-}
-
-/*--------------------------------------------------------------
+	.page-content .wp-smiley,
+	.entry-content .wp-smiley,
+	.comment-content .wp-smiley {
+		border: none;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 0;
+	}
+	/* Make sure embeds and iframes fit their containers. */
+	embed,
+	iframe,
+	object {
+		max-width: 100%;
+	}
+	/* Make sure logo link wraps around logo image. */
+	.custom-logo-link {
+		display: inline-block;
+	}
+	/*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
-
-.wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
-}
-
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
-}
-
-.wp-caption-text {
-	text-align: center;
-}
-
-/*--------------------------------------------------------------
+	.wp-caption {
+		margin-bottom: 1.5em;
+		max-width: 100%;
+	}
+	.wp-caption img[class*="wp-image-"] {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.wp-caption .wp-caption-text {
+		margin: 0.8075em 0;
+	}
+	.wp-caption-text {
+		text-align: center;
+	}
+	/*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
-
-.gallery {
-	margin-bottom: 1.5em;
-}
-
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-}
-
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
-
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
-
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
-
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
-
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-}
-
-.gallery-caption {
-	display: block;
-}
+	.gallery {
+		margin-bottom: 1.5em;
+	}
+	.gallery-item {
+		display: inline-block;
+		text-align: center;
+		vertical-align: top;
+		width: 100%;
+	}
+	.gallery-columns-2 .gallery-item {
+		max-width: 50%;
+	}
+	.gallery-columns-3 .gallery-item {
+		max-width: 33.33%;
+	}
+	.gallery-columns-4 .gallery-item {
+		max-width: 25%;
+	}
+	.gallery-columns-5 .gallery-item {
+		max-width: 20%;
+	}
+	.gallery-columns-6 .gallery-item {
+		max-width: 16.66%;
+	}
+	.gallery-columns-7 .gallery-item {
+		max-width: 14.28%;
+	}
+	.gallery-columns-8 .gallery-item {
+		max-width: 12.5%;
+	}
+	.gallery-columns-9 .gallery-item {
+		max-width: 11.11%;
+	}
+	.gallery-caption {
+		display: block;
+	}
