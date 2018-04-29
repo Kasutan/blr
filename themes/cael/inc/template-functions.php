@@ -53,6 +53,7 @@ function get_tax_level($id, $tax){
 	$ancestors = get_ancestors($id, $tax);
 	$term_children = get_term_children( $id, $tax );
 	$var = count($ancestors)+1 ;
+	// dans le cas où il n'y a pas d'enfant, on force la valeur au plus bas pour la suite de l'algo
 	if(empty($term_children)){ $var = 3 ; }
     return $var;
 }
