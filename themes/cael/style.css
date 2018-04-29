@@ -1714,6 +1714,16 @@ button.acces:active .slide-top {
 	padding-left: 10px;
 }
 
+.calaccueil {
+	color: var(--rose);
+	border-top: 2px solid var(--rose);
+	padding: 4px 2px
+}
+
+.liencal:hover {
+	text-decoration: underline;
+}
+
 /*Reutilisable*/
 
 .avec-fond-oblique {
