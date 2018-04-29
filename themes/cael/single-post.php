@@ -22,26 +22,27 @@ get_header();
 		<?php
 			the_post();
 			?>
-			<header>
-				<?php the_post_thumbnail( 'large' ); ?>
-				<h1>
+			<header class="entry-header">
+				<?php the_post_thumbnail( 'banniere' ); ?>
+				<h1 class="entry-title blanc fond-rose-fonce">
 					<?php the_title(); ?>
 				</h1>
+				<div class="fond fond-vert-clair"></div>
 			</header>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class("blanc fond-rose-clair"); ?>>
 
-						<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-						<?php the_excerpt(); ?>
-						<?php cael_posted_by(); ?>
+						<?php the_title( '<p class="titre">', '</p>' ); ?>
+						<div class="extrait"><?php the_excerpt(); ?></div>
+						<div class="meta"><?php cael_posted_by(); ?>
 						<?php echo(' - '); ?>
-						<?php the_time('j F Y'); ?>
-						<?php the_content(); ?>
+						<?php the_time('j F Y'); ?></div>
+						<div class="contenu"><?php the_content(); ?></div>
 				</article><!-- #post-<?php the_ID(); ?> -->
 			<?php
 
 			the_post_navigation( array(
 				'prev_text'                  => __( '< Actualité précédente' ),
-				'next_text'                  => __( 'Actualités suivante >' ),
+				'next_text'                  => __( 'Actualité suivante >' ),
 			) );
 
 		?>
