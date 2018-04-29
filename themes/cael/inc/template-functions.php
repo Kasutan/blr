@@ -50,8 +50,11 @@ function gm_get_theme_menu_name( $theme_location ) {
 
 // fonction pour récupérer le niveau hierarchique d'une taxonomie
 function get_tax_level($id, $tax){
-    $ancestors = get_ancestors($id, $tax);
-    return count($ancestors)+1;
+	$ancestors = get_ancestors($id, $tax);
+	$term_children = get_term_children( $id, $tax );
+	$var = count($ancestors)+1 ;
+	if(empty($term_children)){ $var = 3 ; }
+    return $var;
 }
 
 //Ajouter tailles d'images
