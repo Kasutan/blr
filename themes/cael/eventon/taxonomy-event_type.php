@@ -32,6 +32,8 @@
             // on est au second niveau des catégories
             require_once( 'includes/evenementsn2.php' );
         }
+    } else if ($cat == 'event_type_3') {
+            require_once( 'includes/activitesn3.php' );
     }
 
 get_footer(); ?>
