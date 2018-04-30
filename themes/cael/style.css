@@ -1720,7 +1720,8 @@ button.acces:active .slide-top {
 	padding: 4px 2px
 }
 
-.liencal:hover, .liencal:focus {
+.liencal:hover,
+.liencal:focus {
 	text-decoration: underline;
 }
 
@@ -2924,69 +2925,77 @@ a.inactif {
 		padding: 50px 16%;
 	}
 }
+
 /*--------------------------------------------------------------
 ### Activités N2 page musiques anciennes
 --------------------------------------------------------------*/
+
 .act2 .musique {
-	padding:50px;
+	padding: 50px;
 }
+
 .act2 .titre-musique {
-	display:inline-block;
-	margin-bottom:3em;
-	padding:0 5px;
+	display: inline-block;
+	margin-bottom: 3em;
+	padding: 0 5px;
 }
+
 .act2 .titre-musique span {
-	font-weight:300;
+	font-weight: 300;
 }
 
 .act2 .musique .description p {
-	font-weight:700;
-	margin-bottom:0;
-	line-height:1.2;
+	font-weight: 700;
+	margin-bottom: 0;
+	line-height: 1.2;
 }
+
 .act2 .musique .description {
-	margin-bottom:100px;
+	margin-bottom: 100px;
 }
+
 .act2 .revue {
-	flex-wrap:nowrap;
+	flex-wrap: nowrap;
 	justify-content: space-between;
-	margin-bottom:50px;
+	margin-bottom: 50px;
 }
 
 .act2 .revue .image {
-	flex-basis:12.5%;
-	flex-grow:0;
+	flex-basis: 12.5%;
+	flex-grow: 0;
 }
 
 .act2 .revue .texte {
-	flex-basis:87.5%;
-	flex-grow:0;
-	padding-left:40px;
+	flex-basis: 87.5%;
+	flex-grow: 0;
+	padding-left: 40px;
 }
 
-.act2 .revue  .titre {
+.act2 .revue .titre {
 	text-transform: none;
-	font-family:'MuseoSansRounded-700';
-	font-size:1.2em;
-	margin-bottom:0;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+	margin-bottom: 0;
 }
 
 .act2 .revue .contenu p {
-	font-family:'MuseoSansRounded-700';
-	line-height:1.2;
+	font-family: 'MuseoSansRounded-700';
+	line-height: 1.2;
 }
+
 .act2 .revue a.telecharger {
-	border:solid 2px var(--rose);
-	border-radius:5px;
-	font-family:'MuseoSansRounded-700';
-	
-	padding:5px 10px;
+	border: solid 2px var(--rose);
+	border-radius: 5px;
+	font-family: 'MuseoSansRounded-700';
+	padding: 5px 10px;
 }
+
 @media screen and (min-width:1024px) {
 	.act2 .musique {
 		padding: 50px 16%;
 	}
 }
+
 /*--------------------------------------------------------------
 ### Activités N3
 --------------------------------------------------------------*/
@@ -3058,7 +3067,9 @@ a.inactif {
 }
 
 .gridact3 {
-	display: grid;
+	-moz-column-width: 200px;
+	-webkit-column-width: 200px;
+	column-width: 200px;
 }
 
 @media screen and (min-width:1024px) {
@@ -3465,36 +3476,37 @@ a.inactif {
 ### Actualités page archive
 --------------------------------------------------------------*/
 
-
-
 .blog .page-title {
 	margin-bottom: 0;
 	padding: 20px;
-	
 }
+
 .blog .liste-actus {
-	margin-bottom:50px;
+	margin-bottom: 50px;
 	padding: 50px 20px;
-	
 }
 
 .blog .liste-actus article {
-	flex-wrap:nowrap;
+	flex-wrap: nowrap;
 	margin-bottom: 30px;
 }
+
 .blog .liste-actus .entry-title {
-	font-weight:300;
-	font-size:1.4em;
-	margin-bottom:0;
+	font-weight: 300;
+	font-size: 1.4em;
+	margin-bottom: 0;
 }
+
 .blog .liste-actus .extrait p {
-	margin-bottom:0;
-	line-height:1.1;
+	margin-bottom: 0;
+	line-height: 1.1;
 }
+
 .blog .liste-actus .meta {
-	font-size:0.8em;
+	font-size: 0.8em;
 	opacity: 0.8;
 }
+
 .blog .bordure {
 	border-right: solid 5px #f9a4c7;
 }
@@ -3503,37 +3515,40 @@ a.inactif {
 	flex-basis: 12.5%;
 	flex-grow: 0;
 }
+
 .blog .image img {
-	background-color:#fff;
+	background-color: #fff;
 }
+
 .blog .texte {
 	flex-basis: 87.5%;
 	padding-left: 20px;
 }
 
-.blog .triangle  {
-	color:transparent;
-	
+.blog .triangle {
+	color: transparent;
 }
+
 .blog .triangle .icon-triangle-right {
-	color:#f9a4c7;
-	display:inline-block;
-	font-size:80px;	
+	color: #f9a4c7;
+	display: inline-block;
+	font-size: 80px;
 	transform: rotateZ(-90deg) scaleY(2);
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
+
 .blog .triangle.suivant .icon-triangle-right {
-		margin-bottom:0;
+	margin-bottom: 0;
 	transform: rotateZ(90deg) scaleY(2);
 }
+
 @media screen and (min-width:1024px) {
-	.blog .page-title
-	{
+	.blog .page-title {
 		padding-left: 16%;
 		padding-right: 16%;
 	}
-	.blog .liste-actus  {
-		padding : 50px 16% 20px;
+	.blog .liste-actus {
+		padding: 50px 16% 20px;
 	}
 	.blog .liste-actus article {
 		margin-bottom: 80px;

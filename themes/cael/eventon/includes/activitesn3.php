@@ -67,7 +67,7 @@
 			<?php echo($term->description); ?>
 		</p>
 
-		<div class="grid-x">
+		<div class="gridact3">
 			<?php 	
 				if ( $query->have_posts() ) {
 					while($query->have_posts()): $query->the_post();
