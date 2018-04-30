@@ -1720,7 +1720,7 @@ button.acces:active .slide-top {
 	padding: 4px 2px
 }
 
-.liencal:hover {
+.liencal:hover, .liencal:focus {
 	text-decoration: underline;
 }
 
@@ -3028,6 +3028,7 @@ a.inactif {
 
 .act3 .entry-content .cell {
 	margin-bottom: 10px;
+	padding-right: 10px;
 }
 
 .act3 .entry-content .adresse {
@@ -3054,6 +3055,10 @@ a.inactif {
 .act3 .navigation {
 	color: var(--rose-clair);
 	font-size: 1.1em;
+}
+
+.gridact3 {
+	display: grid;
 }
 
 @media screen and (min-width:1024px) {
