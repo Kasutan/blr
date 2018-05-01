@@ -613,7 +613,7 @@ select,
 optgroup,
 textarea {
 	color: #000;
-	font-family: 'MuseoSansRounded-300', sans-serif;
+	font-family: 'MuseoSansRounded-500', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -633,7 +633,7 @@ h6,
 .h6 {
 	clear: both;
 	font-family: 'MuseoSansDisplay';
-	font-weight: 500;
+	font-weight: 400;
 	text-transform: uppercase;
 }
 
@@ -1041,6 +1041,14 @@ a:active {
 	.main-navigation .dropdown.menu .is-dropdown-submenu a {
 		padding: 2rem 1rem;
 	}
+	.main-navigation .dropdown.menu .first-sub > li > a {
+		text-align: center;
+	}
+
+	.main-navigation .dropdown.menu .first-sub > li > vertical > li > a {
+		padding-bottom: 10px;
+	}
+
 	.main-navigation .menu.is-dropdown-submenu.vertical.js-dropdown-active {
 		display: flex;
 	}
@@ -1074,14 +1082,16 @@ a:active {
 		padding-top: 1rem;
 	}
 	.main-navigation .menu.submenu .menu.submenu a {
-		padding: 0;
+		padding: 2px;
 	}
 	.main-navigation .submenu .submenu .is-dropdown-submenu-item {
 		flex-direction: column;
 	}
 	.main-navigation .submenu .submenu .is-dropdown-submenu-parent>a {
 		padding: 0;
-		font-weight: 700;
+		font-family: 'museosansdisplay';
+		font-weight: 400;
+		font-size: 1em;
 	}
 	.main-navigation .submenu .submenu .submenu {
 		border: 0;
@@ -1620,6 +1630,7 @@ button.acces:active .slide-top {
 	border: solid 1px #777;
 	height: 15px;
 	padding: 0;
+	margin : 10px;
 	width: 15px;
 }
 
@@ -1643,7 +1654,7 @@ button.acces:active .slide-top {
 
 #calendrier .slider .orbit-container {
 	min-height: 120vw;
-	overflow-y: visible;
+	overflow-y: hidden;
 }
 
 #calendrier .orbit-caption {
@@ -1655,6 +1666,7 @@ button.acces:active .slide-top {
 	align-items: flex-start;
 	min-height: 200px;
 	width: 300px;
+	padding-top: 0.5em;
 }
 
 #calendrier .orbit-caption span {
@@ -1662,11 +1674,18 @@ button.acces:active .slide-top {
 }
 
 #calendrier .orbit-caption .h2 {
-	margin-bottom: 40px;
+	margin-bottom: 30px;
+	font-weight: 700;
+	font-size: 2.4em;
 }
 
 #calendrier .orbit-caption .titre {
-	font-size: 1.5em;
+	font-size: 1em;
+}
+
+#calendrier .orbit-caption .extrait {
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1em;
 }
 
 #calendrier .orbit-caption .lien {
@@ -1674,16 +1693,23 @@ button.acces:active .slide-top {
 	padding-right: 10px;
 	text-align: right;
 	width: 100%;
+	font-family: 'MuseoSansRounded-300';
+	font-size: 0.9em;
 }
 
 #calendrier .orbit-bullets {
 	bottom: 20px;
 }
 
+#calendrier .orbit-bullets button {
+	height: 11px;
+	width: 11px;
+}
+
 @media screen and (min-width:1024px) {
 	#calendrier {
-		padding: 70px 200px;
-		padding: 70px calc(50% - 400px);
+		padding: 50px 200px;
+		padding: 50px calc(50% - 400px);
 	}
 	/*Quand le slider et le calendirer sont cote à cote, afficher le slider à gauche*/
 	#calendrier .slider {
@@ -1707,7 +1733,11 @@ button.acces:active .slide-top {
 
 #calendrier .events .titre {
 	color: #fff;
-	font-size: 1.5rem;
+	font-size: 1.4em;
+}
+
+#calendrier .events .titre span{
+	padding-left: 5px;
 }
 
 #calendrier .events {
@@ -1715,9 +1745,9 @@ button.acces:active .slide-top {
 }
 
 .calaccueil {
-	color: var(--rose);
-	border-top: 2px solid var(--rose);
-	padding: 4px 2px
+	color: var(--rose-clair);
+	border-top: 2px solid var(--rose-clair);
+	padding: 4px 0 4px 16px;
 }
 
 .liencal:hover,
@@ -1755,9 +1785,11 @@ button.acces:active .slide-top {
 	background-color: var(--rose-clair);
 	color: #fff;
 	font-size: 1.2em;
-	font-weight: 700;
+	font-weight: 400;
 	display: flex;
 	padding: 5px 10px;
+	font-family: 'museosansdisplay';
+	line-height: 22px;
 }
 
 .lien-surligne:hover,
@@ -1772,10 +1804,11 @@ button.acces:active .slide-top {
 }
 
 .lien-surligne:after {
-	content: '>>>>>>>>>>>>>>>>>>>>>>>>>>';
-	font-weight: 300;
+	content: '>>>>>>>>>>s';
+	font-weight: 100;
 	padding-left: 10px;
 	overflow-x: hidden;
+	font-size: 1.2em;
 }
 
 #calendrier .eventon_events_list .eventon_list_event .desc_trig {
@@ -1816,6 +1849,25 @@ button.acces:active .slide-top {
 	/*Extraire le décor d'Adobe CC au format png ou svg*/
 	color: #fff;
 	padding: 20px;
+}
+
+#activites h2.titre {
+	font-weight: 700;
+	font-size: 2.4em;
+	text-align: left;
+}
+
+#activites .titre {
+	font-family: 'museosansdisplay';
+	font-weight: 300;
+	font-size: 2.3em;
+	text-align: right;
+}
+
+#activites .oblique {
+	font-family: 'museosansdisplay';
+	font-weight: 700;
+	font-size: 1.9em;
 }
 
 #activites .zoom img {
@@ -1860,8 +1912,8 @@ button.acces:active .slide-top {
 
 @media screen and (min-width:1024px) {
 	#activites {
-		padding: 50px 200px;
-		padding: 50px calc(50% - 400px);
+		padding: 42px 200px;
+		padding: 42px calc(50% - 400px);
 	}
 }
 
