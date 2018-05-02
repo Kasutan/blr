@@ -1671,7 +1671,7 @@ button.acces:active .slide-top {
 	margin-top:65%;
 }
 
-#calendrier .orbit-caption span {
+#calendrier .orbit-caption span { 
 	flex-grow: 0;
 }
 
