@@ -72,10 +72,12 @@ $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 		<a href= <?php echo ($lieneventacti); ?> class="lien">
             <?php echo wp_get_attachment_image( $imageeventacti, 'medium' ); ?>
         </a>
-		<span class="oblique h4">			<?php  echo esc_html( $text2 ); ?></span>
-		<span class="titre">
-		<?php  echo ( $titreacti ); ?>
-		</span>
+		<div class="zoombas">
+			<span class="oblique h4">			<?php  echo esc_html( $text2 ); ?></span>
+			<span class="titre">
+			<?php  echo ( $titreacti ); ?>
+			</span>
+		</div>
 	</div>
 	<div class="cell medium-6 pictos flex-container">
 		<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){

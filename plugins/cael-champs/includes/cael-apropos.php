@@ -65,9 +65,9 @@ function affiche_apropos() {
 			<div class="grid-x align-middle align-justify nowrap">
 				<p>
 					<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
-					echo esc_html( $para1 ); ?>
+					echo wp_kses_post( $para1 ); ?>
 				</p>
-				<a href="" title="En savoir plus"><span class="icon-triangle-right rose"></span></a>
+				<a href="/le-cael/#association" title="En savoir plus"><span class="icon-triangle-right rose"></span></a>
 			</div>
 			<h2 class="titre fond-rose-clair">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
@@ -76,9 +76,9 @@ function affiche_apropos() {
 			<div class="grid-x align-middle  align-justify nowrap">
 				<p>
 					<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
-					echo esc_html( $para2 ); ?>
+					echo wp_kses_post( $para2 ); ?>
 				</p>
-				<a href="" title="En savoir plus"><span class="icon-triangle-right rose-clair"></span></a>
+				<a href="/le-cael/#projet" title="En savoir plus"><span class="icon-triangle-right rose-clair"></span></a>
 			</div>
 		</div>
 		<div class="show-for-medium cell medium-1 large-2">
@@ -95,9 +95,9 @@ function affiche_apropos() {
 			<div class="grid-x align-middle align-justify nowrap">
 				<p>
 					<?php $para3  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte2', true ); 
-					echo esc_html( $para3 ); ?>
+					echo wp_kses_post( $para3 ); ?>
 				</p>
-				<a href="" title="En savoir plus"><span class="icon-triangle-right vert"></span></a>
+				<a href="/le-cael/#projet" title="En savoir plus"><span class="icon-triangle-right vert"></span></a>
 			</div>
 		</div>
 		<div class="show-for-medium cell medium-1 large-2">

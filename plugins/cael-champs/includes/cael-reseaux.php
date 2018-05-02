@@ -86,7 +86,7 @@ function affiche_reseaux() {
 					echo esc_html( $text ); ?>
 				</a>
 				<a href= <?php echo ($lienpdf); ?> class="image" >
-					<?php echo wp_get_attachment_image( $imagelien, 'small' ); ?>
+					<?php echo wp_get_attachment_image( $imagelien, 'medium'); ?>
 				</a>
 			</div>
 			<div class="image">
