@@ -2265,7 +2265,7 @@ button.acces:active .slide-top {
 --------------------------------------------------------------*/
 
 .site-main nav.ancres {
-	border: solid 5px var(--vert-clair);
+	border: solid 8px var(--vert-clair);
 	display: inline-block;
 	position: relative;
 	margin: 10px auto;
@@ -2274,10 +2274,13 @@ button.acces:active .slide-top {
 .site-main nav.ancres a {
 	color: var(--rose-clair);
 	display: inline-block;
-	font-family: MuseoSansDisplay;
-	font-weight: 400;
-	font-size: 0.8em;
+	font-family: MuseoSansRounded-700;
+	font-size: 0.9em;
 	padding: 8px;
+}
+
+.site-main nav.ancres a strong{
+	font-weight: normal;
 }
 
 .lecael {
@@ -2289,23 +2292,43 @@ button.acces:active .slide-top {
 	margin-bottom: 0;
 }
 
+.lecael #association .titre{
+	font-weight: 700;
+	font-size: 2.5em;
+}
+
 .lecael #association .intro,
 .lecael #association img {
 	max-width: 750px;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+}
+
+.lecael #association .intro {
+	padding-bottom: 8px;
 }
 
 .lecael #association .mjc {
 	color: #fff;
 	left: 0;
-	margin-bottom: -40px;
+	margin-bottom: -70px;
 	padding: 60px 20px 70px;
 	position: relative;
 	text-align: left;
-	top: -40px;
+	top: -70px;
 	z-index: -1;
+}
+
+.lecael #association .mjc .titre {
+	font-size: 1.9em;
+}
+
+.lecael #association .mjc .texte {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
 }
 
 @media screen and (min-width:1024px) {
@@ -2333,22 +2356,24 @@ button.acces:active .slide-top {
 
 .lecael #projet .oblique {
 	display: inline-block;
-	padding: 0 3px;
+	padding: 0 20px;
 	position: absolute;
 	transform-origin: left bottom;
-	transform: rotateZ(-3deg);
-	left: 10px;
+	transform: rotateZ(-8deg);
+	left: 20px;
 	top: 20px;
+	font-weight: 700;
+	font-size: 2.3em;
 }
 
 .lecael #projet .citation {
-	padding-left: 5px;
+	padding-left: 10px;
 }
 
 .lecael #projet .citation blockquote {
 	color: var(--rose);
 	border: none;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	margin: 0;
 	padding: 30px 0;
 	position: relative;
@@ -2378,11 +2403,13 @@ button.acces:active .slide-top {
 .lecael #projet h3 {
 	margin-top: 0.5em;
 	text-transform: none;
+	font-size: 1.3em;
 }
 
 @media screen and (min-width:1024px) {
 	.lecael #projet {
 		padding: 100px calc(50% - 375px) 70px;
+		padding-bottom: 10px;
 	}
 }
 
@@ -2391,7 +2418,8 @@ button.acces:active .slide-top {
 }
 
 .lecael #chiffres img {
-	width: 100%
+	width: 100%;
+	padding-bottom: 15px;
 }
 
 .lecael #chiffres .titre {
@@ -2400,7 +2428,12 @@ button.acces:active .slide-top {
 	top: 8%;
 	left: 22%;
 	font-weight: 300;
-	padding: 12px;
+	padding: 8px 20px 8px 30px;
+	font-size: 2.4em;
+}
+
+.lecael #chiffres .titre strong{
+	font-weight: 700;
 }
 
 .lecael #equipe {
@@ -2410,7 +2443,9 @@ button.acces:active .slide-top {
 
 .lecael #equipe .titre {
 	display: inline-block;
-	padding: 10px;
+	padding: 8px 20px 8px 30px;
+	font-weight: 700;
+	font-size: 2.4em;
 }
 
 .lecael #equipe .grid-x {
@@ -2426,28 +2461,32 @@ button.acces:active .slide-top {
 
 .lecael #equipe .membre img {
 	border-radius: 50%;
-	border: solid 4px var(--rose);
+	border: solid 4px var(--rose-clair);
 	margin-bottom: 15px;
 }
 
 .lecael #equipe .membre p {
 	margin-bottom: 0;
+	font-family: 'MuseoSansDisplay';
 }
 
 .lecael #equipe .membre p.nom {
 	border-top: solid 1px var(--rose-clair);
 	margin-bottom: 0;
+	font-weight: 300;
 }
 
 .lecael #equipe .membre .role {
 	border-bottom: solid 1px var(--rose-clair);
-	font-weight: 700;
+	font-weight: 400;
 	padding-bottom: 0.5em;
+	font-size: 0.9em;
+	line-height: 1em;
 }
 
 @media screen and (min-width:1024px) {
 	.lecael #equipe {
-		padding: 50px calc(50% - 300px) 100px;
+		padding: 50px calc(50% - 300px) 50px;
 	}
 	.lecael #equipe .titre {
 		position: absolute;
@@ -2475,7 +2514,7 @@ button.acces:active .slide-top {
 	padding: 50px;
 	position: relative;
 	top: -60px;
-	margin-bottom: -60px;
+	margin-bottom: -75px;
 	text-align: left;
 }
 
@@ -2483,12 +2522,19 @@ button.acces:active .slide-top {
 	background-color: var(--rose);
 	font-weight: 300;
 	padding: 10px;
+	font-size: 1.4em;
+}
+
+.lecael #administration .titre span strong {
+	font-weight: 700;
 }
 
 .lecael #administration .conseil {
 	display: grid;
 	grid-template-columns: 150px 1fr;
 	margin-top: 30px;
+	margin-left: 120px;
+	font-size: 0.9em;
 }
 
 .lecael #administration .conseil p {
@@ -2499,13 +2545,22 @@ button.acces:active .slide-top {
 	font-family: 'MuseoSansRounded-500';
 }
 
+.lecael #administration .conseil .role {
+	font-family: 'MuseoSansRounded-300';
+}
+
 .lecael #partenaires {
 	padding: 20px;
+	font-size: 1.4em;
+	font-family: 'MuseoSansRounded-300';
 }
 
 .lecael #partenaires .titre {
 	display: inline-block;
-	padding: 10px;
+	padding: 5px 10px;
+	margin-top: 10px;
+	font-weight: 700;
+	font-size: 1.3em;
 }
 
 .lecael #partenaires .cptpartenaires {
@@ -2521,6 +2576,7 @@ button.acces:active .slide-top {
 @media screen and (min-width:1024px) {
 	.lecael #administration {
 		padding: 70px calc(50% - 400px);
+		padding-bottom: 30px;
 	}
 	.lecael #partenaires {
 		padding: 20px calc(50% - 400px);
@@ -2760,9 +2816,16 @@ button.acces:active .slide-top {
 	text-align: center;
 }
 
+.nos-activites h1 {
+	font-weight: 700;
+	font-size: 2.5em;
+	margin-bottom: 0.4em;
+}
+
 .nos-activites .intro p {
 	margin-bottom: 0.5em;
-	font-weight: 700;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
 }
 
 .nos-activites .pictos {
@@ -2800,32 +2863,44 @@ button.acces:active .slide-top {
 }
 
 .nos-activites .picto h3 {
-	font-size: 1em;
+	font-size: 1.2em;
 	text-transform: none;
+	color: var(--rose-clair);
 }
 
 .nos-activites .az {
 	padding: 30px 20px 50px;
+	color: white;
+	font-family: 'MuseoSansRounded-700';
 }
 
 .nos-activites .az h2 {
 	font-weight: 400;
-	font-size: 1.5em;
+	font-size: 2em;
 	text-transform: none;
+	font-family: 'MuseoSansRounded-700';
 }
 
 .nos-activites .az h2 strong {
-	font-size: 2.5em;
+	font-size: 2.8em;
 	font-weight: 400;
 	padding: 0 2px;
 	position: relative;
 	bottom: -10px;
+	color: var(--vert-clair);
 }
 
 .nos-activites .az a {
 	display: inline-block;
 	margin: 3px;
 	padding: 0 3px;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1em;
+}
+
+.nos-activites .az label {
+	font-size: 1.2em;
+	padding-bottom: 8px;
 }
 
 .nos-activites .az a:hover,
@@ -2839,7 +2914,7 @@ button.acces:active .slide-top {
 		padding: 30px calc(50% - 400px) 50px;
 	}
 	.nos-activites .az {
-		padding: 100px calc(50% - 500px) 50px;
+		padding: 50px calc(55% - 500px) 50px;
 	}
 }
 
@@ -2926,7 +3001,9 @@ a.inactif {
 	text-align: left;
 	color: #ffffff;
 	font-family: MuseoSansRounded-500;
-	font-size: 1.17em;
+	font-size: 1.26em;
+	margin-top: 65px;
+	margin-bottom: 0px;
 }
 
 .act1 .entry-header {

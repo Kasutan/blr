@@ -64,7 +64,7 @@ function affiche_association() {
 			echo wp_kses_post( $para1 ); ?>
 		</p>
 		<?php echo wp_get_attachment_image( $imagelien, 'banniere' ); ?>
-		<div class="fond-rose mjc">
+		<div class="fond-rose-clair mjc">
 			<h2 class="titre">
 				<?php $text2  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre2', true ); 
 				echo esc_html( $text2 ); ?>
