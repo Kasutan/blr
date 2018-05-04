@@ -43,8 +43,8 @@
 			<div class="cell show-for-large large-1"></div>
 			<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>
 			class="cell small-8 medium-4 large-2">
-			<div class="details cell small-11 medium-8 large-7 fond-rose">
-				<h2 class="title rose"><?php echo esc_html( $titreevent ); ?></h2>
+			<div class="details cell small-11 medium-8 large-7 fond-rose-clair">
+				<h2 class="title rose-clair"><?php echo esc_html( $titreevent ); ?></h2>
 				<p>
 					<?php echo($detail); ?>
 				</p>

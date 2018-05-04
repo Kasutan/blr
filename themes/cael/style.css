@@ -1362,8 +1362,8 @@ button.acces:active .slide-top {
 
 .menus-footer {
 	background-color: var(--rose-fonce);
-	padding: 3em 1em;
-	padding-left: 9em;
+	padding: 50px 1em;
+	padding-left: 150px;
 }
 
 .menus-footer nav {
@@ -1374,7 +1374,7 @@ button.acces:active .slide-top {
 @media screen and (min-width:40em) {
 	.menus-footer nav:nth-of-type(2n+1) {
 		border-right: solid 1px rgba(255, 255, 255, 0.5);
-		padding-left: 3em;
+		padding-left: 50px;
 	}
 }
 
@@ -1384,7 +1384,7 @@ button.acces:active .slide-top {
 	}
 	.menus-footer nav:nth-of-type(2) {
 		border-right: solid 1px rgba(255, 255, 255, 0.5);
-		padding-left: 3em;
+		padding-left: 50px;
 	}
 }
 
@@ -1402,8 +1402,8 @@ button.acces:active .slide-top {
 	padding: 0;
 }
 
-.menu-footer-social{
-	padding-left: 3em;
+.grid-padding-x > .cell.menu-footer-social{
+	padding-left: 50px;
 }
 
 .menu-footer-social li a {
@@ -2481,7 +2481,11 @@ button.acces:active .slide-top {
 	font-weight: 400;
 	padding-bottom: 0.5em;
 	font-size: 0.9em;
-	line-height: 1em;
+}
+
+.lecael #equipe .membre .role p {
+	line-height: 1;
+	min-height: 29px;
 }
 
 @media screen and (min-width:1024px) {
@@ -3012,7 +3016,9 @@ a.inactif {
 
 .act1 h1 {
 	display: inline-block;
-	padding: 0 10px;
+	padding: 0 40px;
+	margin: 1.5em 0px 1.2em 0px;
+	color: white;
 }
 
 .act1 .entry-content a {
@@ -3025,9 +3031,13 @@ a.inactif {
 .act1 .entry-content a h2 {
 	background-color: #fff;
 	display: inline-block;
-	font-size: 1.2em;
-	padding: 0 10px;
+	font-size: 1.7em;
+	padding: 0px 20px;
 	transform: rotateZ(-3deg);
+	font-family: 'MuseoSansRounded-700';
+	text-transform: none;
+	line-height: 1;
+	margin: 0px 10px;
 }
 
 .act1 .entry-content a img {
@@ -3038,6 +3048,14 @@ a.inactif {
 
 .act1 .entry-content a .details {
 	padding: 20px;
+}
+
+.act1 .entry-content a .details p {
+	padding: 10px;
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1.1em;
+	color: white;
+	line-height: 1.2;
 }
 
 .act1 .entry-content a:nth-of-type(2n+1) .details {
@@ -3052,6 +3070,7 @@ a.inactif {
 
 .act1 .entry-content a:nth-of-type(2n+1) .details p {
 	text-align: left;
+	color: var(--rose-clair);
 }
 
 @media screen and (min-width:768px) {
@@ -3108,10 +3127,23 @@ a.inactif {
 .act2 h1 {
 	display: inline-block;
 	margin: 0;
-	padding: 0 10px;
+	padding: 10px 20px;
 	position: relative;
 	top: 25px;
 	left: 20%;
+	font-weight: 700;
+	font-size: 2.4em;
+}
+
+.act2 label {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.14em;
+	padding-bottom: 5px;
+	color: var(--rose-clair);
+}
+
+.act2 #filtre fieldset {
+	padding-top: 1em;
 }
 
 .act2 .entry-content {
@@ -3130,6 +3162,8 @@ a.inactif {
 .act2 figure {
 	display: flex;
 	position: relative;
+	margin: 1em;
+	min-width: 200px;
 }
 
 .act2 figure img {
@@ -3138,15 +3172,23 @@ a.inactif {
 
 .act2 figcaption {
 	background-color: rgba(179, 0, 98, 0.7);
+	font-family: 'MuseoSansDisplay';
 	color: #fff;
 	font-size: 1.5em;
-	font-weight: 700;
+	font-weight: 400;
 	min-height: 50px;
 	padding: 5px 10px;
 	position: absolute;
 	text-align: center;
 	top: 0;
 	width: 100%;
+}
+
+.act2 figure:hover,
+.act2 figure:focus
+ {
+	-webkit-filter: brightness(0.7);
+	filter: brightness(0.7);
 }
 
 @media screen and (min-width:1024px) {
@@ -3161,6 +3203,8 @@ a.inactif {
 
 .act2 .musique {
 	padding: 50px;
+	color: var(--rose-clair);
+	background-color: #fff;
 }
 
 .act2 .titre-musique {
@@ -3174,9 +3218,10 @@ a.inactif {
 }
 
 .act2 .musique .description p {
-	font-weight: 700;
 	margin-bottom: 0;
 	line-height: 1.2;
+	font-size: 1.4em;
+
 }
 
 .act2 .musique .description {
@@ -3203,31 +3248,41 @@ a.inactif {
 .act2 .revue .titre {
 	text-transform: none;
 	font-family: 'MuseoSansRounded-700';
-	font-size: 1.2em;
+	font-size: 1.5em;
 	margin-bottom: 0;
 }
 
 .act2 .revue .contenu p {
-	font-family: 'MuseoSansRounded-700';
+	font-family: 'MuseoSansRounded-500';
 	line-height: 1.2;
+	font-size: 1.4em;
 }
 
 .act2 .revue a.telecharger {
-	border: solid 2px var(--rose);
-	border-radius: 5px;
-	font-family: 'MuseoSansRounded-700';
+	border: solid 3px var(--rose-clair);
+	border-radius: 10px;
+	font-family: 'MuseoSansRounded-500';
 	padding: 5px 10px;
+	font-size: 1.4em;
+}
+
+.fondbas{
+	height: 100px;
+	background: repeating-linear-gradient( -45deg, #f3eaed, #f3eaed 2px, #fff 2px, #fff 30px);
 }
 
 @media screen and (min-width:1024px) {
 	.act2 .musique {
-		padding: 50px 16%;
+		padding: 50px 16% 50px 17.3%;
 	}
 }
 
 /*--------------------------------------------------------------
 ### Activités N3
 --------------------------------------------------------------*/
+.act3{
+	color: #fff;
+}
 
 .act3 .entry-header {
 	margin-bottom: 0;
@@ -3254,26 +3309,63 @@ a.inactif {
 .act3 h1 {
 	display: inline-block;
 	margin: 0;
-	padding: 0 10px;
+	padding: 0 20px;
 	position: relative;
 	bottom: 65px;
+	font-weight: 700;
+	font-size: 1.8em;
 }
 
 .act3 .entry-content {
 	margin-top: 0;
 	padding: 50px;
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1.5em;
 }
 
-.act3 .entry-content .cell {
+.act3 .entry-content h2 {
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1.4em;
+	margin-bottom: 0;
+}
+
+.act3 .entry-content p {
+	margin: 30px 0;
+}
+
+.act3 .entry-content strong {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1em;
+}
+
+.act3 .entry-content .cell,
+.act3 .entry-content .cell strong {
 	margin-bottom: 10px;
 	padding-right: 10px;
+	font-size: 0.9em;
+	font-family: 'MuseoSansRounded-300';
 }
 
 .act3 .entry-content .adresse {
 	border: solid 1px #fff;
 	border-radius: 8px;
-	display: inline-block;
-	padding: 10px 50px 10px 20px;
+	padding: 5px 50px 5px 20px;
+	margin-top: 40px;
+	font-family: 'MuseoSansRounded-500';
+	font-size: 1em;
+	max-width: 500px;
+}
+
+.adressepicto{
+	margin-left: 20px;
+	line-height: 1;
+	margin-top: 9px;
+}
+
+.act3 .entry-content .adresse span{
+	font-family: 'MuseoSansDisplay';
+	font-weight: 300;
+	font-size: 1.1em;
 }
 
 .act3 .entry-footer {
@@ -3284,15 +3376,26 @@ a.inactif {
 .act3 .inscription {
 	color: var(--rose);
 	font-size: 1.5em;
+	font-family: 'MuseoSansRounded-300';
+	line-height: 1.2;
+}
+
+.act3 .inscription strong{
+	color: var(--rose);
+	font-size: 1.3em;
+	font-family: 'MuseoSansDisplay';
+	font-weight: 400;
 }
 
 .act3 .inscription a {
 	text-decoration: underline;
+	font-weight: bold;
 }
 
 .act3 .navigation {
 	color: var(--rose-clair);
 	font-size: 1.1em;
+	margin-bottom: 30px;
 }
 
 .gridact3 {

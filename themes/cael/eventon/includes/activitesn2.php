@@ -50,33 +50,33 @@
 			</fieldset>
 		</form>
 	</header><!-- .entry-header -->
-	<div class="entry-content grid-x align-justify liste-activites">
+	<div class="entry-content">
+		<section class="grid-x align-justify liste-activites">
 
-
-		<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){
-		foreach($event_terms as $event_term){
-			$lien= get_term_link($event_term);
-            $titreevent=$event_term->name;
-            $detail=$event_term->description;
-			$eventid=$event_term->term_id;
-			//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
-			$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
-			$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
-			$agemin = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemin', true );
-			$agemax = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemax', true );
-			$classe = get_age_class($agemin, $agemax);
-		?>
-		<a href= <?php echo ($lien);?> class="lien <?php echo ($classe); ?>">
-			<figure>
-                <img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
-				<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
-			</figure>
-        </a>
-		<?php
-		}
-	};?>
-	
-	</div><!-- .entry-content -->
+			<?php 	if(!empty($event_terms) && !is_wp_error($event_terms)){
+				foreach($event_terms as $event_term){
+					$lien= get_term_link($event_term);
+					$titreevent=$event_term->name;
+					$detail=$event_term->description;
+					$eventid=$event_term->term_id;
+					//$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
+					$image = get_term_meta( $eventid, CMB_PREFIX.'_image_id', 1 );
+					$imagelien = wp_get_attachment_image_url( $image, 'thumbnail' );
+					$agemin = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemin', true );
+					$agemax = get_term_meta( $eventid, CMB_PREFIX.'_catactivites_agemax', true );
+					$classe = get_age_class($agemin, $agemax);
+					?>
+					<a href= <?php echo ($lien);?> class="lien <?php echo ($classe); ?>">
+						<figure>
+							<img src=<?php echo ($imagelien); ?> alt=<?php  echo esc_html( $titreevent ); ?>>
+							<figcaption><?php  echo esc_html( $titreevent ); ?></figcaption>
+						</figure>
+					</a>
+					<?php
+				}
+			};?>
+		</section>
+		</div><!-- .entry-content -->
 	<?php
 	// Affichage seulement pour l'activité de musique ancienne
 	if ($term->term_id == 62 ){
@@ -121,7 +121,10 @@
 			<?php endwhile; 
 		endif;
 
-	}
+	
 	?>
 	</section>
+	<div class="fondbas"></div>
+	<?php
+} ?>
 </main>

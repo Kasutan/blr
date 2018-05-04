@@ -88,11 +88,13 @@
 				
 			?>
 		</div>
-		<div class="adresse">
-			<img alt="picto boussole" src=""/>
-			<span><?php echo($texte2); ?></span>	
-			<br/>
-			<?php echo($texte3); echo(' '); echo($location_terms[0]->name);?>
+		<div class="adresse grid-x">
+			<img alt="picto boussole" src= "http:///cael.kasutan.odns.fr/wp-content/themes/cael/images/boussole.png"/>
+			<div class="adressepicto">
+				<span><?php echo($texte2); ?></span>	
+				<br/>
+				<?php echo($texte3); echo(' '); echo($location_terms[0]->name);?>
+			</div>
 		</div>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
