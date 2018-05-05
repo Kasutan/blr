@@ -46,7 +46,13 @@ if ( $query->have_posts() ) {
 
 ?>
 <main id="main" class="site-main speaker">
-<p class="fil-ariane fond-vert">Fil d'ariane</p>
+    <?php
+		if ( function_exists('yoast_breadcrumb') ) {
+		    yoast_breadcrumb('
+		    <p id="breadcrumbs" class="small-12 column fil-ariane fond-vert">','</p>
+		    ');
+		}
+	?>
     
 <section class="grid-x align-center align-stretch contenu">
     <div class="show-for-large cell large-2"></div>    
@@ -66,7 +72,7 @@ if ( $query->have_posts() ) {
                                     echo '<h1>'.$content["evo_sch_title"].'</h1>';
                                     echo '<h2>'.$termmeta2["evo_speaker_title"].'</h2>';
                                     echo '<p>'.$content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</p>';
-                                    echo $term->description;
+                                    echo  wpautop( wp_kses_post($term->description));
                                     $resa = $content["evo_sch_desc"];
                                 }
                             }
@@ -94,7 +100,7 @@ if ( $query->have_posts() ) {
     <div class="cell small-12 medium-6">
         <h2><?php echo ($textelocalisation);?></h2>
         <div class="encadre">
-            <?php echo ($location_terms[0]->name);?><br>
+            <span><?php echo ($location_terms[0]->name);?></span><br>
             <?php echo ($term_location["location_address"]);?><br>
             <?php echo ($term_location["location_city"]);?>
             </div>
@@ -104,7 +110,7 @@ if ( $query->have_posts() ) {
     </div>
     <div class="cell small-12 medium-6">
         <h2><?php echo ($titreresa);?></h2>
-        <div class="encadre">
+        <div class="encadre resa">
             <?php echo wpautop(wp_kses_post($texteresa));?>
             <a href="<?php echo ($pdfidresa);?>"><?php echo ($textelienresa);?></a>
         </div>

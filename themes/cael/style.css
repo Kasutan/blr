@@ -3683,12 +3683,13 @@ a.inactif {
 	/*	color:#49d75f;*/
 	font-weight: 500;
 	margin: 0;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	text-transform: unset;
+	color: rgb(46,208,60);
 }
 
 .speaker h1 {
-	font-size: 1.5em;
+	font-size: 1.6em;
 }
 
 .speaker .image {
@@ -3709,11 +3710,21 @@ a.inactif {
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 0 10px;
+	font-size: 1em;
+}
+
+.speaker .contenu .texte .vert p{
+	font-size: 1em;
+	line-height: 1.1;
+	color: rgb(46,208,60);
 }
 
 .speaker .contenu .texte .partage {
 	font-weight: 700;
 	margin-top: 20px;
+	color: var(--rose-clair);
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.3em;
 }
 
 .speaker .contenu .texte .partage a {
@@ -3737,10 +3748,18 @@ a.inactif {
 
 .speaker .contenu {
 	margin-bottom: 50px;
+	margin-top: 100px;
 }
 
 .speaker .pratique {
 	padding: 20px;
+	margin-bottom: 80px;
+}
+
+.speaker .pratique h2{
+	color: white;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.3em;
 }
 
 .speaker .pratique p {
@@ -3752,6 +3771,22 @@ a.inactif {
 	border-radius: 10px;
 	margin: 10px 20px 10px 0;
 	padding: 10px;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.1em;
+}
+
+.speaker .pratique .encadre.resa{
+	font-family: 'MuseoSansRounded-500'
+}
+
+.speaker .pratique .encadre.resa strong{
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.3em;
+	font-weight: normal;
+}
+
+.speaker .pratique .encadre span {
+	font-size: 1.3em;
 }
 
 .speaker .pratique .tarifs {
