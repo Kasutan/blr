@@ -29,6 +29,7 @@
 		$titrehisto = get_post_meta( $IDevent, '_evcal_ec_f2a1_cus', true );
 		$textehisto = get_post_meta( $IDevent, '_evcal_ec_f3a1_cus', true );
 		$titreprece = get_post_meta( $IDevent, '_evcal_ec_f4a1_cus', true );
+		$titrefest = get_post_meta( $IDevent, '_evcal_ec_f5a1_cus', true );
 		$speakers = get_post_meta( $IDevent, '_sch_blocks', true );
 		$idphoto1  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_1_id', true );
 		$idphoto2  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_2_id', true );
@@ -47,13 +48,13 @@
 	<header class="entry-header ">
 		<nav class = "ancres">
 			<a href="#festival">
-				<?php the_title(); ?>
+				<?php echo wpautop( wp_kses_post( $titrefest )); ?>
 			</a>
 			<a href="#programmation">
-				<?php echo esc_html( $titreprog ); ?>
+				<?php echo wpautop( wp_kses_post( $titreprog )); ?>
 			</a>
 			<a href="#histoire">
-				<?php echo esc_html( $titrehisto ); ?>
+				<?php echo wpautop( wp_kses_post( $titrehisto )); ?>
 			</a>
 		</nav>
 		<h1 class="show-for-sr">
@@ -65,12 +66,12 @@
 	<section id="festival" class="grid-x">
 		<div class="image cell small-12 medium-4">
 			<h2 class="titre blanc fond-rose-clair">
-				<?php the_title(); ?>
+				<?php echo wpautop( wp_kses_post( $titrefest )); ?>
 			</h2>
 			<a href="<?php echo ($lienpdf); ?>">
 				<figure>
 					<?php echo wp_get_attachment_image($idimagepdf, 'medium' ); ?>
-					<figcaption><?php  echo esc_html( $textelien ); ?></figcaption>
+					<figcaption><?php  echo wpautop( wp_kses_post( $textelien )); ?></figcaption>
 				</figure>
         	</a>
 		</div>
@@ -88,7 +89,7 @@
 
 	<section id="programmation">
 		<h2 class="titre blanc fond-rose-clair">
-			<?php echo esc_html( $titreprog ); ?>
+			<?php echo wpautop( wp_kses_post( $titreprog )); ?>
 		</h2>
 		
 		<div class="liste-spectacles grid-x align-justify wrap align-stretch">
@@ -99,7 +100,6 @@
 						if ($key!=0) {
 
 							$cleterm = key($content["evo_sch_spk"]);	
-								
 							$termMeta = get_option( "evo_tax_meta");
 							$termmeta2 = evo_get_term_meta('event_speaker',$cleterm, $termMeta);
 							$speaker_link = get_term_link( $cleterm );
@@ -125,19 +125,18 @@
 
 	<section id="histoire">
 		<h2 class="titre blanc fond-rose-clair">
-			<?php echo esc_html( $titrehisto ); ?>
+			<?php echo wpautop( wp_kses_post( $titrehisto )); ?>
 		</h2>
 		<div class="vert">
-			<?php echo wpautop( wp_kses_post(( $textehisto ))); ?>
+			<?php echo wpautop( wp_kses_post( $textehisto )); ?>
 		</div>
 	</section>
 
 	<section id="editions">
 		<h2  class="titre blanc fond-rose-clair">
-			<?php echo esc_html( $titreprece ); ?>
+			<?php echo wpautop( wp_kses_post( $titreprece )); ?>
 		</h2>
-		<p>Historique à récupérer</p>
-		
+			
 		<div class="fond-vert-clair grid-x liste-editions">
 			<a href="#">2016</a>
 			<a href="#">2015</a>

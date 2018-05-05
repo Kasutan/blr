@@ -89,7 +89,7 @@
 			?>
 		</div>
 		<div class="adresse grid-x">
-			<img alt="picto boussole" src= "http:///cael.kasutan.odns.fr/wp-content/themes/cael/images/boussole.png"/>
+			<img alt="picto boussole" src= "/wp-content/themes/cael/images/boussole.png"/>
 			<div class="adressepicto">
 				<span><?php echo($texte2); ?></span>	
 				<br/>
