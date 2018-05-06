@@ -2823,17 +2823,31 @@ button.acces:active .slide-top {
 ## Page renseignements
 --------------------------------------------------------------*/
 
+.rens h1 {
+	font-weight: 700;
+	font-size: 2.5em;
+	padding: 20px 0;
+}
+
 .rens h2 {
 	display: inline-block;
-	padding: 0 10px;
+	font-weight: 700;
+	font-size: 2.2em;
+	padding: 0 40px;
+	line-height: 1;
+	margin-bottom: 50px;
 }
 
 .rens section {
 	padding: 20px;
+	align-items: center;
 }
 
 .rens label {
 	color: #fff;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 0.9em;
+	line-height: 1;
 }
 
 .rens input[type="submit"],
@@ -2846,12 +2860,91 @@ button.acces:active .slide-top {
 	background-position: right;
 	color: var(--vert);
 	text-shadow: none;
-	font-weight: 700;
-	font-family: 'MuseoSansRounded-700', sans-serif;
+	font-weight: 400;
+	font-size: 1.5em;
+	font-family: 'MuseoSansDisplay';
 	border: none;
 	float: right;
 	text-transform: lowercase;
-	width: 100px;
+	width: 140px;
+	text-align: left;
+	line-height: 1;
+}
+
+.rens #contact div.texte.blanc {
+	padding-left: 40px;
+	padding-top: 65px;
+	font-family: 'MuseoSansDisplay';
+	font-weight: 400;
+	font-size: 1.2em;
+}
+
+.rens #contact div.texte.blanc .titre {
+	font-size: 2.2em;
+	margin-bottom: 0;
+	line-height: 0.7;
+}
+
+.rens #contact div.texte.blanc div {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+}
+
+.rens #contact div.texte.blanc div p {
+	line-height: 1.2;
+}
+
+.rens #horaires h2 {
+	color: var(--rose-fonce);
+	background-color: white;
+}
+
+.rens #horaires div {
+	font-size: 1.2em;
+	font-family: 'MuseoSansRounded-300';
+	font-weight: normal;
+	max-width: 90%;
+}
+
+.rens #horaires table {
+	width: 90%;
+}
+
+.rens #horaires table th,
+.rens #horaires table td {
+	font-size: 0.9em;
+	font-weight: normal;
+	text-align: center;
+	padding: 5px 0;
+}
+
+.rens .horaires strong {
+	font-family: 'MuseoSansRounded-700';
+}
+
+.rens .horaires p {
+	line-height: 1.2;
+}
+
+.rens #horaires div.calendrier {
+	max-width: 100%;
+	padding-top: 10px;
+}
+
+.rens .calendrier p {
+	font-size: 1em;
+	line-height: 1;
+}
+
+.rens .calendrier p strong {
+	font-family: 'MuseoSansRounded-500';
+	font-size: 1.1em;
+}
+
+.rens .calendrier p:first-child strong {
+	font-family: 'MuseoSansDisplay';
+	font-weight: 700;
+	font-size: 1.2em;
 }
 
 .rens .adresse p:last-of-type {
@@ -2885,6 +2978,24 @@ button.acces:active .slide-top {
 	padding: 5px;
 }
 
+.rens #acces h2 {
+	padding: 10px 40px 5px 40px;
+}
+
+.rens #acces h3 {
+	font-weight: 700;
+	font-size: 1.45em;
+}
+
+.rens #acces p {
+	font-size: 1em;
+}
+
+.rens #acces p strong {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+}
+
 .rens #inscriptions {
 	background: var(--vert-clair);
 	background: url('/wp-content/themes/cael/images/motif-triangles-verts.png');
@@ -2899,12 +3010,20 @@ button.acces:active .slide-top {
 	margin-bottom: 30px;
 }
 
+.rens #inscriptions p {
+	line-height: 1.8;
+	color: rgb(46,208,60);
+}
+
 .rens #inscriptions .texte {
-	padding: 30px;
+	padding: 50px;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 0.95em;
+	margin-top: 70px;
 }
 
 .rens #inscriptions a {
-	border: solid 1px var(--rose-clair);
+	border: solid 3px var(--rose-clair);
 	border-radius: 8px;
 	color: var(--rose-clair);
 	font-weight: 700;
@@ -2918,7 +3037,7 @@ button.acces:active .slide-top {
 		padding: 100px 16%;
 	}
 	.rens #inscriptions {
-		padding: 60px 16% 0;
+		padding: 90px 16.7% 0;
 	}
 	.rens #inscriptions .texte {
 		padding-bottom: 60px;
@@ -3306,6 +3425,7 @@ a.inactif {
 	text-align: center;
 	top: 0;
 	width: 100%;
+	left: 0;
 }
 
 .act2 figure:hover,

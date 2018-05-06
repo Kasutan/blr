@@ -248,9 +248,7 @@ function affiche_horaires() {
 			</div>
 			
 			<div class="cell large-5 calendrier rose-fonce fond-blanc text-center">
-				<p>
 					<?php  echo wpautop(wp_kses_post( $texte3 )); ?>
-				</p>
 			</div>
 
 	</section>
