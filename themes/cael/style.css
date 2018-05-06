@@ -2269,6 +2269,11 @@ button.acces:active .slide-top {
 	display: inline-block;
 	position: relative;
 	margin: 10px auto;
+	width: 70%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 0 10px;
 }
 
 .site-main nav.ancres a {
@@ -2591,6 +2596,31 @@ button.acces:active .slide-top {
 ## Nos actions
 --------------------------------------------------------------*/
 
+.actions {
+	text-align: center;
+}
+
+.actions h1 {
+	padding-top: 20px;
+	font-weight: 700;
+	font-size: 2.4em;
+}
+
+#social h2 {
+	text-align: left;
+	font-weight: 700;
+	font-size: 1.5em;
+	line-height: 0.5;
+}
+
+#social p {
+	text-align: left;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+	line-height: 1.5;
+	padding-bottom: 10px;
+}
+
 #famille h2,
 #senior h2 {
 	display: inline-block;
@@ -2598,14 +2628,35 @@ button.acces:active .slide-top {
 	padding: 0 10px;
 	transform: rotateZ(-3deg);
 	transform-origin: top right;
+	font-weight: 700;
+	font-size: 2.4em;
+	white-space: nowrap;
+	margin-bottom: 2px;
+}
+
+#famille .contenu {
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+	text-align: left;
+	margin-left: 15px;
+	line-height: 1.3;
 }
 
 .projets h3 {
 	color: var(--rose-clair);
+	font-weight: 700;
+	font-size: 1.5em;
 }
 
 .projets {
 	color: var(--rose-fonce);
+	margin-top: 35px;
+}
+
+.projets.famile {
+	padding-top: 20px;
+	font-family: 'MuseoSansRounded-300';
+	
 }
 
 .projets.senior {
@@ -2626,13 +2677,24 @@ button.acces:active .slide-top {
 	text-align: left;
 }
 
+.projets>div div {
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1em;
+}
+
 .projets a {
-	background-color: var(--rose-clair);
+	background-color: rgb(238,89,154);
 	color: #fff;
 	display: inline-block;
 	font-weight: 700;
 	margin-top: 20px;
 	padding: 5px 50px 5px 5px;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1em;
+}
+
+.projets.senior a {
+	background-color: var(--rose-clair);
 }
 
 .projets a::after {
@@ -2644,23 +2706,39 @@ button.acces:active .slide-top {
 	line-height: 1.1;
 	border: none;
 	margin-left: 5px;
+	margin-right: 0;
+	padding-right: 0;
+	padding-left: 10px;
+	text-align: left;
+	font-size: 1.2em;
 }
 
 .actions blockquote .titre {
 	font-size: 1.5em;
+	font-family: 'MuseoSansDisplay';
 	text-transform: uppercase;
+	padding-bottom: 20px;
 }
 
 .actions blockquote .titre:before {
 	color: var(--rose-clair);
 	content: "\e908";
 	font-family: 'icomoon';
+	padding-right: 10px;
+	font-size: 2.5em;
+	top: 5px;
+	position: relative;
+
 }
 
 .actions blockquote .citation:after {
 	color: var(--rose-clair);
 	content: "\e907";
 	font-family: 'icomoon';
+	padding-left: 5px;
+	font-size: 1em;
+	top: 2px;
+	position: relative;
 }
 
 .actions .decor-rose {
@@ -2671,6 +2749,11 @@ button.acces:active .slide-top {
 
 #bafa {
 	padding-top: 30px;
+	background-color: rgb(238,89,154);
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1em;
+	text-align: left;
+	line-height: 1.7;
 }
 
 #bafa .decor {
@@ -2680,14 +2763,27 @@ button.acces:active .slide-top {
 	top: 30px;
 }
 
+#bafa .decor .contenu div.grid-x {
+	margin: 20px 0;
+}
+
 #bafa h2 {
 	display: inline-block;
-	padding: 20px 0px;
+	background-color: rgb(238,89,154);
+	padding: 20px 10px;
 	writing-mode: vertical-lr;
 	transform: rotateZ(180deg);
 	position: absolute;
 	top: 0;
 	left: 85px;
+	font-weight: 700;
+	font-size: 2.5em;
+}
+
+#bafa h3 {
+	color: rgb(238,89,154);
+	font-weight: 700;
+	font-size: 1.5em;
 }
 
 #bafa .fond-blanc {
@@ -2696,7 +2792,31 @@ button.acces:active .slide-top {
 
 #bafa .intro {
 	margin-left: 100px;
-	margin-top: 50px;
+	margin-top: 120px;
+	margin-bottom: 30px;
+	padding-left: 30px;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 1.2em;
+	line-height: 1.2;
+}
+
+#bafa img {
+	padding-right: 20px;
+}
+
+@media screen and (min-width:1024px) {
+	.actions #social {
+		padding: 0px calc(50% - 400px);
+	}
+	.actions #famille {
+		padding: 50px calc(50% - 400px);
+	}
+	.actions #senior {
+		padding: 50px calc(50% - 400px);
+	}
+	.actions #bafa {
+		padding: 50px calc(50% - 490px);
+	}
 }
 
 /*--------------------------------------------------------------

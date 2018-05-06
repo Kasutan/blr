@@ -30,7 +30,7 @@ add_action( 'cmb2_admin_init', function() {
 	$cmb_famille->add_field( array(
 		'name'       => __( 'Texte 1', 'cmb2' ),
 		'id'         => CMB_PREFIX . '_actions_famille_texte1',
-		'type'       => 'textarea',		
+		'type'       => 'wysiwyg',		
 	) );
 
 	$cmb_famille->add_field( array(
