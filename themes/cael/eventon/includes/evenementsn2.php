@@ -37,8 +37,8 @@
 		$idphoto4  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_4_id', true );
 		$idphoto5  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_5_id', true );
 		$idphoto6  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_6_id', true );
+		asort($speakers);
 		}	
-
 	?>
 
 	<main id="main" class="site-main ev2">
