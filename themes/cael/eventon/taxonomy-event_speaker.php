@@ -3,6 +3,7 @@
  *	template pour afficher le détail de la programmation des événements 
  *
  */
+setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');
 
 get_header();
     
@@ -71,7 +72,7 @@ if ( $query->have_posts() ) {
                             if($cleterm == $ID){
                                     echo '<h1>'.$content["evo_sch_title"].'</h1>';
                                     echo '<h2>'.$termmeta2["evo_speaker_title"].'</h2>';
-                                    echo '<p>'.$content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</p>';
+                                    echo '<p>'.strftime("%d %B %Y", strtotime($content["evo_sch_date"])).' - '.$content["evo_sch_stime"].'</p>';
                                     echo  wpautop( wp_kses_post($term->description));
                                     $resa = $content["evo_sch_desc"];
                                 }

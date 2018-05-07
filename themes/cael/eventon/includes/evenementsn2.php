@@ -1,5 +1,5 @@
 <?php 
-	setlocale(LC_ALL, 'fra');
+	setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');
 	$tax = get_query_var( 'taxonomy' );
 	$term_name = get_query_var( 'term' );
 	$term = get_term_by( 'slug', $term_name, $tax );
@@ -107,7 +107,7 @@
 							echo wp_get_attachment_image($termmeta2["evo_spk_img"], 'thumbnail' );
 							echo '<p><strong>'.$content["evo_sch_title"].'<br>';
 							echo $termmeta2["evo_speaker_title"].'</strong><br><small>';
-							echo $content["evo_sch_date"].' - '.$content["evo_sch_stime"].'</small></p></a>';
+							echo strftime("%d %B %Y", strtotime($content["evo_sch_date"])).' - '.$content["evo_sch_stime"].'</small></p></a>';
 						}
 					}
 				}
