@@ -535,6 +535,11 @@ template {
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Guillemets';
+	src: url('inc/fonts/CalvertMTStd-Bold.otf');
+}
+
 [class^="icon-"],
 [class*=" icon-"] {
 	/* use !important to prevent issues with browser extensions that change fonts */
@@ -551,11 +556,27 @@ template {
 }
 
 .icon-quote-right:before {
-	content: "\e907";
+	content: close-quote;
+	font-family: 'Guillemets';
+	font-size: 2em;
+	top: 28px;
+	position: relative;
 }
 
 .icon-quote-left:before {
-	content: "\e908";
+	content: open-quote;
+	font-family: 'Guillemets';
+	font-size: 3em;
+	top: 83px;
+	position: relative;
+}
+
+#festival .icon-quote-left:before {
+	content: open-quote;
+	font-family: 'Guillemets';
+	font-size: 3em;
+	top: 56px;
+	position: relative;
 }
 
 .icon-triangle-right:before {
@@ -1297,6 +1318,13 @@ button.acces:active .slide-top {
 .reveal p strong.caps {
 	font-size: 2.2rem;
 	line-height: 0.2;
+	font-weight: 700;
+}
+
+.reveal .align-middle {
+	max-width: 50%;
+	justify-content: center;
+	margin: auto;
 }
 
 .caps {
@@ -1327,6 +1355,9 @@ button.acces:active .slide-top {
 	color: #fff;
 	margin-right: 20px;
 	min-width: 300px;
+	font-family: 'MuseoSansDisplay';
+	font-weight: 100;
+	font-size: 2em;
 }
 
 #recherche input.search-field:focus {
@@ -1869,13 +1900,17 @@ button.acces:active .slide-top {
 
 #activites {
 	background-color: var(--rose);
-	border-bottom: solid lightpink 150px;
-	border-image: url(/wp-content/themes/cael/images/decor.png);
-	/*Extraire le décor d'Adobe CC au format png ou svg*/
 	color: #fff;
 	padding: 20px;
 	align-items: flex-start;
 }
+
+.fondgeom {
+	height: 150px;
+	width: 100%;
+	background-image: url(/wp-content/themes/cael/images/Fond_geom.png);
+}
+
 
 #activites .titre {
 	font-weight: 700;
@@ -2034,8 +2069,7 @@ button.acces:active .slide-top {
 }
 
 #reseaux .decor {
-	background-image: url(/wp-content/themes/cael/images/decor-hachures.png);
-	/*Extraire le décor d'Adobe CC au format png ou svg ou repeating-linear-gradient*/
+	background-image: url(/wp-content/themes/cael/images/Barre_index.png);
 	height: 30px;
 }
 
@@ -2181,6 +2215,26 @@ button.acces:active .slide-top {
 
 #apropos .icon-triangle-right {
 	font-size: 50px;
+}
+
+#apropos .assohover:hover > h2 {
+	background-color: rgb(125,0,69);
+}
+
+#apropos .projethover:hover > h2 {
+	background-color: rgb(161,0,88);
+}
+
+#apropos .pjhover:hover > h2 {
+	background-color: rgb(1,128,0);
+}
+
+
+#apropos .assohover:hover > div > a,
+#apropos .projethover:hover > div > a,
+#apropos .pjhover:hover > div > a {
+		-webkit-filter: brightness(0.7);
+		filter: brightness(0.7);
 }
 
 @media screen and (min-width:1024px) {
@@ -2621,6 +2675,10 @@ button.acces:active .slide-top {
 	padding-bottom: 10px;
 }
 
+.actions #famille {
+	background-color: rgb(239,251,240);
+}
+
 #famille h2,
 #senior h2 {
 	display: inline-block;
@@ -2722,13 +2780,12 @@ button.acces:active .slide-top {
 
 .actions blockquote .titre:before {
 	color: var(--rose-clair);
-	content: "\e908";
-	font-family: 'icomoon';
+	content: open-quote;
+	font-family: 'Guillemets';
 	padding-right: 10px;
-	font-size: 2.5em;
-	top: 5px;
+	font-size: 5em;
+	top: 68px;
 	position: relative;
-
 }
 
 .actions blockquote .citation:after {
@@ -2742,14 +2799,20 @@ button.acces:active .slide-top {
 }
 
 .actions .decor-rose {
-	background-color: var(--rose-clair);
+	background-image: url(/wp-content/themes/cael/images/Fond_nosactions.png);
 	opacity: 0.5;
-	height: 200px;
+	height: 300px;
 }
 
+.fondbafa {
+	height: 50px;
+	width: 100%;
+	background-color: var(--rose-clair);
+}
+
+
 #bafa {
-	padding-top: 30px;
-	background-color: rgb(238,89,154);
+	background-image: url(/wp-content/themes/cael/images/Fond_cube.jpg);
 	font-family: 'MuseoSansRounded-300';
 	font-size: 1em;
 	text-align: left;
@@ -2757,10 +2820,12 @@ button.acces:active .slide-top {
 }
 
 #bafa .decor {
-	background: var(--vert-clair);
+	background: white;
 	padding: 50px;
 	position: relative;
 	top: 30px;
+	padding-bottom: 20px;
+	margin-bottom: 100px;
 }
 
 #bafa .decor .contenu div.grid-x {
@@ -2815,7 +2880,7 @@ button.acces:active .slide-top {
 		padding: 50px calc(50% - 400px);
 	}
 	.actions #bafa {
-		padding: 50px calc(50% - 490px);
+		padding: 50px calc(50% - 480px);
 	}
 }
 
@@ -2994,6 +3059,11 @@ button.acces:active .slide-top {
 .rens #acces p strong {
 	font-family: 'MuseoSansRounded-700';
 	font-size: 1.2em;
+}
+
+.rens #acces div.carte:hover {
+	-webkit-filter: brightness(0.7);
+	filter: brightness(0.7);
 }
 
 .rens #inscriptions {
@@ -3598,6 +3668,11 @@ a.inactif {
 	font-family: 'MuseoSansRounded-500';
 	font-size: 1em;
 	max-width: 500px;
+	flex-flow: row;
+}
+
+.act3 .entry-content .adresse img {
+	margin: auto;
 }
 
 .adressepicto{
@@ -4087,10 +4162,13 @@ a.inactif {
 	position: relative;
 	top: -20px;
 	left: 10px;
+	font-size: 2.3em;
+	font-weight: 700;
 }
 
 .single-post article .titre {
-	font-size: 1.2em;
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1.74em;
 	margin-bottom: 0;
 	text-transform: uppercase;
 }
@@ -4098,18 +4176,25 @@ a.inactif {
 .single-post .extrait p {
 	line-height: 1.2;
 	margin-bottom: 0;
+	font-size: 1.4em;
 }
 
 .single-post .meta {
-	font-size: 0.8em;
+	font-size: 1.24em;
 	margin-bottom: 30px;
 	opacity: 0.9;
+	font-family: 'MuseoSansRounded-300';
 }
 
 .single-post .contenu a {
 	display: block;
-	font-size: 0.9em;
+	font-size: 1.43em;
 	text-align: right;
+	font-family: 'MuseoSansRounded-300';
+}
+
+.single-post .contenu p {
+	font-size: 1.43em;
 }
 
 .single-post .contenu a::after {
@@ -4120,6 +4205,7 @@ a.inactif {
 .single-post .post-navigation a {
 	color: var(--rose-clair);
 	font-weight: 700;
+	font-size: 1.1em;
 }
 
 @media screen and (min-width:1024px) {
@@ -4138,6 +4224,8 @@ a.inactif {
 .blog .page-title {
 	margin-bottom: 0;
 	padding: 20px;
+	font-weight: 700;
+	font-size: 3.1em;
 }
 
 .blog .liste-actus {
@@ -4145,9 +4233,14 @@ a.inactif {
 	padding: 50px 20px;
 }
 
+.blog .liste-actus h2 a {
+	font-family: 'MuseoSansRounded-300';
+	font-size: 1.7em;
+}
+
 .blog .liste-actus article {
 	flex-wrap: nowrap;
-	margin-bottom: 30px;
+	align-items: center;
 }
 
 .blog .liste-actus .entry-title {
@@ -4159,11 +4252,13 @@ a.inactif {
 .blog .liste-actus .extrait p {
 	margin-bottom: 0;
 	line-height: 1.1;
+	font-size: 1.4em;
 }
 
 .blog .liste-actus .meta {
-	font-size: 0.8em;
+	font-size: 1.2em;
 	opacity: 0.8;
+	font-family: 'MuseoSansRounded-300';
 }
 
 .blog .bordure {
@@ -4207,10 +4302,11 @@ a.inactif {
 		padding-right: 16%;
 	}
 	.blog .liste-actus {
-		padding: 50px 16% 20px;
+		padding: 100px 16% 20px;
 	}
 	.blog .liste-actus article {
 		margin-bottom: 80px;
+		padding-right: 50px;
 	}
 }
 

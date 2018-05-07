@@ -99,6 +99,7 @@ $text2  = get_post_meta( $ID, CMB_PREFIX.'_accueil_zoom', true );
 	};?>
 	</div>
 </section>
+<div class="fondgeom"></div>
 <?php
 
 echo ob_get_clean();

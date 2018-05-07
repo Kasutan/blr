@@ -58,28 +58,35 @@ function affiche_apropos() {
 			<div class="bandeau fond-rose transparent"></div>
 		</div>
 		<div class="cell small-12 medium-6 large-5">
-			<h2 class="titre fond-rose">
-			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
-			echo esc_html( $text ); ?>
-			</h2>
-			<div class="grid-x align-middle align-justify nowrap">
-				<p>
-					<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
-					echo wp_kses_post( $para1 ); ?>
-				</p>
-				<a href="/le-cael/#association" title="En savoir plus"><span class="icon-triangle-right rose"></span></a>
-			</div>
-			<h2 class="titre fond-rose-clair">
-				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
+
+			<div class="assohover">	
+				<h2 class="titre fond-rose">
+				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre1', true ); 
 				echo esc_html( $text ); ?>
-			</h2>
-			<div class="grid-x align-middle  align-justify nowrap">
-				<p>
-					<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
-					echo wp_kses_post( $para2 ); ?>
-				</p>
-				<a href="/le-cael/#projet" title="En savoir plus"><span class="icon-triangle-right rose-clair"></span></a>
+				</h2>
+				<div class="grid-x align-middle align-justify nowrap">
+					<p>
+						<?php $para1  = get_post_meta( 6, CMB_PREFIX.'_lecael_asso_texte1', true ); 
+						echo wp_kses_post( $para1 ); ?>
+					</p>
+					<a href="/le-cael/#association" title="En savoir plus"><span class="icon-triangle-right rose"></span></a>
+				</div>
 			</div>
+
+			<div class="projethover">
+				<h2 class="titre fond-rose-clair">
+					<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre2', true ); 
+					echo esc_html( $text ); ?>
+				</h2>
+				<div class="grid-x align-middle  align-justify nowrap">
+					<p>
+						<?php $para2  = get_post_meta( 6, CMB_PREFIX.'_lecael_projet_texte1', true ); 
+						echo wp_kses_post( $para2 ); ?>
+					</p>
+					<a href="/le-cael/#projet" title="En savoir plus"><span class="icon-triangle-right rose-clair"></span></a>
+				</div>
+			</div>
+
 		</div>
 		<div class="show-for-medium cell medium-1 large-2">
 			&nbsp;
@@ -87,7 +94,7 @@ function affiche_apropos() {
 		<div class="show-for-medium cell medium-1 large-2">
 			<div class="bandeau fond-vert"></div>
 		</div>
-		<div class="cell small-12 medium-10 large-8">
+		<div class="cell small-12 medium-10 large-8 pjhover">
 			<h2 class="titre fond-vert">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre3', true ); 
 				echo esc_html( $text ); ?>

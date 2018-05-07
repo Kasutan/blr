@@ -34,6 +34,13 @@ add_action( 'cmb2_admin_init', function() {
 		'type'       => 'wysiwyg',	
 	) );
 
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Carte', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_carte',
+		'type'       => 'file',
+		'text'    => array(	'add_upload_file_text' => 'Charger l&acute;image de la carte' ),	
+	) );
+
 });
 
 function affiche_acces() {			
@@ -44,6 +51,7 @@ function affiche_acces() {
 	$titre1  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_titre1', true );
 	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_titre2', true );
 	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_texte', true );
+	$carte_id  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_id', true );
 	
 	?>
 	<section id="acces" class="grid-x align-top align-justify rose-clair" >
@@ -60,7 +68,7 @@ function affiche_acces() {
 			</div>
 		
 			<div class="cell medium-6 carte">
-				<?php  echo ('Carte à afficher'); ?>
+				<?php echo wp_get_attachment_image( $carte_id, 'medium' ); ?>
 				<?php  echo ('icônes acces à afficher'); ?>
 			</div>
 	</section>

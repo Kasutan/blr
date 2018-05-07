@@ -65,106 +65,114 @@ function affiche_calendrier() {
 	$text3  = get_post_meta( $ID, CMB_PREFIX.'_accueil_lien_calendrier', true );
 	?>
 	<section id="calendrier" class="grid-x align-top align-center">
-		<div class="cell large-6 events">
+
+		<div class="cell large-6 events" >
+
 			<h2 class="titre avec-fond-oblique"> 
 			<div class="fond-oblique"></div>				
 			<span><?php echo esc_html( $text2 ); ?></span>
 			</h2>
+
 			<?php 
-	$currentdate= date_timestamp_get(date_create());
+			$currentdate= date_timestamp_get(date_create());
 
-	$args = array(
-		'post_type' => 'ajde_events',
-		'post_status' => 'publish',
-		'posts_per_page' => 14,
-		'meta_query' => array(
-			array(
-				'key' => 'evcal_srow',
-				'compare' => '>=',
-				'value' => $currentdate,
-				)
-				),
-		'meta_key' => 'evcal_srow',
-        'orderby' => 'meta_value_num',
-        'order' => 'ASC'
-		);
+			$args = array(
+				'post_type' => 'ajde_events',
+				'post_status' => 'publish',
+				'posts_per_page' => 14,
+				'meta_query' => array(
+					array(
+						'key' => 'evcal_srow',
+						'compare' => '>=',
+						'value' => $currentdate,
+						)
+						),
+				'meta_key' => 'evcal_srow',
+				'orderby' => 'meta_value_num',
+				'order' => 'ASC'
+				);
 
-	$query = new WP_Query( $args );
-	$aujourdhui = 0;
-	$demain = 0;
-	$apresdemain = 0;
-	?><div><?php
-	if ( $query->have_posts() ) {
-		while($query->have_posts()): $query->the_post();
+			$query = new WP_Query( $args );
+			$aujourdhui = 0;
+			$demain = 0;
+			$apresdemain = 0;
 
-			$IDquery = get_the_ID();
-			$terms = wp_get_post_terms( $IDquery, 'event_type');
-			 	
-			if(!empty($terms) && !is_wp_error($terms)){
-				foreach($terms as $term){
-					$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
-
-					if($current_term_level == 3)
-					{
-						$lien= get_term_link($term);
-						$titreevent=$term->name;
-						
-					}
-
-				}
-			};
-
-			$niveauevent = get_post_meta( $IDquery, 'evcal_subtitle', true );
-			$debut = get_post_meta( $IDquery, 'evcal_srow', true );
+			?><div><?php			 
+			if ( $query->have_posts() ) {
 					
-				if(idate('U', $debut - $currentdate) < 86400 && $aujourdhui == 0)
-					{
-						?><div class="calaccueil">
-						<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> <?php
-						$aujourdhui = $aujourdhui + 1 ;
-						?> </br> <?php
-					}
+				while($query->have_posts()): $query->the_post();
 
-				elseif (86400 <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 2) && $demain == 0)
-					{
-						?></div> <div class="calaccueil"> 
-						<strong>	<?php echo('Demain');?> </strong> <?php
-						$demain = $demain + 1 ;
-						?> </br> <?php
-					}
+					$IDquery = get_the_ID();
+					$terms = wp_get_post_terms( $IDquery, 'event_type');
+						
+					if(!empty($terms) && !is_wp_error($terms)){
+						foreach($terms as $term){
+							$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
 
-				elseif ((86400 * 2) <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 3) && $apresdemain == 0)
-					{
-						?> </div> </br><div class="calaccueil"> 
-							<strong> <?php echo('Après-demain'); ?> </strong> <?php
-						$apresdemain = $apresdemain + 1 ;
-						?> </br> <?php
-					}
+							if($current_term_level == 3)
+							{
+								$lien= get_term_link($term);
+								$titreevent=$term->name;
+								
+							}
 
-				elseif ((86400 * 3) <= idate('U', $debut - $currentdate))
-					{
-						?> </div> </br><div class="calaccueil"> 
-						<strong> <?php	echo (date_i18n($format . 'l', $debut ) . ' '); ?> </strong> <?php
-					}
+						}
+					};
 
-				?> <a href= "<?php echo ($lien);?>" class="liencal"> <?php
- 				echo $titreevent;
-				echo(' - ');
-				echo date_i18n($format . 'G\hi', $debut );
-				echo(' > ');
-				?> </a> </br> <?php
+					$niveauevent = get_post_meta( $IDquery, 'evcal_subtitle', true );
+					$debut = get_post_meta( $IDquery, 'evcal_srow', true );
+						
+						if(idate('U', $debut - $currentdate) < 86400 && $aujourdhui == 0)
+							{
+								?><div class="calaccueil">
+								<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> <?php
+								$aujourdhui = $aujourdhui + 1 ;
+								?> </br> <?php
+							}
 
-		endwhile;
-	}
-	?>
-	</div>
-	</div>
+						elseif (86400 <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 2) && $demain == 0)
+							{
+								?></div> <div class="calaccueil"> 
+								<strong>	<?php echo('Demain');?> </strong> <?php
+								$demain = $demain + 1 ;
+								?> </br> <?php
+							}
+
+						elseif ((86400 * 2) <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 3) && $apresdemain == 0)
+							{
+								?> </div> <div class="calaccueil"> 
+									<strong> <?php echo('Après-demain'); ?> </strong> <?php
+								$apresdemain = $apresdemain + 1 ;
+								?> </br> <?php
+							}
+
+						elseif ((86400 * 3) <= idate('U', $debut - $currentdate))
+							{
+								?> </div> <div class="calaccueil"> 
+								<strong> <?php	echo (date_i18n($format . 'l', $debut ) . ' '); ?> </strong> <?php
+							}
+
+						?> <a href= "<?php echo ($lien);?>" class="liencal"> <?php
+						echo $titreevent;
+						echo(' - ');
+						echo date_i18n($format . 'G\hi', $debut );
+						echo(' > ');
+						?> </a> </br> <?php
+							
+				endwhile;
+			}
+			?>
+		</div>
+		
+		</div>
 			<a href="/events-directory" class="lien-surligne">
 			<span>
 			<?php  echo esc_html( $text3 ); ?>
 					</span>
 			</a>
+
 		</div>
+
 		<div class="slider cell large-6">
 			<h2 class="titre show-for-sr">
 				<?php  
