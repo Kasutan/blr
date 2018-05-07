@@ -104,13 +104,11 @@ if ( $query->have_posts() ) {
             <?php echo ($term_location["location_address"]);?><br>
             <?php echo ($term_location["location_city"]);?>
             </div>
-        
         <?php if (!empty($textetarif)){ ?>
             <div class="encadre tarifs">
                 <?php echo wpautop(wp_kses_post($textetarif));?>
             </div>
         <?php } ?>
-
     </div>
     <div class="cell small-12 medium-6">
         <h2><?php echo ($titreresa);?></h2>
