@@ -69,7 +69,6 @@ function affiche_acces() {
 		
 			<div class="cell medium-6 carte">
 				<?php echo wp_get_attachment_image( $carte_id, 'medium' ); ?>
-				<?php  echo ('icônes acces à afficher'); ?>
 			</div>
 	</section>
 	<?php
