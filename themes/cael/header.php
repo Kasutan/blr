@@ -26,7 +26,7 @@
 
 	<header id="masthead" class="site-header"  data-sticky-container>
 		<div class="header-sticky grid-x grid-padding-x align-middle align-justify sticky" data-margin-top="0" data-sticky>
-			<button class="acces cell grid-x align-middle align-center" data-open="acces-direct"><span><strong>Le CAEL</strong> c'est toujours <strong>plus d'activités</strong> pour tous</span><span class="icon-bolt slide-top"></span></button>
+			<button class="acces cell" data-open="acces-direct"><span><strong>Le CAEL</strong> c'est toujours <strong>plus d'activités</strong> pour tous</span><span class="icon-bolt slide-top"></span></button>
 			<div class="site-branding cell small-5 medium-4 large-2">
 				<?php
 				the_custom_logo();
