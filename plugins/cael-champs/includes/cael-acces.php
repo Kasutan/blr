@@ -41,6 +41,26 @@ add_action( 'cmb2_admin_init', function() {
 		'text'    => array(	'add_upload_file_text' => 'Charger l&acute;image de la carte' ),	
 	) );
 
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Carte au survol', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_carte_survol',
+		'type'       => 'file',
+		'text'    => array(	'add_upload_file_text' => 'Charger l&acute;image de la carte au survol' ),	
+	) );
+
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Nom lien carte', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_nom_lien_carte',
+		'type'       => 'text',
+		'default'	=> 'voir sur le plan sur Google map',		
+	) );
+
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Lien carte', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_lien_carte',
+		'type'       => 'text',
+	) );
+
 });
 
 function affiche_acces() {			
@@ -52,6 +72,9 @@ function affiche_acces() {
 	$titre2  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_titre2', true );
 	$texte1  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_texte', true );
 	$carte_id  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_id', true );
+	$carte_hover_id  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_survol_id', true );
+	$textelien  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_nom_lien_carte', true );
+	$lienid  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_lien_carte', true );
 	
 	?>
 	<section id="acces" class="grid-x align-top align-justify rose-clair" >
@@ -68,7 +91,15 @@ function affiche_acces() {
 			</div>
 		
 			<div class="cell medium-6 carte">
-				<?php echo wp_get_attachment_image( $carte_id, 'medium' ); ?>
+				<a href="<?php  echo esc_html( $lienid ); ?>" target="_blank">
+					<div class="cartegooglemaps">
+						<?php echo wp_get_attachment_image( $carte_id, 'medium' ); ?>
+					</div>
+					<div class="cartegooglemapshover">
+						<?php echo wp_get_attachment_image( $carte_hover_id, 'medium' ); ?>
+						<span><?php  echo esc_html( $textelien ); ?></span>
+					</div>
+				</a>
 			</div>
 	</section>
 	<?php
