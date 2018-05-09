@@ -2272,7 +2272,8 @@ button.acces span.slide-top {
 --------------------------------------------------------------*/
 
 #apropos {
-	background: repeating-linear-gradient( -45deg, #fff, #fff 2px, #e0f8e2 2px, #e0f8e2 30px);
+	background-image: repeating-linear-gradient( -45deg, white, white 0.5%, RGB(224, 248, 226) 0%, RGB(224, 248, 226) 4%);
+	/*background: repeating-linear-gradient( -45deg, #fff, #fff 2px, #e0f8e2 2px, #e0f8e2 30px);*/
 	/* A ajuster*/
 	padding: 60px 0;
 }
