@@ -97,7 +97,8 @@ function affiche_calendrier() {
 			$demain = 0;
 			$apresdemain = 0;
 
-			?><div><?php			 
+			?><div><?php	
+			 /*		 
 			if ( $query->have_posts() ) {
 					
 				while($query->have_posts()): $query->the_post();
@@ -163,11 +164,14 @@ function affiche_calendrier() {
 			}
 			?>
 		</div>
-		
+*/ ?>		
 		</div>
+
 			<a href="/events-directory" class="lien-surligne">
 			<span>
 			<?php  echo esc_html( $text3 ); ?>
+					</span>
+					<span class="slide-right">
 					</span>
 			</a>
 
