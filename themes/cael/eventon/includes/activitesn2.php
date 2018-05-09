@@ -32,21 +32,31 @@
 		<?php echo wp_get_attachment_image($imagelienid, 'banniere' ); ?>
 		<form id="filtre" class=" grid-x n2">
 			<fieldset>
-				<input type="radio" id="tous"
-				name="groupe" value="tous" checked>
-				<label for="tous">Tous</label>
+				<div class=" grid-x">
+					<div class=" grid-x">
+						<input type="radio" id="tous"
+						name="groupe" value="tous" checked>
+						<label for="tous">Tous</label>
+					</div>
 
-				<input type="radio" id="adulte"
-				name="groupe" value="adulte">
-				<label for="adulte">Adulte</label>
-				
-				<input type="radio" id="enfant"
-				name="groupe" value="enfant">
-				<label for="enfant">Enfant</label>		
+					<div class=" grid-x">
+						<input type="radio" id="adulte"
+						name="groupe" value="adulte">
+						<label for="adulte">Adulte</label>
+					</div>
+
+					<div class=" grid-x">
+						<input type="radio" id="enfant"
+						name="groupe" value="enfant">
+						<label for="enfant">Enfant</label>		
+					</div>
+				</div>
 			</fieldset>
 			<fieldset>
-				<input type="number" id="age" name="age"  placeholder="12" min="0" max="17">
-				<label for="age">ans</label>
+				<div class=" grid-x">
+					<input type="number" id="age" name="age"  placeholder="12" min="0" max="17">
+					<label for="age">ans</label>
+				</div>
 			</fieldset>
 		</form>
 	</header><!-- .entry-header -->

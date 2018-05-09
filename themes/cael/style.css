@@ -560,15 +560,14 @@ template {
 }
 
 .icon-quote-right:before {
-	content: close-quote;
+	content: "\00201D";
 	font-family: 'Guillemets';
 	font-size: 2em;
-	top: 28px;
 	position: relative;
 }
 
 .icon-quote-left:before {
-	content: open-quote;
+	content: "\00201C";
 	font-family: 'Guillemets';
 	font-size: 3em;
 	top: 83px;
@@ -576,7 +575,7 @@ template {
 }
 
 #festival .icon-quote-left:before {
-	content: open-quote;
+	content: "\00201C";
 	font-family: 'Guillemets';
 	font-size: 3em;
 	top: 56px;
@@ -2575,7 +2574,7 @@ button.acces span.slide-top {
 	padding-left: 5px;
 	position: relative;
 	font-size: 1.5em;
-	top: 2px;
+	top: 30px;
 }
 
 .lecael #projet h3 {
@@ -2915,7 +2914,7 @@ button.acces span.slide-top {
 
 .actions blockquote .titre:before {
 	color: var(--rose-clair);
-	content: open-quote;
+	content: "\00201C";
 	font-family: 'Guillemets';
 	padding-right: 10px;
 	font-size: 5em;
@@ -3403,6 +3402,12 @@ button.acces span.slide-top {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+}
+
+#filtre fieldset div {
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 #filtre input[type="radio"] {
@@ -4044,6 +4049,11 @@ a.inactif {
 	position: relative;
 	font-size: 0.8em;
 	top: -5px;
+}
+
+.ev2 #festival blockquote span.icon-quote-right::before {
+	font-size: 4em;
+	top: 30px;
 }
 
 .ev2 #festival .texte p {

@@ -59,23 +59,35 @@ get_header();
 				<h2>
 					Les activités de <strong>A</strong> à <strong>Z</strong>
 				</h2>
-				<form id="filtre" class=" grid-x">
-					<fieldset>
-						<input type="radio" id="tous"
-						name="groupe" value="tous" checked>
-						<label for="tous">Tous</label>
+				<form id="filtre" class=" grid-x" >
 
-						<input type="radio" id="adulte"
-						name="groupe" value="adulte">
-						<label for="adulte">Adulte</label>
-						
-						<input type="radio" id="enfant"
-						name="groupe" value="enfant">
-						<label for="enfant">Enfant</label>		
-					</fieldset>
+						<fieldset>
+						<div class=" grid-x">
+							<div class=" grid-x">
+								<input type="radio" id="tous"
+								name="groupe" value="tous" checked>
+								<label for="tous">Tous</label>
+							</div>
+
+							<div class=" grid-x">
+								<input type="radio" id="adulte"
+								name="groupe" value="adulte">
+								<label for="adulte">Adulte</label>
+							</div>
+
+							<div class=" grid-x">
+								<input type="radio" id="enfant"
+								name="groupe" value="enfant">
+								<label for="enfant">Enfant</label>		
+							</div>
+						</div>
+						</fieldset>
+
 					<fieldset>
+					<div class=" grid-x">
 						<input type="number" id="age" name="age"  placeholder="12" min="0" max="17">
 						<label for="age">ans</label>
+					</div>
 					</fieldset>
 				</form>
 				<?php
