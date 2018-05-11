@@ -61,6 +61,24 @@ add_action( 'cmb2_admin_init', function() {
 		'type'       => 'text',
 	) );
 
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Zone sous carte partie gauche haut', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_carte_texteGH',
+		'type'       => 'wysiwyg',	
+	) );
+
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Zone sous carte partie gauche bas', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_carte_texteGB',
+		'type'       => 'wysiwyg',	
+	) );
+
+	$cmb_acces->add_field( array(
+		'name'       => __( 'Zone sous carte partie droite', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_rens_acces_carte_texteD',
+		'type'       => 'wysiwyg',	
+	) );
+
 });
 
 function affiche_acces() {			
@@ -75,6 +93,9 @@ function affiche_acces() {
 	$carte_hover_id  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_survol_id', true );
 	$textelien  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_nom_lien_carte', true );
 	$lienid  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_lien_carte', true );
+	$textecarteGB  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_texteGB', true );
+	$textecarteGH  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_texteGH', true );
+	$textecarteD  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_texteD', true );
 	
 	?>
 	<section id="acces" class="grid-x align-top align-justify rose-clair" >
@@ -98,6 +119,13 @@ function affiche_acces() {
 					<div class="cartegooglemapshover">
 						<?php echo wp_get_attachment_image( $carte_hover_id, 'medium' ); ?>
 						<span><?php  echo esc_html( $textelien ); ?></span>
+					</div>
+					<div class="grid-x align-justify">
+						<div class="cell">
+							<?php  echo wpautop(wp_kses_post( $textecarteGH )); ?>
+							<?php  echo wpautop(wp_kses_post( $textecarteGB )); ?>
+						</div>
+						<?php  echo wpautop(wp_kses_post( $textecarteD )); ?>
 					</div>
 				</a>
 			</div>

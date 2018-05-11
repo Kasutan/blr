@@ -3247,23 +3247,62 @@ button.acces span.slide-top {
 	font-size: 1.2em;
 }
 
-.rens #acces div.carte a:hover .cartegooglemaps {
-	display: none;
-}
-
-.rens #acces .cartegooglemapshover {
-	display: none;
+.rens #acces .carte a {
 	position: relative;
+	display: block;
 }
 
-.rens #acces .cartegooglemapshover span {
+.rens #acces .carte .cartegooglemapshover img,
+.rens #acces .carte .cartegooglemaps img {
+	width: 100%;
+}
+
+.rens #acces .carte .cartegooglemapshover {
 	position: absolute;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+}
+.rens #acces .carte .cartegooglemapshover span {
+	position: absolute;
+	bottom: 160px;
+	left: 0;
+	color: white;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 
-.rens #acces div.carte a:hover .cartegooglemapshover {
-	display: initial;
+.rens #acces .carte a:hover .cartegooglemapshover {
+	opacity: 1;
 }
 
+.rens #acces .carte .grid-x {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	margin-top: 50px;
+	flex-wrap: nowrap;
+}
+
+.rens #acces .carte .grid-x p,
+.rens #acces .carte .grid-x div {
+	max-width: 47%;
+	font-family: 'MuseoSansRounded-700';
+	font-size: 0.75em;
+	color: black;
+}
+
+.rens #acces .carte .grid-x div p {
+	max-width: 100%;
+	font-size: 1em;
+}
+
+.rens #acces .carte .grid-x img {
+	float: left;
+}
 
 .rens #inscriptions {
 	background: var(--vert-clair);
