@@ -3356,6 +3356,46 @@ button.acces span.slide-top {
 }
 
 /*--------------------------------------------------------------
+## Page calendrier
+--------------------------------------------------------------*/
+.eventoncalendar .liencal {
+	color: var(--rose-clair);
+}
+
+.eventoncalendar .caljour {
+	-ms-flex-preferred-size: 250px;
+	    flex-basis: 250px;
+	border: 3px var(--rose-clair) solid;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.eventoncalendar .caljour a {
+	padding: 5px 0;
+	display: block;
+}
+
+.eventoncalendar .calmois {
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: center;
+}
+
+.eventoncalendar .calnommois {
+	text-align: center;
+	color: white;
+	background-color: var(--rose-clair);
+	font-family: 'MuseoSansRounded-700';
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+/*--------------------------------------------------------------
 ## Activités
 --------------------------------------------------------------*/
 

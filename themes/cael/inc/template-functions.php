@@ -58,6 +58,103 @@ function get_tax_level($id, $tax){
     return $var;
 }
 
+// fonction pour récupérer la liste des événements pour le calendrier
+function get_event_list($ind){
+
+	$args = array(
+		'post_type' => 'ajde_events',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+		);
+
+	// on récupère tous ls événements de la base
+	$events = new WP_Query( $args );
+	$event_list_array= $featured_events = array();
+
+	// opérations sur la date du jour
+	$moiscourant = date("n");
+	$anneecourante = date("y");
+	$nbmois = $moiscourant + ($anneecourante * 12);
+
+	// Pour chaque événement
+	while( $events->have_posts()): $events->the_post();
+		
+		// on récupère l'ID de l'événement
+		$p_id = $events->post->ID;		
+
+		// On récupère des infos, notamenent les dates de récurrences de l'événement
+		$ev_vals = get_post_custom($p_id);
+		$organizer_terms = wp_get_post_terms($p_id, 'event_organizer');
+
+		// On récupère les catégories de l'événement
+		$terms = wp_get_post_terms( $p_id, 'event_type');
+		if (empty(array_filter($terms))) {
+			$terms = wp_get_post_terms( $p_id, 'event_type_2');
+			if (empty(array_filter($terms))) {
+				$terms = wp_get_post_terms( $p_id, 'event_type_3');
+			}
+		}
+
+		// récupération des données de la catégorie la plus basse
+		if(!empty($terms) && !is_wp_error($terms)){
+			foreach($terms as $term){
+				$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
+
+				if($current_term_level == 3)
+				{
+					$lien= get_term_link($term);
+					$titreevent=$term->name;
+				}
+
+			}
+		};
+
+		// On vérifie si l'on a un événement récurrent
+		$is_recurring_event = evo_check_yn($ev_vals, 'evcal_repeat');
+
+		// On vérifie si l'événement est mis en avant
+		$_is_featured = (!empty($ev_vals['_featured']))? $ev_vals['_featured'][0] :'no';
+
+		// check for recurring event
+		if($is_recurring_event){
+			// get saved repeat intervals for repeating events
+			$repeat_intervals = (!empty($ev_vals['repeat_intervals']))?
+				(is_serialized($ev_vals['repeat_intervals'][0])? unserialize($ev_vals['repeat_intervals'][0]): $ev_vals['repeat_intervals'][0] ) :null;
+
+			if(!empty($repeat_intervals) && is_array($repeat_intervals)){
+			
+				// each repeating interval times
+				foreach($repeat_intervals as $interval){
+					
+					$E_start_unix = $interval[0];
+					$E_end_unix = $interval[1];
+					$eventmois = date_i18n($format . 'n', $E_start_unix );
+					$eventanne = date_i18n($format . 'y', $E_start_unix );
+					$eventnbmois = $eventmois + ($eventanne * 12);
+
+
+					if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
+					
+						$event_list_array[] = array(
+							'event_start_unix'=>$E_start_unix,
+							'event_end_unix'=>$E_end_unix,
+							'event_id' => $p_id,
+							'event_title'=>$titreevent,
+							'event_lien'=>$lien,
+							'event_coach'=>$organizer_terms[0]->name,
+							);
+							
+					}
+				}
+			}
+		}
+	endwhile;
+
+	asort($event_list_array);
+
+    return $event_list_array;
+}
+
 //Ajouter tailles d'images
 add_image_size('banniere',1200,450,true);
 add_image_size('actu',400,425,true);
