@@ -73,124 +73,97 @@ function affiche_calendrier() {
 			<span><?php echo esc_html( $text2 ); ?></span>
 			</h2>
 
-			<?php
-		/*
-			$event_list_array = get_event_list($ind);
+			<?php 
+			$currentdate= date_timestamp_get(date_create());
 
-			$annee = 0;
-			$mois = 0;
-			$jour = 0;
-			$cptannee = 0;
-			$cptmois = 0;
-			$cptjour = 0;
+			$args = array(
+				'post_type' => 'ajde_events',
+				'post_status' => 'publish',
+				'posts_per_page' => 14,
+				'meta_key' => 'evcal_srow',
+				'orderby' => 'meta_value_num',
+				'order' => 'ASC'
+				);
 
+			$query = new WP_Query( $args );
+			$aujourdhui = 0;
+			$demain = 0;
+			$apresdemain = 0;
 
-			foreach ($event_list_array as $eventsort) {
-				
-				$anneeevent = date_i18n($format . 'Y', $eventsort['event_start_unix'] );
-				$moisevent = date_i18n($format . 'n', $eventsort['event_start_unix'] );
-				$jourevent = date_i18n($format . 'j', $eventsort['event_start_unix'] );
+			?><div><?php	
+			 
+			if ( $query->have_posts() ) {
+					
+				while($query->have_posts()): $query->the_post();
 
-				// si l'on a une nouvelle année pour la première fois, on ouvre un div
-				if ($annee !== $anneeevent && $cptannee == 0 ) {
-					$annee = $anneeevent;
-					$cptannee = 1;
-					?><div class="calannee"><?php
-				}
+					$IDquery = get_the_ID();
+					$terms = wp_get_post_terms( $IDquery, 'event_type');
+						
+					if(!empty($terms) && !is_wp_error($terms)){
+						foreach($terms as $term){
+							$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
 
-				// si l'on change d'année, on ferme le div de l'année précédent et l'on en ouvre un nouveau
-				if ($annee !== $anneeevent && $cptannee == 1 ) {
-					$annee = $anneeevent;
+							if($current_term_level == 3)
+							{
+								$lien= get_term_link($term);
+								$titreevent=$term->name;
+								
+							}
 
-					// si le dernier jour du mois est ouvert, on ferme son div
-					if ($cptjour == 1) {
-						$cptjour = 0;
-						?></div><?php
+						}
+					};
+
+					if ($titreevent != "") {
+					
+					
+
+					$niveauevent = get_post_meta( $IDquery, 'evcal_subtitle', true );
+					$debut = get_post_meta( $IDquery, 'evcal_srow', true );
+						
+						if(idate('U', $debut - $currentdate) < 86400 && $aujourdhui == 0)
+							{
+								?><div class="calaccueil">
+								<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> <?php
+								$aujourdhui = $aujourdhui + 1 ;
+								?> </br> <?php
+							}
+
+						elseif (86400 <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 2) && $demain == 0)
+							{
+								?></div> <div class="calaccueil"> 
+								<strong>	<?php echo('Demain');?> </strong> <?php
+								$demain = $demain + 1 ;
+								?> </br> <?php
+							}
+
+						elseif ((86400 * 2) <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 3) && $apresdemain == 0)
+							{
+								?> </div> <div class="calaccueil"> 
+									<strong> <?php echo('Après-demain'); ?> </strong> <?php
+								$apresdemain = $apresdemain + 1 ;
+								?> </br> <?php
+							}
+
+						elseif ((86400 * 3) <= idate('U', $debut - $currentdate))
+							{
+								?> </div> <div class="calaccueil"> 
+								<strong> <?php	echo (date_i18n($format . 'l', $debut ) . ' '); ?> </strong> <?php
+							}
+
+						?> <a href= "<?php echo ($lien);?>" class="liencal"> <?php
+						echo $titreevent;
+						echo(' - ');
+						echo date_i18n($format . 'G\hi', $debut );
+						echo(' > ');
+						?> </a> </br> <?php
 					}
-
-					// si le dernier mois de l'année à fermé est ouvert, on ferme son div
-					if ($cptmois == 1) {
-						$cptmois = 0;
-						?></div><?php
-					}
-
-					?></div><div class="calannee"><?php
-				}
-
-				// si l'on a un nouveau mois sans div déjà ouvert, on ouvre un div
-				if ($mois !== $moisevent && $cptmois == 0 ) {
-					$mois = $moisevent;
-					$cptmois = 1;
-					?><div class="calnommois"><?php
-					echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-					?></div><?php
-					?><div class="grid-x calmois"><?php
-
-				}
-
-				// si l'on change de mois, on ferme le div du mois précédent et on ouvre un nouveau div
-				if ($mois !== $moisevent && $cptmois == 1 ) {
-					$mois = $moisevent;
-
-					// si le dernier jour du mois est ouvert, on ferme son div
-					if ($cptjour == 1) {
-						$cptjour = 0;
-						?></div><?php
-					}
-					?></div><div class="calnommois"><?php
-						echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-					?></div><?php
-					?><div class="grid-x calmois"><?php
-
-				}
-
-				// si l'on a un nouveau jour sans div déjà ouvert, on ouvre un div
-				if ($jour !== $jourevent && $cptjour == 0) {
-					$jour = $jourevent;
-					$cptjour = 1;
-					?><div class="cell caljour"><?php
-						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?><br><?php
-				}
-
-				// si l'on change de jour, on ferme son div et on en ouvre un autre
-				if ($jour !== $jourevent && $cptjour == 1) {
-					$jour = $jourevent;
-					?></div><div class="cell caljour"><?php
-						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?><br><?php
-				}
-				
-
-				?> <a href= "<?php echo ($eventsort['event_lien']);?>" class="liencal"> <?php
-				echo $eventsort['event_title'];
-				?><br><?php
-				echo ('par ' . $eventsort['event_coach'] . ' à');
-				echo date_i18n($format . ' G\hi', $eventsort['event_start_unix'] );
-				?> </a> <?php
-
-			}
-
-			// si le div du jour en cours est ouvert, on le ferme
-			if ($cptjour == 1 ) {
-			?></div><?php
-			}
-
-			// si le div du mois en cours est ouvert, on le ferme
-			if ($cptmois == 1 ) {
-				?></div><?php
-			}
-
-			// si le div de l'année en cours est ouvert, on le ferme
-			if ($cptannee == 1 ) {
-				?></div><?php
+				endwhile;
 			}
 			?>
-
 		</div>
 
 		</div>
-*/ ?>
+
 			<a href="/events-directory" class="lien-surligne">
 			<span>
 			<?php  echo esc_html( $text3 ); ?>

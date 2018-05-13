@@ -1693,6 +1693,10 @@ button.acces span.slide-top {
 	min-height: 41vh;
 }
 
+#slider .orbit .orbit-image {
+	height: 606px;
+}
+
 /*Assombrir images des sliders au survol - effet appliqué à tous les sliders*/
 
 .orbit:hover .orbit-image {
@@ -4367,11 +4371,12 @@ a.inactif {
 }
 
 .speaker .tramage {
-	background: rgb(69, 211, 90);
+	background: white;
 	opacity: 0.23;
 	height: 100%;
 	width: 100%;
 	position: absolute;
+	max-height: 400px;
 }
 
 .speaker .contenu .texte {
