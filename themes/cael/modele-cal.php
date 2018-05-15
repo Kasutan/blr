@@ -12,6 +12,11 @@ $ID=get_the_ID();
 			<?php
 
 			$event_list_array = get_event_list($ind);
+			$firstevent = current($event_list_array);
+			$firstdate = date_i18n($format . 'n', $firstevent['event_start_unix'] );
+			$currentdate= date_timestamp_get(date_create());
+			$moisactu = date_i18n($format . 'n', $currentdate );
+			$jouractu = date_i18n($format . 'j', $currentdate );
 
 			$annee = 0;
 			$mois = 0;
@@ -19,6 +24,14 @@ $ID=get_the_ID();
 			$cptannee = 0;
 			$cptmois = 0;
 			$cptjour = 0;
+			$idancre = 1;
+
+			if ($moisactu - 2 == $firstdate) {
+				$idancremax = 6;
+			} else {
+				$idancremax = 5;
+			}
+			
 
 
 			foreach ($event_list_array as $eventsort) {
@@ -26,6 +39,19 @@ $ID=get_the_ID();
 				$anneeevent = date_i18n($format . 'Y', $eventsort['event_start_unix'] );
 				$moisevent = date_i18n($format . 'n', $eventsort['event_start_unix'] );
 				$jourevent = date_i18n($format . 'j', $eventsort['event_start_unix'] );
+
+				// Définit si l'on est dans le mois et le jour d'aujourd'hui
+				if ($moisevent == $moisactu) {
+					$classmois = "calmois calmoisactu";
+				} else {
+					$classmois = "calmois";
+				}
+
+				if ($jourevent == $jouractu) {
+					$classjour = 'caljour" id="caljouractu';
+				} else {
+					$classjour = "caljour";
+				}
 
 				// si l'on a une nouvelle année pour la première fois, on ouvre un div
 				if ($annee !== $anneeevent && $cptannee == 0 ) {
@@ -57,10 +83,19 @@ $ID=get_the_ID();
 				if ($mois !== $moisevent && $cptmois == 0 ) {
 					$mois = $moisevent;
 					$cptmois = 1;
-					?><div class="calnommois"><?php
+					?><div class="calnommois" id="<?php echo "mois" . $idancre ?>">
+						<?php if ($idancre > 1) {
+						?>
+						<a href="<?php echo "/calendrier/#mois" . ($idancre - 1) ?>"><span class="icon-triangle-right calleft"></span></a>
+						<?php }
 					echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-					?></div><?php
-					?><div class="grid-x calmois"><?php
+					if ($idancre < $idancremax) {
+					?>
+					<a href="<?php echo "/calendrier/#mois" . ($idancre +1) ?>"><span class="icon-triangle-right"></span></a>
+					<?php } ?>
+					</div><?php
+					$idancre = $idancre + 1 ;
+					?><div class="grid-x <?php echo $classmois ?>"><?php
 
 				}
 
@@ -73,10 +108,19 @@ $ID=get_the_ID();
 						$cptjour = 0;
 						?></div><?php
 					}
-					?></div><div class="calnommois"><?php
+					?></div><div class="calnommois" id="<?php echo "mois" . $idancre ?>">
+						<?php if ($idancre > 1) {
+						?>
+					<a href="<?php echo "/calendrier/#mois" . ($idancre - 1) ?>"><span class="icon-triangle-right calleft"></span></a>
+						<?php }
 						echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-					?></div><?php
-					?><div class="grid-x calmois"><?php
+						if ($idancre < $idancremax) {
+					?>
+					<a href="<?php echo "/calendrier/#mois" . ($idancre + 1) ?>"><span class="icon-triangle-right"></span></a>
+					<?php } ?>
+					</div><?php
+					$idancre = $idancre + 1 ;
+					?><div class="grid-x <?php echo $classmois ?>"><?php
 
 				}
 
@@ -84,22 +128,25 @@ $ID=get_the_ID();
 				if ($jour !== $jourevent && $cptjour == 0) {
 					$jour = $jourevent;
 					$cptjour = 1;
-					?><div class="cell caljour"><?php
+					?><div class="cell <?php echo $classjour ?>"><span class="calnomjour"><?php
 						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?><br><?php
+					?></span><br><?php
 				}
 
 				// si l'on change de jour, on ferme son div et on en ouvre un autre
 				if ($jour !== $jourevent && $cptjour == 1) {
 					$jour = $jourevent;
-					?></div><div class="cell caljour"><?php
+					?></div><div class="cell <?php echo $classjour ?>"><span class="calnomjour"><?php
 						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?><br><?php
+					?></span><br><?php
 				}
 				
 
-				?> <a href= "<?php echo ($eventsort['event_lien']);?>" class="liencal"> <?php
+				?> <a href= "<?php echo ($eventsort['event_lien']);?>" class="liencal">
+				<span class="caltitre"> <?php
 				echo $eventsort['event_title'];
+				?></span><br><?php
+				echo $eventsort['event_niveau'];
 				?><br><?php
 				echo ('par ' . $eventsort['event_coach'] . ' à');
 				echo date_i18n($format . ' G\hi', $eventsort['event_start_unix'] );
@@ -126,4 +173,5 @@ $ID=get_the_ID();
 	</div><!-- #primary -->
 
 <?php
+wp_reset_postdata();
 get_footer();

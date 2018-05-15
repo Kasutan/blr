@@ -1694,7 +1694,7 @@ button.acces span.slide-top {
 }
 
 #slider .orbit .orbit-image {
-	height: 606px;
+	height: 450px;
 }
 
 /*Assombrir images des sliders au survol - effet appliqué à tous les sliders*/
@@ -3382,12 +3382,26 @@ button.acces span.slide-top {
 .eventoncalendar .caljour a {
 	padding: 5px 0;
 	display: block;
+	text-align: left;
+}
+
+.eventoncalendar .caltitre {
+	font-weight: bold;
+}
+
+.eventoncalendar .calnomjour {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.eventoncalendar #caljouractu {
+	background-color: var(--vert-clair);
 }
 
 .eventoncalendar .calmois {
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
-	        justify-content: center;
+			justify-content: center;
 }
 
 .eventoncalendar .calnommois {
@@ -3397,6 +3411,17 @@ button.acces span.slide-top {
 	font-family: 'MuseoSansRounded-700';
 	font-size: 2em;
 	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.eventoncalendar .icon-triangle-right {
+font-size: 1em;
+}
+
+.eventoncalendar .calleft {
+	display: inline-block;
+	-webkit-transform: rotateZ(-180deg);
+	        transform: rotateZ(-180deg);
 }
 
 /*--------------------------------------------------------------

@@ -164,7 +164,7 @@ function affiche_calendrier() {
 
 		</div>
 
-			<a href="/events-directory" class="lien-surligne">
+			<a href="/calendrier/#caljouractu" class="lien-surligne">
 			<span>
 			<?php  echo esc_html( $text3 ); ?>
 					</span>

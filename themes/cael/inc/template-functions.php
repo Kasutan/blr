@@ -85,6 +85,7 @@ function get_event_list($ind){
 		// On récupère des infos, notamenent les dates de récurrences de l'événement
 		$ev_vals = get_post_custom($p_id);
 		$organizer_terms = wp_get_post_terms($p_id, 'event_organizer');
+		$niveauevent = get_post_meta( $p_id, 'evcal_subtitle', true );
 
 		// On récupère les catégories de l'événement
 		$terms = wp_get_post_terms( $p_id, 'event_type');
@@ -142,6 +143,7 @@ function get_event_list($ind){
 							'event_title'=>$titreevent,
 							'event_lien'=>$lien,
 							'event_coach'=>$organizer_terms[0]->name,
+							'event_niveau'=>$niveauevent,
 							);
 							
 					}
