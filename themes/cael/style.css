@@ -2992,7 +2992,7 @@ button.acces span.slide-top {
 .fondbafa {
 	height: 50px;
 	width: 100%;
-	background-color: var(--rose-clair);
+	background-color: rgb(238,89,154);
 }
 
 
@@ -3008,7 +3008,6 @@ button.acces span.slide-top {
 	background: white;
 	padding: 50px;
 	position: relative;
-	top: 30px;
 	padding-bottom: 20px;
 	margin-bottom: 100px;
 }
@@ -3068,7 +3067,8 @@ button.acces span.slide-top {
 		padding: 50px calc(50% - 400px);
 	}
 	.actions #bafa {
-		padding: 50px calc(50% - 480px);
+		padding: 0px calc(50% - 480px) 50px;
+
 	}
 }
 
