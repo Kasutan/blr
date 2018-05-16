@@ -87,6 +87,7 @@ function affiche_projet() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_projet_image_id', true);
 	ob_start();
 	?>
+	<span id="ancreprojet"></span>
 	<section id="projet" class="grid-x fond-vert-clair" >
 		<div class="cell medium-6 image">
 			<h2 class="titre fond-rose-clair blanc oblique">

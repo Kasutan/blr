@@ -100,6 +100,7 @@ function affiche_equipe() {
 
 	ob_start();
 	?>
+	<span id="ancreequipe"></span>
 	<section id="equipe" class="fond-vert-clair">
 			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true ); 
@@ -123,6 +124,7 @@ function affiche_equipe() {
 	</section>
 		<div class="motif"></div>
 
+	<span id="ancreadministration"></span>
 	<section id="administration">
 		<h2 class="titre">
 			<span><?php $text1  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre21', true ); 

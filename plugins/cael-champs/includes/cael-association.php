@@ -54,6 +54,7 @@ function affiche_association() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_image_asso_id', true);
 	ob_start();
 	?>
+	<span id="ancreassociation" ></span>
 	<section id="association" >
 		<h1 class="titre">
 			<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true ); 

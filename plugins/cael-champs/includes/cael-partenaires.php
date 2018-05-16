@@ -62,6 +62,7 @@ function affiche_partenaires() {
 	));
 	ob_start();
 	?>
+	<span id="ancrepartenaires"></span>
 	<section id="partenaires" >
 			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_part_titre1', true ); 

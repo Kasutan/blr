@@ -2508,6 +2508,10 @@ button.acces span.slide-top {
 	text-align: center;
 }
 
+#ancreassociation {
+		padding-top: 65px;
+}
+
 .lecael #association {
 	color: var(--rose-clair);
 	margin-bottom: 0;
@@ -2556,6 +2560,10 @@ button.acces span.slide-top {
 	.lecael #association .mjc {
 		padding: 100px calc(50% - 375px) 70px;
 	}
+}
+
+#ancreprojet {
+	padding-top: 45px;
 }
 
 .lecael #projet {
@@ -2639,6 +2647,10 @@ button.acces span.slide-top {
 		padding: 100px calc(50% - 375px) 70px;
 		padding-bottom: 10px;
 	}
+}
+
+#ancrechiffres {
+	padding-top: 45px;
 }
 
 .lecael #chiffres {
@@ -2737,6 +2749,14 @@ button.acces span.slide-top {
 	}
 }
 
+#ancreequipe {
+	padding-top: 45px;
+}
+
+#ancreadministration {
+	padding-top: 45px;
+}
+
 .lecael .motif {
 	background-image: url('/wp-content/themes/cael/images/motif-triangles.jpg');
 	background-repeat: no-repeat;
@@ -2789,6 +2809,10 @@ button.acces span.slide-top {
 
 .lecael #administration .conseil .role {
 	font-family: 'MuseoSansRounded-300';
+}
+
+#ancrepartenaires {
+	padding-top: 45px;
 }
 
 .lecael #partenaires {
@@ -2875,6 +2899,10 @@ button.acces span.slide-top {
 	font-size: 2.4em;
 	white-space: nowrap;
 	margin-bottom: 2px;
+}
+
+#ancresenior {
+	padding-top: 45px;
 }
 
 #famille .contenu {

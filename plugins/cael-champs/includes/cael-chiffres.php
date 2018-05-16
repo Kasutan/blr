@@ -36,6 +36,7 @@ function affiche_chiffres() {
 	$imagelien = get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_image_id', true);
 	ob_start();
 	?>
+	<span id="ancrechiffres"></span>
 	<section id="chiffres" class="scrollify">
 			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true ); 

@@ -146,6 +146,7 @@ function affiche_senior() {
 	$lien4  = get_post_meta( $ID, CMB_PREFIX.'_actions_senior_lien4', true );
 	
 	?>
+	<span id="ancresenior"></span>
 	<section id="senior">
 		<header class="grid-x align-bottom justify-center">
 
