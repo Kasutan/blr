@@ -266,6 +266,7 @@ function affiche_famille() {
 	$lien8  = get_post_meta( $ID, CMB_PREFIX.'_actions_famille_lien8', true );
 	
 	?>
+	<span id="ancrefamille"></span>
 	<section id="famille" class="fond-vert-clair">
 		<header class="grid-x align-bottom justify-center">
 

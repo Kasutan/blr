@@ -98,6 +98,7 @@ function affiche_acces() {
 	$textecarteD  = get_post_meta( $ID, CMB_PREFIX.'_rens_acces_carte_texteD', true );
 	
 	?>
+	<span id="ancreacces"></span>
 	<section id="acces" class="grid-x align-top align-justify rose-clair" >
 			<div class="cell">
 				<h2 class="blanc fond-rose-clair">

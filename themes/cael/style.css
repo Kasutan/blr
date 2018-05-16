@@ -2882,6 +2882,10 @@ button.acces span.slide-top {
 	padding-bottom: 10px;
 }
 
+#ancrefamille {
+	padding-top: 45px;
+}
+
 .actions #famille {
 	background-color: rgb(239,251,240);
 }
@@ -3023,6 +3027,9 @@ button.acces span.slide-top {
 	background-color: rgb(238,89,154);
 }
 
+#ancrebafa {
+	padding-top: 45px;
+}
 
 #bafa {
 	background-image: url(/wp-content/themes/cael/images/Fond_cube.jpg);
@@ -3154,6 +3161,10 @@ button.acces span.slide-top {
 	line-height: 1;
 }
 
+#ancrecontact {
+	padding-top: 45px;
+}
+
 .rens #contact div.texte.blanc {
 	padding-left: 40px;
 	padding-top: 65px;
@@ -3175,6 +3186,10 @@ button.acces span.slide-top {
 
 .rens #contact div.texte.blanc div p {
 	line-height: 1.2;
+}
+
+#ancrehoraires {
+	padding-top: 45px;
 }
 
 .rens #horaires h2 {
@@ -3261,6 +3276,10 @@ button.acces span.slide-top {
 	padding: 5px;
 }
 
+#ancreacces {
+	padding-top: 45px;
+}
+
 .rens #acces h2 {
 	padding: 10px 40px 5px 40px;
 }
@@ -3334,6 +3353,10 @@ button.acces span.slide-top {
 
 .rens #acces .carte .grid-x img {
 	float: left;
+}
+
+#ancreinscriptions {
+	padding-top: 45px;
 }
 
 .rens #inscriptions {

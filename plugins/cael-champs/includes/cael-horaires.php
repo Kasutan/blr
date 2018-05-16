@@ -202,6 +202,7 @@ function affiche_horaires() {
 	$texte3  = get_post_meta( $ID, CMB_PREFIX.'_rens_horaires_pave', true );
 	
 	?>
+	<span id="ancrehoraires"></span>
 	<section id="horaires" class="grid-x fond-rose-fonce blanc align-bottom align-center" >
 
 			<div class="cell large-7 horaires">

@@ -90,6 +90,7 @@ function affiche_bafa() {
 	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_texte4', true );
 	
 	?>
+	<span id="ancrebafa"></span>
 	<div class="fondbafa"></div>
 	<section id="bafa" class="fond-rose-clair" >
 		<div class="decor">

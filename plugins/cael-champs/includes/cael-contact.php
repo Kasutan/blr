@@ -62,6 +62,7 @@ function affiche_contact() {
 	$texte4  = get_post_meta( $ID, CMB_PREFIX.'_rens_contact_autre', true );
 	
 	?>
+	<span id="ancrecontact"></span>
 	<section id="contact" class="grid-x align-bottom center-justify fond-rose-clair" >
 
 			<div class="cell medium-6 formulaire vert">

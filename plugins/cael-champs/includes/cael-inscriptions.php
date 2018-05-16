@@ -71,6 +71,7 @@ function affiche_inscriptions() {
 	$lien2  = get_post_meta( $ID, CMB_PREFIX.'_rens_inscriptions_lien2', true );
 	
 	?>
+	<span id="ancreinscriptions"></span>
 	<section id="inscriptions" class=" text-center" >
 		<h2 class="titre blanc fond-rose-clair">
 			<?php  echo esc_html( $titre1 ); ?>
