@@ -38,7 +38,47 @@
 		$idphoto5  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_5_id', true );
 		$idphoto6  = get_post_meta( $IDevent, CMB_PREFIX.'photoeven_6_id', true );
 		asort($speakers);
-		}	
+		}
+	
+	if ($titrefest == "") {
+		$afffestival = 0;
+	} else {
+		$afffestival = 1;
+	}
+
+	if ($titreprog == "") {
+		$affprog = 0;
+	} else {
+		$affprog = 1;
+	}
+
+	if ($idphoto1 == ""  && $idphoto2 == "" && $idphoto3 == "" && $idphoto4 == "" && $idphoto5 == "" && $idphoto6 == "") {
+		$affgalerie = 0;
+	} else {
+		$affgalerie = 1;
+	}
+
+	if ($titrehisto == "") {
+		$affhisto = 0;
+	} else {
+		$affhisto = 1;
+	}
+
+	if ($titreprece == "") {
+		$affprece = 0;
+	} else {
+		$affprece = 1;
+	}	
+
+	// si rien à afficher, mettre un message d'attente
+	if ($afffestival == 0 && $affprog == 0 && $affgalerie == 0 && $affhisto == 0 && $affprece == 0) {
+		?>  
+		<h1 class="titre blanc fond-rose-clair">
+			<?php echo("Prochainement, votre événement " . $term_name); ?>
+		</h1>
+		<?php
+	} else {
+		
 	?>
 
 	<main id="main" class="site-main ev2">
@@ -46,23 +86,40 @@
 		
 
 	<header class="entry-header ">
+		<?php if ($afffestival + $affprog + $affhisto > 1) {
+		?>
 		<nav class = "ancres">
+		<?php if ($afffestival == 1) {
+		?>
 			<a href="#festival">
 				<?php echo wpautop( wp_kses_post( $titrefest )); ?>
 			</a>
+		<?php 	} ?>
+
+		<?php if ($affprog == 1) {
+		?>
 			<a href="#programmation">
 				<?php echo wpautop( wp_kses_post( $titreprog )); ?>
 			</a>
+		<?php 	} ?>
+
+		<?php if ($affhisto == 1) {
+		?>
 			<a href="#histoire">
 				<?php echo wpautop( wp_kses_post( $titrehisto )); ?>
 			</a>
+		<?php 	} ?>
 		</nav>
+		<?php 	} ?>
+
 		<h1 class="show-for-sr">
 			<?php the_title(); ?>
 		</h1>
 		<?php echo get_the_post_thumbnail( $IDevent, 'large' ); ?>
 	</header><!-- .entry-header -->
 
+	<?php if ($afffestival == 1) {
+	?>
 	<section id="festival" class="grid-x">
 		<div class="image cell small-12 medium-4">
 			<h2 class="titre blanc fond-rose-clair">
@@ -86,7 +143,10 @@
 			</div>
 		</div>
 	</section>
+	<?php 	} ?>
 
+	<?php if ($affprog == 1) {
+	?>
 	<section id="programmation">
 		<h2 class="titre blanc fond-rose-clair">
 			<?php echo wpautop( wp_kses_post( $titreprog )); ?>
@@ -114,6 +174,10 @@
 			};?>
 		</div>
 	</section>
+	<?php 	} ?>
+
+	<?php if ($affgalerie == 1) {
+	?>
 	<section id="galerie" class="galerie grid-x align-center">
 			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto1, 'medium' ).'</div>'; ?>
 			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto2, 'medium' ).'</div>'; ?>
@@ -122,7 +186,10 @@
 			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto5, 'medium' ).'</div>'; ?>
 			<?php echo '<div class="cell small-6 medium-4">'.wp_get_attachment_image($idphoto6, 'medium' ).'</div>'; ?>
 	</section>
+	<?php 	} ?>
 
+	<?php if ($affhisto == 1) {
+	?>
 	<section id="histoire">
 		<h2 class="titre blanc fond-rose-clair">
 			<?php echo wpautop( wp_kses_post( $titrehisto )); ?>
@@ -131,7 +198,10 @@
 			<?php echo wpautop( wp_kses_post( $textehisto )); ?>
 		</div>
 	</section>
+	<?php 	} ?>
 
+	<?php if ($affprece == 1) {
+	?>
 	<section id="editions">
 		<h2  class="titre blanc fond-rose-clair">
 			<?php echo wpautop( wp_kses_post( $titreprece )); ?>
@@ -144,9 +214,10 @@
 			
 		</div>
 	</section>
-
+	<?php 	} ?>
 
 		<?php get_template_part( 'template-parts/newsletter' ); ?>
 
 	</main>
-<?php	wp_reset_postdata();?>
+<?php 	}
+	wp_reset_postdata();?>

@@ -4231,6 +4231,8 @@ a.inactif {
 
 .ev2 .liste-spectacles {
 	padding-top: 40px;
+	-ms-flex-pack: distribute;	
+	justify-content: space-around;
 }
 
 .ev2 .liste-spectacles a {
