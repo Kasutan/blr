@@ -11,6 +11,7 @@ $ID=get_the_ID();
 		<main id="main" class="site-main eventoncalendar">
 			<?php
 
+			$ind = 0;
 			$event_list_array = get_event_list($ind);
 			$firstevent = current($event_list_array);
 			$firstdate = date_i18n($format . 'n', $firstevent['event_start_unix'] );
@@ -47,7 +48,7 @@ $ID=get_the_ID();
 					$classmois = "calmois";
 				}
 
-				if ($jourevent == $jouractu) {
+				if ($jourevent == $jouractu && $moisevent == $moisactu) {
 					$classjour = 'caljour" id="caljouractu';
 				} else {
 					$classjour = "caljour";

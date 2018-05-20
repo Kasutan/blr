@@ -100,8 +100,9 @@ function affiche_equipe() {
 
 	ob_start();
 	?>
-	<span id="ancreequipe"></span>
+
 	<section id="equipe" class="fond-vert-clair">
+	<span id="ancreequipe"></span>
 			<h2 class="titre blanc fond-rose">
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true ); 
 				echo esc_html( $text ); ?>

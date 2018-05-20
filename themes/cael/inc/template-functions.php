@@ -67,13 +67,15 @@ function get_event_list($ind){
 		'posts_per_page' => -1,
 		);
 
-	// on récupère tous ls événements de la base
+	// on récupère tous les événements de la base
 	$events = new WP_Query( $args );
 	$event_list_array= $featured_events = array();
 
 	// opérations sur la date du jour
+	$jourcourant = date("z");
 	$moiscourant = date("n");
 	$anneecourante = date("y");
+	$nbjours = $jourcourant + ($anneecourante * 365);
 	$nbmois = $moiscourant + ($anneecourante * 12);
 
 	// Pour chaque événement
@@ -129,24 +131,44 @@ function get_event_list($ind){
 					
 					$E_start_unix = $interval[0];
 					$E_end_unix = $interval[1];
+					$eventjours = date_i18n($format . 'z', $E_start_unix );
 					$eventmois = date_i18n($format . 'n', $E_start_unix );
 					$eventanne = date_i18n($format . 'y', $E_start_unix );
+					$eventnbjours = $eventjours + ($eventanne * 365);
 					$eventnbmois = $eventmois + ($eventanne * 12);
 
-
-					if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
 					
-						$event_list_array[] = array(
-							'event_start_unix'=>$E_start_unix,
-							'event_end_unix'=>$E_end_unix,
-							'event_id' => $p_id,
-							'event_title'=>$titreevent,
-							'event_lien'=>$lien,
-							'event_coach'=>$organizer_terms[0]->name,
-							'event_niveau'=>$niveauevent,
-							);
-							
-					}
+					if ($ind == 0) {
+
+						if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
+						
+							$event_list_array[] = array(
+								'event_start_unix'=>$E_start_unix,
+								'event_end_unix'=>$E_end_unix,
+								'event_id' => $p_id,
+								'event_title'=>$titreevent,
+								'event_lien'=>$lien,
+								'event_coach'=>$organizer_terms[0]->name,
+								'event_niveau'=>$niveauevent,
+								);
+								
+						}
+					} else {
+						if ($nbjours <= $eventnbjours && $eventnbjours < $nbjours + 5 ) {
+
+							$event_list_array[] = array(
+								'event_start_unix'=>$E_start_unix,
+								'event_end_unix'=>$E_end_unix,
+								'event_id' => $p_id,
+								'event_title'=>$titreevent,
+								'event_lien'=>$lien,
+								'event_coach'=>$organizer_terms[0]->name,
+								'event_niveau'=>$niveauevent,
+								);
+						}
+					}	
+
+
 				}
 			}
 		}
