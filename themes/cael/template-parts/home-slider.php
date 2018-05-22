@@ -16,10 +16,12 @@ $lastposts = get_posts( array(
   <div class="orbit-wrapper">
     <ul class="orbit-container">
       <?php
+        $cptslides = 0;
         if ( $lastposts ) {
           $is_active=' is_active';
           foreach ( $lastposts as $post ) :
             $ID=$post->ID;
+            $cptslides = $cptslides + 1;
             $lien= get_the_permalink($ID);
             $image_id=get_post_thumbnail_id( $post );
             $imageData = wp_get_attachment_image_src($image_id,'banniere');
@@ -43,10 +45,18 @@ $lastposts = get_posts( array(
       ?>
     </ul>
   </div>
-  <nav class="orbit-bullets">
-    <button class="is-active" data-slide="0"><span class="show-for-sr">Premier slide.</span><span class="show-for-sr">Current Slide</span></button>
-    <button data-slide="1"><span class="show-for-sr">Second slide.</span></button>
-    <button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
-  </nav>
+  <?php
+		if ($cptslides > 1) {
+	?>
+    <nav class="orbit-bullets">
+      <button class="is-active" data-slide="0"><span class="show-for-sr">Premier slide.</span><span class="show-for-sr">Current Slide</span></button>
+      <button data-slide="1"><span class="show-for-sr">Second slide.</span></button>
+      <?php if ($cptslides > 2) {	?>
+        <button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
+      <?php }	?>
+    </nav>
+  <?php
+		}
+	?>
 </div>				
 </section>

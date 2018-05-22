@@ -75,151 +75,146 @@ function affiche_calendrier() {
 
 			<?php 
 
-			/*
-
-			<?php
-
-			$ind = 0;
+			// on va chercher la liste des événements pour les 5 prochains jours
+			$ind = 1;
 			$event_list_array = get_event_list($ind);
+
+			// on récupère le jour du serveur
+			$jourcourant = date("z");
+			$anneecourante = date("y");
+			$nbjours = $jourcourant + ($anneecourante * 365);
+
+			// on récupère le premier événement
 			$firstevent = current($event_list_array);
-			$firstdate = date_i18n($format . 'n', $firstevent['event_start_unix'] );
-			$currentdate= date_timestamp_get(date_create());
-			$moisactu = date_i18n($format . 'n', $currentdate );
-			$jouractu = date_i18n($format . 'j', $currentdate );
+			$firstdatej = date_i18n($format . 'z', $firstevent['event_start_unix'] );
+			$firstdatea = date_i18n($format . 'y', $firstevent['event_start_unix'] );
+			$firstnbjours = $firstdatej + ($firstdatea * 365);
 
-			$annee = 0;
-			$mois = 0;
-			$jour = 0;
-			$cptannee = 0;
-			$cptmois = 0;
-			$cptjour = 0;
-			$idancre = 1;
+			// on initialise les variables
+			$cptjour = 0; //indique si un div est ouvert
+			$journum = 0; //numérote les jour de 1 à 5
+			$cptecrit = 0; //nombre de lignes écrites (on limite à 14 pour la mise en page)
 
-			if ($moisactu - 2 == $firstdate) {
-				$idancremax = 6;
-			} else {
-				$idancremax = 5;
+			// si le premier jour n'est pas celui d'aujourd'hui, on prend en compte les jours fermés
+			if ($nbjours < $firstnbjours) {
+				// la journée d'aujourd'hui est fermée
+				?><div class="calaccueil">
+				<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> <?php
+				?> </br> 
+				<span>Fermé</span>
+				</br> </div>
+				<?php
+				$journum = $journum + 1; // on passe à demain
+				$cptecrit = $cptecrit + 2;
+			
+				if ($nbjours + 1 < $firstnbjours) {
+					// la journée de demain est fermée également
+					?><div class="calaccueil">
+					<strong> <?php echo('Demain'); ?> </strong> <?php
+					?> </br> 
+					<span>Fermé</span>
+					</br> </div>
+					<?php
+					$journum = $journum + 1; // on passe à après-demain
+					$cptecrit = $cptecrit + 2;
+
+					if ($nbjours + 2 < $firstnbjours) {
+						// la journée de d'après demain est fermée également
+						?><div class="calaccueil">
+						<strong> <?php echo('Après-demain'); ?> </strong> <?php
+						?> </br> 
+						<span>Fermé</span>
+						</br> </div>
+						<?php
+						$journum = $journum + 1; // on passe à après après-demain
+						$cptecrit = $cptecrit + 2;
+
+					}
+				}
 			}
 			
-
-
+			// pour chaque événement
 			foreach ($event_list_array as $eventsort) {
 				
-				$anneeevent = date_i18n($format . 'Y', $eventsort['event_start_unix'] );
-				$moisevent = date_i18n($format . 'n', $eventsort['event_start_unix'] );
-				$jourevent = date_i18n($format . 'j', $eventsort['event_start_unix'] );
+				$anneeevent = date_i18n($format . 'y', $eventsort['event_start_unix'] );
+				$jourevent = date_i18n($format . 'z', $eventsort['event_start_unix'] );
+				$nomjourevent = date_i18n($format . 'l', $eventsort['event_start_unix'] );
+				$numjourevent = $jourevent + ($anneeevent * 365);
 
-				// Définit si l'on est dans le mois et le jour d'aujourd'hui
-				if ($moisevent == $moisactu) {
-					$classmois = "calmois calmoisactu";
-				} else {
-					$classmois = "calmois";
-				}
-
-				if ($jourevent == $jouractu && $moisevent == $moisactu) {
-					$classjour = 'caljour" id="caljouractu';
-				} else {
-					$classjour = "caljour";
-				}
-
-				// si l'on a une nouvelle année pour la première fois, on ouvre un div
-				if ($annee !== $anneeevent && $cptannee == 0 ) {
-					$annee = $anneeevent;
-					$cptannee = 1;
-					?><div class="calannee"><?php
-				}
-
-				// si l'on change d'année, on ferme le div de l'année précédent et l'on en ouvre un nouveau
-				if ($annee !== $anneeevent && $cptannee == 1 ) {
-					$annee = $anneeevent;
-
-					// si le dernier jour du mois est ouvert, on ferme son div
-					if ($cptjour == 1) {
-						$cptjour = 0;
-						?></div><?php
-					}
-
-					// si le dernier mois de l'année à fermé est ouvert, on ferme son div
-					if ($cptmois == 1) {
-						$cptmois = 0;
-						?></div><?php
-					}
-
-					?></div><div class="calannee"><?php
-				}
-
-				// si l'on a un nouveau mois sans div déjà ouvert, on ouvre un div
-				if ($mois !== $moisevent && $cptmois == 0 ) {
-					$mois = $moisevent;
-					$cptmois = 1;
-					?><div class="calnommois" id="<?php echo "mois" . $idancre ?>">
-						<?php if ($idancre > 1) {
-						?>
-						<a href="<?php echo "/calendrier/#mois" . ($idancre - 1) ?>"><span class="icon-triangle-right calleft"></span></a>
-						<?php }
-					echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-					if ($idancre < $idancremax) {
-					?>
-					<a href="<?php echo "/calendrier/#mois" . ($idancre +1) ?>"><span class="icon-triangle-right"></span></a>
-					<?php } ?>
-					</div><?php
-					$idancre = $idancre + 1 ;
-					?><div class="grid-x <?php echo $classmois ?>"><?php
-
-				}
-
-				// si l'on change de mois, on ferme le div du mois précédent et on ouvre un nouveau div
-				if ($mois !== $moisevent && $cptmois == 1 ) {
-					$mois = $moisevent;
-
-					// si le dernier jour du mois est ouvert, on ferme son div
-					if ($cptjour == 1) {
-						$cptjour = 0;
-						?></div><?php
-					}
-					?></div><div class="calnommois" id="<?php echo "mois" . $idancre ?>">
-						<?php if ($idancre > 1) {
-						?>
-					<a href="<?php echo "/calendrier/#mois" . ($idancre - 1) ?>"><span class="icon-triangle-right calleft"></span></a>
-						<?php }
-						echo date_i18n($format . 'F Y', $eventsort['event_start_unix'] );
-						if ($idancre < $idancremax) {
-					?>
-					<a href="<?php echo "/calendrier/#mois" . ($idancre + 1) ?>"><span class="icon-triangle-right"></span></a>
-					<?php } ?>
-					</div><?php
-					$idancre = $idancre + 1 ;
-					?><div class="grid-x <?php echo $classmois ?>"><?php
-
-				}
-
-				// si l'on a un nouveau jour sans div déjà ouvert, on ouvre un div
-				if ($jour !== $jourevent && $cptjour == 0) {
-					$jour = $jourevent;
+				// si l'on a le premier événement d'aujourd'hui, on ouvre un div
+				if ($numjourevent == $nbjours && $cptjour == 0 && $journum == 0) {
 					$cptjour = 1;
-					?><div class="cell <?php echo $classjour ?>"><span class="calnomjour"><?php
-						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?></span><br><?php
+					$journum = 1;
+					$cptecrit = $cptecrit + 1;
+					?><div class="calaccueil">
+					<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> 
+					 </br> <?php
 				}
 
-				// si l'on change de jour, on ferme son div et on en ouvre un autre
-				if ($jour !== $jourevent && $cptjour == 1) {
-					$jour = $jourevent;
-					?></div><div class="cell <?php echo $classjour ?>"><span class="calnomjour"><?php
-						echo date_i18n($format . 'l j F', $eventsort['event_start_unix'] );
-					?></span><br><?php
+				// si l'on change de jour, on ferme le div du jour précédent et l'on en ouvre un nouveau
+				if ($numjourevent == $nbjours + 1 && $journum == 1 ) {
+					$journum = 2;
+
+					// si le dernier jour est ouvert, on ferme son div
+					if ($cptjour == 1) {
+						$cptjour = 0;
+						?></div><?php
+					}
+
+					?><div class="calaccueil"> 
+					<strong>	<?php echo('Demain');?> </strong> 
+					</br> <?php
+					$cptjour = 1;
+					$cptecrit = $cptecrit + 1;
 				}
-				
+
+				// si l'on change de jour, on ferme le div du jour précédent et l'on en ouvre un nouveau
+				if ($numjourevent == $nbjours + 2 && $journum == 2 ) {
+					$journum = 3;
+
+					// si le dernier jour est ouvert, on ferme son div
+					if ($cptjour == 1) {
+						$cptjour = 0;
+						?></div><?php
+					}
+
+					?><div class="calaccueil"> 
+					<strong>	<?php echo('Après-demain');?> </strong> 
+					</br> <?php
+					$cptjour = 1;
+					$cptecrit = $cptecrit + 1;
+				}				
+
+				// si l'on change de jour, on ferme le div du jour précédent et l'on en ouvre un nouveau
+				if ($numjourevent == $nbjours + $journum ) {
+					$journum = $journum + 1;
+
+					// si le dernier jour est ouvert, on ferme son div
+					if ($cptjour == 1) {
+						$cptjour = 0;
+						?></div><?php
+					}
+
+					?><div class="calaccueil"> 
+					<strong>	<?php echo($nomjourevent);?> </strong> 
+					</br> <?php
+					$cptjour = 1;
+					$cptecrit = $cptecrit + 1;
+				}	
+
 
 				?> <a href= "<?php echo ($eventsort['event_lien']);?>" class="liencal">
-				<span class="caltitre"> <?php
+				<?php
 				echo $eventsort['event_title'];
-				?></span><br><?php
-				echo $eventsort['event_niveau'];
-				?><br><?php
-				echo ('par ' . $eventsort['event_coach'] . ' à');
+				echo(' - ');
 				echo date_i18n($format . ' G\hi', $eventsort['event_start_unix'] );
-				?> </a> <?php
+				echo(' > ');
+				?> </a> </br> <?php
+				$cptecrit = $cptecrit + 1;
+
+				if ($cptecrit > 15) {
+					break;
+				}
 
 			}
 
@@ -228,114 +223,7 @@ function affiche_calendrier() {
 			?></div><?php
 			}
 
-			// si le div du mois en cours est ouvert, on le ferme
-			if ($cptmois == 1 ) {
-				?></div><?php
-			}
-
-			// si le div de l'année en cours est ouvert, on le ferme
-			if ($cptannee == 1 ) {
-				?></div><?php
-			}
-			?>
-
-
-
-
-			*/
-
-
-
-
-			$currentdate= date_timestamp_get(date_create());
-
-			$args = array(
-				'post_type' => 'ajde_events',
-				'post_status' => 'publish',
-				'posts_per_page' => 14,
-				'meta_key' => 'evcal_srow',
-				'orderby' => 'meta_value_num',
-				'order' => 'ASC'
-				);
-
-			$query = new WP_Query( $args );
-			$aujourdhui = 0;
-			$demain = 0;
-			$apresdemain = 0;
-
-			?><div><?php	
-			 
-			if ( $query->have_posts() ) {
-					
-				while($query->have_posts()): $query->the_post();
-
-					$IDquery = get_the_ID();
-					$terms = wp_get_post_terms( $IDquery, 'event_type');
-						
-					if(!empty($terms) && !is_wp_error($terms)){
-						foreach($terms as $term){
-							$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
-
-							if($current_term_level == 3)
-							{
-								$lien= get_term_link($term);
-								$titreevent=$term->name;
-								
-							}
-
-						}
-					};
-
-					if ($titreevent != "") {
-					
-					
-
-					$niveauevent = get_post_meta( $IDquery, 'evcal_subtitle', true );
-					$debut = get_post_meta( $IDquery, 'evcal_srow', true );
-						
-						if(idate('U', $debut - $currentdate) < 86400 && $aujourdhui == 0)
-							{
-								?><div class="calaccueil">
-								<strong> <?php echo('Aujourd&acute;hui'); ?> </strong> <?php
-								$aujourdhui = $aujourdhui + 1 ;
-								?> </br> <?php
-							}
-
-						elseif (86400 <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 2) && $demain == 0)
-							{
-								?></div> <div class="calaccueil"> 
-								<strong>	<?php echo('Demain');?> </strong> <?php
-								$demain = $demain + 1 ;
-								?> </br> <?php
-							}
-
-						elseif ((86400 * 2) <= idate('U', $debut - $currentdate) && idate('U', $debut - $currentdate) < (86400 * 3) && $apresdemain == 0)
-							{
-								?> </div> <div class="calaccueil"> 
-									<strong> <?php echo('Après-demain'); ?> </strong> <?php
-								$apresdemain = $apresdemain + 1 ;
-								?> </br> <?php
-							}
-
-						elseif ((86400 * 3) <= idate('U', $debut - $currentdate))
-							{
-								?> </div> <div class="calaccueil"> 
-								<strong> <?php	echo (date_i18n($format . 'l', $debut ) . ' '); ?> </strong> <?php
-							}
-
-						?> <a href= "<?php echo ($lien);?>" class="liencal"> <?php
-						echo $titreevent;
-						echo(' - ');
-						echo date_i18n($format . 'G\hi', $debut );
-						echo(' > ');
-						?> </a> </br> <?php
-					}
-				endwhile;
-			}
-			?>
-		</div>
-
-		</div>
+		?>
 
 			<a href="/calendrier/#caljouractu" class="lien-surligne">
 			<span>
@@ -358,10 +246,12 @@ function affiche_calendrier() {
 					<ul class="orbit-container">
 						<?php
 						
+						$cptslides = 0;
 						if ( $lastposts ) {
 							$is_active=' is_active';
 								foreach ( $lastposts as $post ) :
 									$ID=$post->ID;
+									$cptslides = $cptslides + 1;
 									$lien= get_the_permalink($ID);
 									$image_id=get_post_thumbnail_id( $post );
 									$imageData = wp_get_attachment_image_src($image_id,'actu');
@@ -385,13 +275,31 @@ function affiche_calendrier() {
 						?>
 					</ul>
 				</div>
+
+				<?php
+				if ($cptslides > 1) {
+				?>
 				<nav class="orbit-bullets">
 					<button class="is-active" data-slide="0"><span class="show-for-sr">Première slide.</span><span class="show-for-sr">Slide actuelle</span></button>
 					<button data-slide="1"><span class="show-for-sr">Deuxième slide.</span></button>
+
+				<?php if ($cptslides > 2) {	?>
 					<button data-slide="2"><span class="show-for-sr">Troisième slide.</span></button>
+				<?php }	?>
+
+				<?php if ($cptslides > 3) {	?>
 					<button data-slide="3"><span class="show-for-sr">Quatrième slide.</span></button>
+				<?php }	?>
+
+				<?php if ($cptslides > 4) {	?>
 					<button data-slide="4"><span class="show-for-sr">Cinquième slide.</span></button>
+				<?php }	?>
 				</nav>
+
+				<?php
+				}
+				?>
+
 			</div>			
 		</div>
 	</section>
