@@ -3744,6 +3744,7 @@ a.inactif {
 	border-radius: 50%;
 	max-width: 200px;
 	max-height: 200px;
+	filter: grayscale(100%);
 }
 
 .act1 .entry-content a .details {
