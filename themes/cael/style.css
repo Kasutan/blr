@@ -1796,11 +1796,12 @@ button.acces span.slide-top {
 #calendrier .orbit-caption .h2 {
 	margin-bottom: 30px;
 	font-weight: 700;
-	font-size: 2.4em;
+	font-size: 1.5em;
 }
 
 #calendrier .orbit-caption .titre {
-	font-size: 1em;
+	font-size: 1.5em;
+	line-height: 1.2;
 }
 
 #calendrier .orbit-caption .extrait {
@@ -2347,6 +2348,7 @@ button.acces span.slide-top {
 	font-family: 'MuseoSansRounded-300';
 	font-size: 1em;
 	line-height: 1.4;
+	color: var(--rose-fonce);
 }
 
 #apropos .image {
@@ -3744,7 +3746,18 @@ a.inactif {
 	border-radius: 50%;
 	max-width: 200px;
 	max-height: 200px;
-	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	        filter: grayscale(100%);
+}
+
+.act1 .entry-content a:hover img {
+	-webkit-filter: grayscale(100%) sepia(100%) hue-rotate(270deg);
+	        filter: grayscale(100%) sepia(100%) hue-rotate(270deg);
+}
+
+.act1 .entry-content a:nth-of-type(2n+1):hover img {
+	-webkit-filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+	        filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
 }
 
 .act1 .entry-content a .details {
@@ -3869,12 +3882,19 @@ a.inactif {
 	height: 200px;
 }
 
+.act2 .liste-activites {
+	-webkit-box-pack: left;
+	    -ms-flex-pack: left;
+	        justify-content: left;
+	margin-left: 10px;
+}
+
 .act2 figure {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	position: relative;
-	margin: 1em;
+	margin: 2em;
 	min-width: 200px;
 }
 
@@ -4043,7 +4063,7 @@ a.inactif {
 	margin-top: 0;
 	padding: 50px;
 	font-family: 'MuseoSansRounded-300';
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 .act3 .entry-content h2 {
@@ -4174,6 +4194,7 @@ a.inactif {
 
 .ev2 .entry-header img{
 	margin-top: 20px;
+	width: 66.5%;
 }
 
 .ev2 .titre {
@@ -4317,6 +4338,12 @@ a.inactif {
 	        filter: brightness(0.8) sepia(1) hue-rotate(60deg);
 }
 
+.ev2 .liste-spectacles a:hover img {
+	border: 5px var(--rose-clair) solid;
+	-webkit-filter: none;
+	        filter: none;
+}
+
 .ev2 .galerie {
 	background: var(--rose-clair);
 	background: url(/wp-content/themes/cael/images/fond-uni-biseau.svg);
@@ -4373,6 +4400,10 @@ a.inactif {
 	font-size: 1.8em;
 	font-weight: 400;
 	margin: 1em;
+}
+
+.ev2 .liste-editions a:hover {
+	color: var(--vert);
 }
 
 .ev2 #editions .titre {
