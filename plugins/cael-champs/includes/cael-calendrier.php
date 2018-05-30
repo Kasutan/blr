@@ -263,7 +263,7 @@ function affiche_calendrier() {
 									$output.='<a href="'.$lien.'">';
 									$output.='<figure class="orbit-figure">';
 									$output.='<img class="orbit-image" src="'.$imageData[0].'" alt="'.$titre.'">';
-									$output.='<figcaption class="orbit-caption"><span class="h2">'.$text1.'</span><br><span class="titre">'.$titre.'</span><br><span class="extrait">'.$extrait.'</span><br><span class="lien">'.$text.' > </span></figcaption>';
+									$output.='<figcaption class="orbit-caption"><span class="h2">'.$text1.'</span><span class="titre">'.$titre.'</span><span class="extrait">'.$extrait.'</span><span class="lien">'.$text.' > </span></figcaption>';
 									$output.='</figure>';
 									$output.='</a>';
 									$output.='</li>';
