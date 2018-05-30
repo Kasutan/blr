@@ -11,7 +11,7 @@ $ID=get_the_ID();
 		<main id="main" class="site-main">
 
 		<nav class = "ancres">
-			<a href="#association">
+			<a href="#ancreassociation">
 				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_asso_titre1', true )); ?>
 			</a>
 			<a href="#projet">
@@ -20,7 +20,7 @@ $ID=get_the_ID();
 			<a href="#chiffres">
 				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_chiffres_titre1', true )); ?>
 			</a>
-			<a href="#equipe">
+			<a href="#ancreequipe">
 				<?php echo wp_kses_post(get_post_meta( $ID, CMB_PREFIX.'_lecael_equipe_titre1', true )); ?> 
 			</a>
 			<a href="#administration">

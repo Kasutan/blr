@@ -91,7 +91,7 @@
 		<nav class = "ancres">
 		<?php if ($afffestival == 1) {
 		?>
-			<a href="#festival">
+			<a href="#ancrefestival">
 				<?php echo wpautop( wp_kses_post( $titrefest )); ?>
 			</a>
 		<?php 	} ?>
@@ -120,6 +120,7 @@
 
 	<?php if ($afffestival == 1) {
 	?>
+	<span id="ancrefestival"></span>
 	<section id="festival" class="grid-x">
 		<div class="image cell small-12 medium-4">
 			<h2 class="titre blanc fond-rose-clair">

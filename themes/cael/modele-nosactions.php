@@ -17,7 +17,7 @@ $ID=get_the_ID();
 			<a href=#senior>
 				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_actions_senior_titre1', true )); ?>
 			</a>
-			<a href=#bafa>
+			<a href=#ancrebafa>
 				<?php echo esc_html(get_post_meta( $ID, CMB_PREFIX.'_actions_bafa_titre1', true )); ?>
 			</a>
 

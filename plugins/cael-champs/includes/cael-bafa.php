@@ -92,6 +92,7 @@ function affiche_bafa() {
 	?>
 	<span id="ancrebafa"></span>
 	<div class="fondbafa"></div>
+	<span id="ancrebafa"></span>
 	<section id="bafa" class="fond-rose-clair" >
 		<div class="decor">
 			<h2 class="titre blanc fond-rose-clair">
