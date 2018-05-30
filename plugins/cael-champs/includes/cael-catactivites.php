@@ -53,6 +53,42 @@ add_action( 'cmb2_admin_init', function() {
 		'desc' => __( 'pour les catégories de dernier niveau correspondant aux activités', 'msft-newscenter' ),
 		'type' => 'checkbox',	
 	) );
+	
+	// champs ajoutés dans les pages de catégories du plugin eventon
+	$cmb_eventype2 = new_cmb2_box( array(
+		'id'            => 'eventype2image',
+		'title'         => __( 'Images', 'cmb2' ),
+		'object_types' => array( 'term' ), // term data
+		'taxonomies'       => array( 'category', 'event_type_2' ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, 
+		'closed'     => true,
+	) );
+
+	$cmb_eventype2->add_field( array(
+		'name'       => __( 'Image', 'cmb2' ),
+		'id'         => CMB_PREFIX . '_eventype2_image',
+		'type'       => 'file',	
+	) );
+
+		// champs ajoutés dans les pages de catégories du plugin eventon
+		$cmb_eventype3 = new_cmb2_box( array(
+			'id'            => 'eventype3image',
+			'title'         => __( 'Images', 'cmb2' ),
+			'object_types' => array( 'term' ), // term data
+			'taxonomies'       => array( 'category', 'event_type_3' ),
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true, 
+			'closed'     => true,
+		) );
+	
+		$cmb_eventype3->add_field( array(
+			'name'       => __( 'Image', 'cmb2' ),
+			'id'         => CMB_PREFIX . '_eventype3_image',
+			'type'       => 'file',	
+		) );
 
 	// champs ajoutés dans la page Nos Activités pour affichage sur les pages des activités 
 	$cmb_singleactivites = new_cmb2_box( array(
