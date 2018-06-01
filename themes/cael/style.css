@@ -1375,7 +1375,7 @@ button.acces span.slide-top {
 }
 
 .reveal .align-middle {
-	max-width: 50%;
+	max-width: 60%;
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
@@ -1412,7 +1412,7 @@ button.acces span.slide-top {
 	margin-right: 20px;
 	min-width: 300px;
 	font-family: 'MuseoSansDisplay';
-	font-weight: 100;
+	font-weight: 400;
 	font-size: 2em;
 }
 
@@ -2230,7 +2230,7 @@ button.acces span.slide-top {
 #reseaux .flux .titre {
 	background-color: #EA459F;
 	color: #fff;
-	font-size: 0.9em;
+	font-size: 0.91em;
 	font-weight: 500;
 	padding: 5px;
 	text-transform: none;
@@ -2510,10 +2510,6 @@ button.acces span.slide-top {
 	text-align: center;
 }
 
-#ancreassociation {
-		padding-top: 65px;
-}
-
 .lecael #association {
 	color: var(--rose-clair);
 	margin-bottom: 0;
@@ -2562,10 +2558,6 @@ button.acces span.slide-top {
 	.lecael #association .mjc {
 		padding: 100px calc(50% - 375px) 70px;
 	}
-}
-
-#ancreprojet {
-	padding-top: 45px;
 }
 
 .lecael #projet {
@@ -2649,10 +2641,6 @@ button.acces span.slide-top {
 		padding: 100px calc(50% - 375px) 70px;
 		padding-bottom: 10px;
 	}
-}
-
-#ancrechiffres {
-	padding-top: 45px;
 }
 
 .lecael #chiffres {
@@ -2751,12 +2739,26 @@ button.acces span.slide-top {
 	}
 }
 
-#ancreequipe {
-	padding-top: 45px;
-}
-
-#ancreadministration {
-	padding-top: 45px;
+#ancreadministration,
+#ancreassociation,
+#ancreequipe,
+#ancreprojet,
+#ancrechiffres,
+#ancrepartenaires,
+#ancrefamille,
+#ancresenior,
+#ancrebafa,
+#ancrehoraires,
+#ancreinscriptions,
+#ancreacces,
+#ancrecontact,
+#ancrefestival {
+	position:relative;
+	display:block;
+	top:-100px;
+	height:0;
+	width:0;
+	visibility:hidden;
 }
 
 .lecael .motif {
@@ -2811,10 +2813,6 @@ button.acces span.slide-top {
 
 .lecael #administration .conseil .role {
 	font-family: 'MuseoSansRounded-300';
-}
-
-#ancrepartenaires {
-	padding-top: 45px;
 }
 
 .lecael #partenaires {
@@ -2884,10 +2882,6 @@ button.acces span.slide-top {
 	padding-bottom: 10px;
 }
 
-#ancrefamille {
-	padding-top: 45px;
-}
-
 .actions #famille {
 	background-color: rgb(239,251,240);
 }
@@ -2905,10 +2899,6 @@ button.acces span.slide-top {
 	font-size: 2.4em;
 	white-space: nowrap;
 	margin-bottom: 2px;
-}
-
-#ancresenior {
-	padding-top: 45px;
 }
 
 #famille .contenu {
@@ -3027,10 +3017,6 @@ button.acces span.slide-top {
 	height: 50px;
 	width: 100%;
 	background-color: rgb(238,89,154);
-}
-
-#ancrebafa {
-	padding-top: 45px;
 }
 
 #bafa {
@@ -3163,10 +3149,6 @@ button.acces span.slide-top {
 	line-height: 1;
 }
 
-#ancrecontact {
-	padding-top: 45px;
-}
-
 .rens #contact div.texte.blanc {
 	padding-left: 40px;
 	padding-top: 65px;
@@ -3188,10 +3170,6 @@ button.acces span.slide-top {
 
 .rens #contact div.texte.blanc div p {
 	line-height: 1.2;
-}
-
-#ancrehoraires {
-	padding-top: 45px;
 }
 
 .rens #horaires h2 {
@@ -3278,10 +3256,6 @@ button.acces span.slide-top {
 	padding: 5px;
 }
 
-#ancreacces {
-	padding-top: 45px;
-}
-
 .rens #acces h2 {
 	padding: 10px 40px 5px 40px;
 }
@@ -3355,10 +3329,6 @@ button.acces span.slide-top {
 
 .rens #acces .carte .grid-x img {
 	float: left;
-}
-
-#ancreinscriptions {
-	padding-top: 45px;
 }
 
 .rens #inscriptions {
@@ -4795,6 +4765,18 @@ a.inactif {
 		margin-bottom: 80px;
 		padding-right: 50px;
 	}
+}
+
+/*--------------------------------------------------------------
+## Page de résultats des recherche
+--------------------------------------------------------------*/
+
+.resultsearch h2 {
+	font-size: 1.2em;
+}
+
+.resultsearch {
+	border-top: 2px solid var(--rose-clair);
 }
 
 /*--------------------------------------------------------------
