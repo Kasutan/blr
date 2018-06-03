@@ -58,6 +58,15 @@ function get_tax_level($id, $tax){
     return $var;
 }
 
+// fonction pour afficher tous les résultats de recherche sur une seule page
+function change_wp_search_size($query) {
+    if ( $query->is_search ) // Make sure it is a search page
+        $query->query_vars['posts_per_page'] = -1; // Change 10 to the number of posts you would like to show
+
+    return $query; // Return our modified query variables
+}
+add_filter('pre_get_posts', 'change_wp_search_size'); // Hook our custom function onto the request filter
+
 // fonction pour récupérer la liste des événements pour le calendrier
 function get_event_list($ind){
 
