@@ -1013,7 +1013,7 @@ a:active {
 .accordion-menu .is-accordion-submenu-parent >button::after {
 	display: inline-block;
 	position: relative;
-	right: 3.9rem;
+	/*! right: 3.9rem; */
 	margin: unset;
 	top: unset;
 	border-color: var(--rose) transparent transparent;
@@ -1031,8 +1031,13 @@ a:active {
 .accordion-menu .is-accordion-submenu-parent >button {
 	background-color: transparent;
 	border: none;
+	right: 40px;
 }
+.accordion-menu .has-submenu-toggle > a {
 
+    margin-right: 80px;
+
+}
 .is-accordion-submenu-parent>ul {
 	background-color: var(--rose-fonce);
 }
