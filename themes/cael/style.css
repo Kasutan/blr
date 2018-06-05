@@ -1009,7 +1009,6 @@ a:active {
 	color: #fff;
 }
 
-/*accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {*/
 .accordion-menu .is-accordion-submenu-parent >button::after {
 	display: inline-block;
 	position: relative;
@@ -1019,14 +1018,6 @@ a:active {
 	border-color: var(--rose) transparent transparent;
 }
 
-/*
-.accordion-menu >li {
-	display: flex;
-}
-
-.accordion-menu .submenu-toggle {
-	position: unset;
-}*/
 
 .accordion-menu .is-accordion-submenu-parent >button {
 	background-color: transparent;
