@@ -1013,10 +1013,24 @@ a:active {
 .accordion-menu .is-accordion-submenu-parent >button::after {
 	display: inline-block;
 	position: relative;
-	right: -1rem;
+	right: 3.9rem;
 	margin: unset;
 	top: unset;
 	border-color: var(--rose) transparent transparent;
+}
+
+/*
+.accordion-menu >li {
+	display: flex;
+}
+
+.accordion-menu .submenu-toggle {
+	position: unset;
+}*/
+
+.accordion-menu .is-accordion-submenu-parent >button {
+	background-color: transparent;
+	border: none;
 }
 
 .is-accordion-submenu-parent>ul {
