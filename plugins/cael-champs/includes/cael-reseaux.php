@@ -81,16 +81,16 @@ function affiche_reseaux() {
 				<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_guide', true ); 
 				echo esc_html( $text ); ?>
 				</h2>
-				<a href= <?php echo ($lienpdf); ?> class="lien">
+				<a href= "<?php echo ($lienpdf); ?>" class="lien">
 					<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
 					echo esc_html( $text ); ?>
 				</a>
-				<a href= <?php echo ($lienpdf); ?> class="image" >
+				<a href= "<?php echo ($lienpdf); ?>" class="image" >
 					<?php echo wp_get_attachment_image( $imagelien, 'medium'); ?>
 				</a>
 			</div>
 			<div class="image">
-				<a href= <?php echo ($lienpdf); ?> >
+				<a href= "<?php echo ($lienpdf); ?>" >
 				<?php echo wp_get_attachment_image( $imageplaquette, 'large' ); ?>
 				</a>
 			</div>

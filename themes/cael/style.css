@@ -1013,10 +1013,24 @@ a:active {
 .accordion-menu .is-accordion-submenu-parent >button::after {
 	display: inline-block;
 	position: relative;
-	right: -1rem;
+	right: 3.9rem;
 	margin: unset;
 	top: unset;
 	border-color: var(--rose) transparent transparent;
+}
+
+/*
+.accordion-menu >li {
+	display: flex;
+}
+
+.accordion-menu .submenu-toggle {
+	position: unset;
+}*/
+
+.accordion-menu .is-accordion-submenu-parent >button {
+	background-color: transparent;
+	border: none;
 }
 
 .is-accordion-submenu-parent>ul {
@@ -1393,6 +1407,10 @@ button.acces span.slide-top {
 	height: 150px;
 	width: 150px;
 	margin: 10px;
+}
+
+#acces-direct .bulle figure {
+	margin: 0;
 }
 
 #recherche {
@@ -2308,6 +2326,7 @@ button.acces span.slide-top {
 	position: absolute;
 	right: 15px;
 	top: 5px;
+	z-index: 1;
 	-webkit-transform-origin: center center;
 	        transform-origin: center center;
 	-webkit-transform: rotateZ(-8deg);
@@ -2334,10 +2353,12 @@ button.acces span.slide-top {
 --------------------------------------------------------------*/
 
 #apropos {
-	background-image: repeating-linear-gradient( -45deg, white, white 0.5%, RGB(224, 248, 226) 0%, RGB(224, 248, 226) 4%);
+	/*background-image: repeating-linear-gradient( -45deg, white, white 0.5%, RGB(224, 248, 226) 0%, RGB(224, 248, 226) 4%);*/
 	/*background: repeating-linear-gradient( -45deg, #fff, #fff 2px, #e0f8e2 2px, #e0f8e2 30px);*/
 	/* A ajuster*/
 	padding: 60px 0;
+	background-image: url(/wp-content/themes/cael/images/Fond_apropos.jpg);
+	background-size: cover;
 }
 
 #apropos .bandeau {
@@ -2533,7 +2554,7 @@ button.acces span.slide-top {
 
 .lecael #association .intro,
 .lecael #association img {
-	max-width: 750px;
+	max-width: 100%;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -2552,7 +2573,6 @@ button.acces span.slide-top {
 	padding: 60px 20px 70px;
 	position: relative;
 	text-align: left;
-	top: -70px;
 	z-index: -1;
 }
 
@@ -2568,6 +2588,7 @@ button.acces span.slide-top {
 @media screen and (min-width:1024px) {
 	.lecael #association .mjc {
 		padding: 100px calc(50% - 375px) 70px;
+		top: -70px;
 	}
 }
 
@@ -2652,6 +2673,11 @@ button.acces span.slide-top {
 		padding: 100px calc(50% - 375px) 70px;
 		padding-bottom: 10px;
 	}
+
+	.lecael #association .intro,
+	.lecael #association img {
+		max-width: 750px;
+	}
 }
 
 .lecael #chiffres {
@@ -2664,13 +2690,8 @@ button.acces span.slide-top {
 }
 
 .lecael #chiffres .titre {
-	display: inline-block;
-	position: absolute;
-	top: 8%;
-	left: 22%;
 	font-weight: 300;
 	padding: 8px 20px 8px 30px;
-	font-size: 2.4em;
 }
 
 .lecael #chiffres .titre strong{
@@ -2748,6 +2769,13 @@ button.acces span.slide-top {
 		-webkit-transform: rotateZ(-90deg);
 		        transform: rotateZ(-90deg);
 	}
+	.lecael #chiffres .titre {
+		display: inline-block;
+		position: absolute;
+		top: 8%;
+		left: 30%;
+		font-size: 2.4em;
+	}
 }
 
 #ancreadministration,
@@ -2786,7 +2814,7 @@ button.acces span.slide-top {
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
-	padding: 50px;
+	padding: 50px 0;
 	position: relative;
 	top: -60px;
 	margin-bottom: -75px;
@@ -2797,7 +2825,6 @@ button.acces span.slide-top {
 	background-color: var(--rose);
 	font-weight: 300;
 	padding: 10px;
-	font-size: 1.4em;
 }
 
 .lecael #administration .titre span strong {
@@ -2810,7 +2837,7 @@ button.acces span.slide-top {
 	-ms-grid-columns: 150px 1fr;
 	    grid-template-columns: 150px 1fr;
 	margin-top: 30px;
-	margin-left: 120px;
+	margin-left: 10px;
 	font-size: 0.9em;
 }
 
@@ -2862,6 +2889,12 @@ button.acces span.slide-top {
 	.lecael #partenaires {
 		padding: 20px calc(50% - 400px);
 	}
+	.lecael #administration .titre span {
+		font-size: 1.4em;
+	}
+	.lecael #administration .conseil {
+		margin-left: 120px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -2895,19 +2928,18 @@ button.acces span.slide-top {
 
 .actions #famille {
 	background-color: rgb(239,251,240);
+	padding: 50px calc(50% - 400px);
 }
 
 #famille h2,
 #senior h2 {
 	display: inline-block;
-	margin-left: 30px;
 	padding: 0 10px;
 	-webkit-transform: rotateZ(-3deg);
 	        transform: rotateZ(-3deg);
 	-webkit-transform-origin: top right;
 	        transform-origin: top right;
 	font-weight: 700;
-	font-size: 2.4em;
 	white-space: nowrap;
 	margin-bottom: 2px;
 }
@@ -2992,7 +3024,7 @@ button.acces span.slide-top {
 }
 
 .actions blockquote .titre {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	font-family: 'MuseoSansDisplay';
 	text-transform: uppercase;
 	padding-bottom: 20px;
@@ -3004,7 +3036,7 @@ button.acces span.slide-top {
 	font-family: 'Guillemets';
 	padding-right: 10px;
 	font-size: 5em;
-	top: 68px;
+	top: 55px;
 	position: relative;
 }
 
@@ -3024,12 +3056,6 @@ button.acces span.slide-top {
 	height: 300px;
 }
 
-.fondbafa {
-	height: 50px;
-	width: 100%;
-	background-color: rgb(238,89,154);
-}
-
 #bafa {
 	background-image: url(/wp-content/themes/cael/images/Fond_cube.jpg);
 	font-family: 'MuseoSansRounded-300';
@@ -3040,7 +3066,6 @@ button.acces span.slide-top {
 
 #bafa .decor {
 	background: white;
-	padding: 50px;
 	position: relative;
 	padding-bottom: 20px;
 	margin-bottom: 100px;
@@ -3053,17 +3078,11 @@ button.acces span.slide-top {
 #bafa h2 {
 	display: inline-block;
 	background-color: rgb(238,89,154);
-	padding: 20px 10px;
-	-webkit-writing-mode: vertical-lr;
-	    -ms-writing-mode: tb-lr;
-	        writing-mode: vertical-lr;
-	-webkit-transform: rotateZ(180deg);
-	        transform: rotateZ(180deg);
 	position: absolute;
-	top: 0;
-	left: 85px;
 	font-weight: 700;
 	font-size: 2.5em;
+	width: 100%;
+	text-align: center;
 }
 
 #bafa h3 {
@@ -3077,10 +3096,8 @@ button.acces span.slide-top {
 }
 
 #bafa .intro {
-	margin-left: 100px;
-	margin-top: 120px;
+	margin-top: 50px;
 	margin-bottom: 30px;
-	padding-left: 30px;
 	font-family: 'MuseoSansRounded-700';
 	font-size: 1.2em;
 	line-height: 1.2;
@@ -3094,15 +3111,46 @@ button.acces span.slide-top {
 	.actions #social {
 		padding: 0px calc(50% - 400px);
 	}
-	.actions #famille {
-		padding: 50px calc(50% - 400px);
-	}
 	.actions #senior {
 		padding: 50px calc(50% - 400px);
 	}
 	.actions #bafa {
 		padding: 0px calc(50% - 480px) 50px;
-
+	}
+	#famille h2,
+	#senior h2 {
+	margin-left: 30px;
+	font-size: 2.4em;
+	}
+	.actions blockquote .titre {
+		font-size: 1.5em;
+	}
+	.actions blockquote .titre:before {
+		top: 68px;
+	}
+	.fondbafa {
+		height: 50px;
+		width: 100%;
+		background-color: rgb(238,89,154);
+	}
+	#bafa h2 {
+		padding: 20px 10px;
+		-webkit-writing-mode: vertical-lr;
+			-ms-writing-mode: tb-lr;
+				writing-mode: vertical-lr;
+		-webkit-transform: rotateZ(180deg);
+				transform: rotateZ(180deg);
+		top: 0;
+		left: 85px;
+		width: unset;
+	}
+	#bafa .decor {
+		padding: 50px;
+	}
+	#bafa .intro {
+		margin-top: 120px;
+		margin-left: 100px;
+		padding-left: 30px;
 	}
 }
 
@@ -3112,7 +3160,6 @@ button.acces span.slide-top {
 
 .rens h1 {
 	font-weight: 700;
-	font-size: 2.5em;
 	padding: 20px 0;
 }
 
@@ -3192,7 +3239,7 @@ button.acces span.slide-top {
 	font-size: 1.2em;
 	font-family: 'MuseoSansRounded-300';
 	font-weight: normal;
-	max-width: 90%;
+	width: unset;
 }
 
 .rens #horaires table {
@@ -3303,9 +3350,10 @@ button.acces span.slide-top {
 	opacity: 0;
 	width: 100%;
 }
+
 .rens #acces .carte .cartegooglemapshover span {
 	position: absolute;
-	bottom: 160px;
+	bottom: 200px;
 	left: 0;
 	color: white;
 	display: block;
@@ -3348,7 +3396,7 @@ button.acces span.slide-top {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
-	padding: 50px;
+	padding: 0;
 	padding-bottom: 0;
 }
 
@@ -3390,6 +3438,16 @@ button.acces span.slide-top {
 	}
 	.rens #inscriptions .texte p:last-of-type {
 		margin-bottom: 80px;
+	}
+	.rens h1 {
+		font-size: 2.5em;
+	}
+	.rens #horaires div {
+		max-width: 90%;
+		width: 50%;
+	}
+	.rens #acces .carte .cartegooglemapshover span {
+		bottom: 160px;
 	}
 }
 
@@ -3509,7 +3567,7 @@ font-size: 1em;
 
 .nos-activites .picto figure {
 	background-color: var(--vert-clair);
-	border: solid 10px var(--rose-clair);
+	border: 10px var(--rose-clair);
 	border-radius: 50%;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -3706,10 +3764,6 @@ a.inactif {
 	position: relative;
 }
 
-.act1 .entry-content a div.details{
-	max-height: 200px;
-}
-
 .act1 .entry-content a h2 {
 	background-color: #fff;
 	display: inline-block;
@@ -3801,6 +3855,9 @@ a.inactif {
 	.act1 .entry-content a:nth-of-type(2n) img {
 		left: -100px;
 	}
+	.act1 .entry-content a div.details{
+		max-height: 200px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -3853,7 +3910,7 @@ a.inactif {
 .act2 .entry-content {
 	background: repeating-linear-gradient( -45deg, #f3eaed, #f3eaed 2px, #fff 2px, #fff 30px);
 	margin-top: 0;
-	padding: 50px;
+	padding: 0 9%;
 }
 
 .act2 .entry-content>a {
@@ -3909,6 +3966,9 @@ a.inactif {
 @media screen and (min-width:1024px) {
 	.act2 .entry-content {
 		padding: 50px 16%;
+	}
+	.act2 .entry-content {
+		padding: 50px;
 	}
 }
 
@@ -4017,7 +4077,6 @@ a.inactif {
 
 .act3 .entry-header img {
 	display: block;
-	max-width: 58%;
 	margin: 0 auto;
 }
 
@@ -4034,10 +4093,10 @@ a.inactif {
 	display: inline-block;
 	margin: 0;
 	padding: 0 20px;
-	position: relative;
 	bottom: 65px;
 	font-weight: 700;
 	font-size: 1.8em;
+	width: 100%;
 }
 
 .act3 .entry-content {
@@ -4073,7 +4132,7 @@ a.inactif {
 .act3 .entry-content .adresse {
 	border: solid 1px #fff;
 	border-radius: 8px;
-	padding: 5px 50px 5px 20px;
+	padding: 5px;
 	margin-top: 40px;
 	font-family: 'MuseoSansRounded-500';
 	font-size: 1em;
@@ -4089,9 +4148,7 @@ a.inactif {
 }
 
 .adressepicto{
-	margin-left: 20px;
 	line-height: 1;
-	margin-top: 9px;
 }
 
 .act3 .entry-content .adresse span{
@@ -4144,6 +4201,20 @@ a.inactif {
 	.act3 .entry-content {
 		padding: 50px 16%;
 	}
+	.act3 .entry-header img {
+		max-width: 58%;
+	}
+	.act3 h1 {
+		position: relative;
+		width: unset;
+	}
+	.act3 .entry-content .adresse {
+		padding: 5px 50px 5px 20px;
+	}
+	.adressepicto{
+		margin-left: 20px;
+		margin-top: 9px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -4173,14 +4244,9 @@ a.inactif {
 	margin-bottom: 50px;
 }
 
-.ev2 .entry-header img{
-	margin-top: 20px;
-	width: 66.5%;
-}
 
 .ev2 .titre {
 	display: inline-block;
-	padding: 0 10px;
 	margin: 0;
 }
 
@@ -4412,6 +4478,14 @@ a.inactif {
 	.ev2 #festival .texte {
 		padding: 0 50px 50px;
 	}
+	.ev2 .entry-header img{
+		margin-top: 20px;
+		width: 66.5%;
+	}
+	.ev2 .titre {
+		padding: 0 10px;
+	}
+	
 }
 
 @media screen and (min-width:1024px) {
