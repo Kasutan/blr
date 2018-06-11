@@ -9,7 +9,7 @@ $validation = get_post_meta( 5, CMB_PREFIX.'_newsletter_validation', true);
 ?>
 
 <section class="newsletter blanc fond-rose-clair">
-<form action="code mailchimp spécifique" method="post" id="cael-embedded-subscribe-form" name="cael-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+<form action="https://caelmjc.us18.list-manage.com/subscribe/post?u=b9117d28860fd20534f173e3a&amp;id=08f3cbd38f" method="post" id="cael-embedded-subscribe-form" name="cael-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
 		<div id="cael-embed-signup" class="grid-x align-center align-middle">
 			<label for="mce-EMAIL" class="cell medium-6 large-3"><h3><?php  echo esc_html( $titre ); ?></h3><?php  echo esc_html( $soustitre ); ?></label>
 			<input value="" name="EMAIL" class="email cell medium-6 large-3" id="mce-EMAIL" placeholder="<?php  echo esc_html( $saisie ); ?>" required="" data-cip-id="à modifier" type="email" onclick="jQuery('#newsletter-info').show()">
