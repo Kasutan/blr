@@ -32,7 +32,7 @@
 				the_custom_logo();
 				?>
 			</div>
-			<button id="menu-toggle" class="menu-toggle cell small-3 hide-for-large" aria-controls="primary-menu" aria-expanded="false" aria-label="Controle le menu mobile"><span class="icon-menu"></span></button>
+			<button id="menu-toggle" class="menu-toggle cell small-3" aria-controls="primary-menu" aria-expanded="false" aria-label="Controle le menu mobile"><span class="icon-menu"></span></button>
 			
 
 			<button class="recherche cell small-2 large-1" data-open="recherche"><span class="icon-search"></span></button>

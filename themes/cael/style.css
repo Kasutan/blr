@@ -1052,7 +1052,7 @@ a:active {
 	display: block;
 }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 1199px) {
 	.menu-toggle {
 		display: none;
 	}
@@ -2758,7 +2758,7 @@ button.acces span.slide-top {
 	.lecael #equipe .titre {
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: -50px;
 		-webkit-transform-origin: top right;
 		        transform-origin: top right;
 		-webkit-transform: rotateZ(-90deg);
@@ -2770,6 +2770,14 @@ button.acces span.slide-top {
 		top: 8%;
 		left: 30%;
 		font-size: 2.4em;
+	}
+}
+
+@media screen and (min-width:1124px) {
+	.lecael #equipe .titre {
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 }
 
