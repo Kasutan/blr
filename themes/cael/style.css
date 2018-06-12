@@ -1009,30 +1009,26 @@ a:active {
 	color: #fff;
 }
 
-/*accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle)>a::after {*/
 .accordion-menu .is-accordion-submenu-parent >button::after {
 	display: inline-block;
 	position: relative;
-	right: 3.9rem;
+	/*! right: 3.9rem; */
 	margin: unset;
 	top: unset;
 	border-color: var(--rose) transparent transparent;
 }
 
-/*
-.accordion-menu >li {
-	display: flex;
-}
-
-.accordion-menu .submenu-toggle {
-	position: unset;
-}*/
 
 .accordion-menu .is-accordion-submenu-parent >button {
 	background-color: transparent;
 	border: none;
+	right: 40px;
 }
+.accordion-menu .has-submenu-toggle > a {
 
+    margin-right: 80px;
+
+}
 .is-accordion-submenu-parent>ul {
 	background-color: var(--rose-fonce);
 }
@@ -1929,7 +1925,6 @@ button.acces span.slide-top {
 
 .avec-fond-oblique span {
 	position: relative;
-	z-index: 1;
 }
 
 .fond-oblique {
@@ -4758,7 +4753,6 @@ a.inactif {
 	margin-bottom: 0;
 	padding: 20px;
 	font-weight: 700;
-	font-size: 3.1em;
 }
 
 .blog .liste-actus {
@@ -4842,6 +4836,7 @@ a.inactif {
 	.blog .page-title {
 		padding-left: 16%;
 		padding-right: 16%;
+		font-size: 3.1em;
 	}
 	.blog .liste-actus {
 		padding: 100px 16% 20px;
