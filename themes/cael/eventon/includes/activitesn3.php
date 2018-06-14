@@ -101,7 +101,7 @@
 		<p class="inscription">
 		<strong><?php echo($texte4); ?></strong>	
 			<br/>
-			<?php echo($texte5); echo(' '); ?><a href=""><?php echo($texte6);?></a>
+			<?php echo($texte5); echo(' '); ?><a href="/renseignements/#ancreinscriptions"><?php echo($texte6);?></a>
 		</p>
 		<div class="navigation grid-x align-justify">
 			<?php echo get_tax_navigation( 'event_type', 'previous' ); ?>
