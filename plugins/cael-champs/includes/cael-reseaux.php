@@ -85,9 +85,11 @@ function affiche_reseaux() {
 					<?php $text  = get_post_meta( $ID, CMB_PREFIX.'_accueil_titre_lien_plaquette', true ); 
 					echo esc_html( $text ); ?>
 				</a>
+				<?php /* suppression de l'icône
 				<a href= "<?php echo ($lienpdf); ?>" class="image" >
-					<?php echo wp_get_attachment_image( $imagelien, 'medium'); ?>
+					<?php echo wp_get_attachment_image( $imagelien, 'small'); ?>
 				</a>
+				*/?>
 			</div>
 			<div class="image">
 				<a href= "<?php echo ($lienpdf); ?>" >
