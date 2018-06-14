@@ -3582,8 +3582,8 @@ font-size: 1em;
 
 .nos-activites .picto img {
 	border-radius: 50%;
-	-o-object-fit: contain;
-	   object-fit: contain;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 
 .nos-activites .picto h3 {

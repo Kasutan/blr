@@ -35,7 +35,7 @@ $ID=get_the_ID();
 							$lien= get_term_link($event_term);
 							$titreevent=$event_term->name;
 							$eventid=$event_term->term_id;
-							$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_image', 1 );
+							$imagelien = get_term_meta( $eventid, CMB_PREFIX.'_eventype2_image', 1 );
 						?>
 						<a href= <?php echo ($lien); ?> class="cell picto rose">
 							<figure>
