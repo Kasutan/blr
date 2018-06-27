@@ -3911,7 +3911,7 @@ a.inactif {
 }
 
 .act2 .entry-content {
-	background: repeating-linear-gradient( -45deg, #f3eaed, #f3eaed 2px, #fff 2px, #fff 30px);
+/*	background: repeating-linear-gradient( -45deg, #f3eaed, #f3eaed 2px, #fff 2px, #fff 30px);*/
 	margin-top: 0;
 	padding: 0 9%;
 }
@@ -4515,6 +4515,9 @@ a.inactif {
 	}
 	.ev2 #editions .titre {
 		margin-left: 25%;
+	}
+	.ev2 .newsletter {
+		margin-top: 60px;
 	}
 }
 
