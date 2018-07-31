@@ -54,6 +54,8 @@
 					//'menu_class'	=> 'dropdown menu',
 					'items_wrap'     => '<ul id="%1$s" class="%2$s" data-submenu-toggle="true" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
 					'walker'         => new Foundation_Menu_Walker(),
+					'orderby' => 'title',
+					'order'   => 'DESC',
 				) );
 				?>
 			</nav><!-- #site-navigation -->

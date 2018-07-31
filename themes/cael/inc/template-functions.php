@@ -580,7 +580,6 @@ add_filter("wp_get_nav_menu_items", function ($items, $menu, $args) {
 
 		$term_children = get_term_children($i->object_id, "event_type");	
 
-
         // add child categories
 
         foreach ($term_children as $index2 => $child_id) {
@@ -611,7 +610,7 @@ add_filter("wp_get_nav_menu_items", function ($items, $menu, $args) {
             $items[] = $e;
 
         }
-
+		//var_dump($items);
 
     }
 
