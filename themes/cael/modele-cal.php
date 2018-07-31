@@ -147,8 +147,10 @@ $ID=get_the_ID();
 				<span class="caltitre"> <?php
 				echo $eventsort['event_title'];
 				?></span><br><?php
-				echo $eventsort['event_niveau'];
-				?><br><?php
+				if ($eventsort['event_niveau'] != "") {
+					echo $eventsort['event_niveau'];
+					?><br><?php
+				}
 				echo ('par ' . $eventsort['event_coach'] . ' à');
 				echo date_i18n($format . ' G\hi', $eventsort['event_start_unix'] );
 				?> </a> <?php

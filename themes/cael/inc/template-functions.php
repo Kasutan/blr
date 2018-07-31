@@ -78,7 +78,7 @@ function get_event_list($ind){
 
 	// on récupère tous les événements de la base
 	$events = new WP_Query( $args );
-	$event_list_array= $featured_events = array();
+	$event_list_array = array();
 
 	// opérations sur la date du jour
 	$jourcourant = date("z");
@@ -93,17 +93,24 @@ function get_event_list($ind){
 		// on récupère l'ID de l'événement
 		$p_id = $events->post->ID;		
 
-		// On récupère des infos, notamenent les dates de récurrences de l'événement
+		// On récupère des infos, notamment les dates de récurrences de l'événement
 		$ev_vals = get_post_custom($p_id);
 		$organizer_terms = wp_get_post_terms($p_id, 'event_organizer');
 		$niveauevent = get_post_meta( $p_id, 'evcal_subtitle', true );
 
 		// On récupère les catégories de l'événement
 		$terms = wp_get_post_terms( $p_id, 'event_type');
+		$eventype = 1;
 		if (empty(array_filter($terms))) {
 			$terms = wp_get_post_terms( $p_id, 'event_type_2');
+			$eventype = 2;
 			if (empty(array_filter($terms))) {
 				$terms = wp_get_post_terms( $p_id, 'event_type_3');
+				$eventype = 3;
+				if (empty(array_filter($terms))) {
+					$terms = wp_get_post_terms( $p_id, 'event_type_4');
+					$eventype = 4;
+				}
 			}
 		}
 
@@ -124,29 +131,156 @@ function get_event_list($ind){
 		// On vérifie si l'on a un événement récurrent
 		$is_recurring_event = evo_check_yn($ev_vals, 'evcal_repeat');
 
-		// On vérifie si l'événement est mis en avant
-		$_is_featured = (!empty($ev_vals['_featured']))? $ev_vals['_featured'][0] :'no';
+		// On vérifie si l'événement doit être exclu du calendrier
+		$_is_exclude = (!empty($ev_vals['evo_exclude_ev']))? $ev_vals['evo_exclude_ev'][0] :'no';
 
 		// check for recurring event
-		if($is_recurring_event){
-			// get saved repeat intervals for repeating events
-			$repeat_intervals = (!empty($ev_vals['repeat_intervals']))?
-				(is_serialized($ev_vals['repeat_intervals'][0])? unserialize($ev_vals['repeat_intervals'][0]): $ev_vals['repeat_intervals'][0] ) :null;
+		if($_is_exclude == 'no'){
+			if($is_recurring_event){
+				// get saved repeat intervals for repeating events
+				$repeat_intervals = (!empty($ev_vals['repeat_intervals']))?
+					(is_serialized($ev_vals['repeat_intervals'][0])? unserialize($ev_vals['repeat_intervals'][0]): $ev_vals['repeat_intervals'][0] ) :null;
 
-			if(!empty($repeat_intervals) && is_array($repeat_intervals)){
-			
-				// each repeating interval times
-				foreach($repeat_intervals as $interval){
-					
-					$E_start_unix = $interval[0];
-					$E_end_unix = $interval[1];
-					$eventjours = date_i18n($format . 'z', $E_start_unix );
-					$eventmois = date_i18n($format . 'n', $E_start_unix );
-					$eventanne = date_i18n($format . 'y', $E_start_unix );
-					$eventnbjours = $eventjours + ($eventanne * 365);
-					$eventnbmois = $eventmois + ($eventanne * 12);
+				if(!empty($repeat_intervals) && is_array($repeat_intervals)){
+				
+					// each repeating interval times
+					foreach($repeat_intervals as $interval){
+						
+						$E_start_unix = $interval[0];
+						$E_end_unix = $interval[1];
+						$eventjours = date_i18n($format . 'z', $E_start_unix );
+						$eventmois = date_i18n($format . 'n', $E_start_unix );
+						$eventanne = date_i18n($format . 'y', $E_start_unix );
+						$eventnbjours = $eventjours + ($eventanne * 365);
+						$eventnbmois = $eventmois + ($eventanne * 12);
 
+						
+						if ($ind == 0) {
+
+							if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
+							
+								$event_list_array[] = array(
+									'event_start_unix'=>$E_start_unix,
+									'event_end_unix'=>$E_end_unix,
+									'event_id' => $p_id,
+									'event_title'=>$titreevent,
+									'event_lien'=>$lien,
+									'event_coach'=>$organizer_terms[0]->name,
+									'event_niveau'=>$niveauevent,
+									);
+									
+							}
+						} else {
+							if ($nbjours <= $eventnbjours && $eventnbjours < $nbjours + 5 ) {
+
+								$event_list_array[] = array(
+									'event_start_unix'=>$E_start_unix,
+									'event_end_unix'=>$E_end_unix,
+									'event_id' => $p_id,
+									'event_title'=>$titreevent,
+									'event_lien'=>$lien,
+									'event_coach'=>$organizer_terms[0]->name,
+									'event_niveau'=>$niveauevent,
+									);
+							}
+						}	
+					}
+				}
+			} else {
+				// on charge tous les événements sans répétition 
+				$E_start_unix = $ev_vals["evcal_srow"][0];
+				$E_end_unix = $ev_vals ["evcal_erow"][0];
+				$eventjours = date_i18n($format . 'z', $E_start_unix );
+				$eventmois = date_i18n($format . 'n', $E_start_unix );
+				$eventanne = date_i18n($format . 'y', $E_start_unix );
+				$eventnbjours = $eventjours + ($eventanne * 365);
+				$eventnbmois = $eventmois + ($eventanne * 12);
+
+				// si on est dans le cas des festivals
+				if ($eventype == 2) {
 					
+					$speakers = get_post_meta( $p_id, '_sch_blocks', true );
+
+					if(!empty($speakers) && !is_wp_error($speakers)){
+						foreach($speakers as $speaker){
+							foreach($speaker as $key => $content) {
+								if ($key!=0) {
+		
+									$cleterm = key($content["evo_sch_spk"]);	
+									$termMeta = get_option( "evo_tax_meta");
+									$termmeta2 = evo_get_term_meta('event_speaker',$cleterm, $termMeta);
+									$heurrespeaker = explode("h", $content["evo_sch_stime"]);
+									if ($heurrespeaker[1] == "") {
+										$heurrespeaker[1] = 0;
+									}
+									$E_start_unix = strtotime($content["evo_sch_date"]) + mktime($heurrespeaker[0], $heurrespeaker[1], 0, 1, 1, 1970);
+								
+									if ($ind == 0) {
+
+										if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
+										
+											$event_list_array[] = array(
+												'event_start_unix'=>$E_start_unix,
+												'event_end_unix'=>$E_end_unix,
+												'event_id' => $p_id,
+												'event_title'=>$titreevent,
+												'event_lien'=>$lien,
+												'event_coach'=>$content["evo_sch_title"],
+												'event_niveau'=>$termmeta2["evo_speaker_title"],
+												);
+												
+										}
+									} else {
+										if ($nbjours <= $eventnbjours && $eventnbjours < $nbjours + 5 ) {
+					
+											$event_list_array[] = array(
+												'event_start_unix'=>$E_start_unix,
+												'event_end_unix'=>$E_end_unix,
+												'event_id' => $p_id,
+												'event_title'=>$titreevent,
+												'event_lien'=>$lien,
+												'event_coach'=>$content["evo_sch_title"],
+												'event_niveau'=>$termmeta2["evo_speaker_title"],
+												);
+										}
+									}
+								}
+							}
+						}
+					}else{
+						// on a un événement de type 2 sans speaker
+						if ($ind == 0) {
+
+							if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
+							
+								$event_list_array[] = array(
+									'event_start_unix'=>$E_start_unix,
+									'event_end_unix'=>$E_end_unix,
+									'event_id' => $p_id,
+									'event_title'=>$titreevent,
+									'event_lien'=>$lien,
+									'event_coach'=>$content["evo_sch_title"],
+									'event_niveau'=>$termmeta2["evo_speaker_title"],
+									);
+									
+							}
+						} else {
+							if ($nbjours <= $eventnbjours && $eventnbjours < $nbjours + 5 ) {
+		
+								$event_list_array[] = array(
+									'event_start_unix'=>$E_start_unix,
+									'event_end_unix'=>$E_end_unix,
+									'event_id' => $p_id,
+									'event_title'=>$titreevent,
+									'event_lien'=>$lien,
+									'event_coach'=>$content["evo_sch_title"],
+									'event_niveau'=>$termmeta2["evo_speaker_title"],
+									);
+							}
+						}
+					}
+				} else {
+					// on est sur un événement non récurrent qui n'est pas de type 2
 					if ($ind == 0) {
 
 						if ($nbmois - 3 < $eventnbmois && $eventnbmois < $nbmois + 4) {					
@@ -164,7 +298,7 @@ function get_event_list($ind){
 						}
 					} else {
 						if ($nbjours <= $eventnbjours && $eventnbjours < $nbjours + 5 ) {
-
+	
 							$event_list_array[] = array(
 								'event_start_unix'=>$E_start_unix,
 								'event_end_unix'=>$E_end_unix,
@@ -175,12 +309,121 @@ function get_event_list($ind){
 								'event_niveau'=>$niveauevent,
 								);
 						}
-					}	
+					}
+				}
 
+			}
+		}
+	endwhile;
 
+	asort($event_list_array);
+
+    return $event_list_array;
+}
+
+//fonction pour récupérer les featured events
+function get_featured_list(){
+
+	$args = array(
+		'post_type' => 'ajde_events',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+		);
+
+	// on récupère tous les événements de la base
+	$events = new WP_Query( $args );
+	$event_list_array= array();
+
+	// opérations sur la date du jour
+	$jourcourant = date("z");
+	$moiscourant = date("n");
+	$anneecourante = date("y");
+	$nbjours = $jourcourant + ($anneecourante * 365);
+	$nbmois = $moiscourant + ($anneecourante * 12);
+
+	// Pour chaque événement
+	while( $events->have_posts()): $events->the_post();
+		
+		// on récupère l'ID de l'événement
+		$p_id = $events->post->ID;		
+
+		// On récupère des infos, notamment les dates de récurrences de l'événement
+		$ev_vals = get_post_custom($p_id);
+		$organizer_terms = wp_get_post_terms($p_id, 'event_organizer');
+		$niveauevent = get_post_meta( $p_id, 'evcal_subtitle', true );
+
+		// On récupère les catégories de l'événement
+		$terms = wp_get_post_terms( $p_id, 'event_type');
+		$eventype = 1;
+		if (empty(array_filter($terms))) {
+			$terms = wp_get_post_terms( $p_id, 'event_type_2');
+			$eventype = 2;
+			if (empty(array_filter($terms))) {
+				$terms = wp_get_post_terms( $p_id, 'event_type_3');
+				$eventype = 3;
+				if (empty(array_filter($terms))) {
+					$terms = wp_get_post_terms( $p_id, 'event_type_4');
+					$eventype = 4;
 				}
 			}
 		}
+
+		// récupération des données de la catégorie la plus basse
+		if(!empty($terms) && !is_wp_error($terms)){
+			foreach($terms as $term){
+				$current_term_level = get_tax_level($term->term_id, $term->taxonomy);
+
+				if($current_term_level == 3)
+				{
+					$lien= get_term_link($term);
+					$titreevent=$term->name;
+				}
+
+			}
+		};
+
+		// On vérifie si l'événement est mis en avant
+		$_is_featured = (!empty($ev_vals['_featured']))? $ev_vals['_featured'][0] :'no';
+
+
+		// check for recurring event
+			if($_is_featured == "yes"){
+
+				// on charge tous les événements sans répétition 
+				$E_start_unix = $ev_vals["evcal_srow"][0];
+				$E_end_unix = $ev_vals ["evcal_erow"][0];
+				$eventjours = date_i18n($format . 'z', $E_start_unix );
+				$eventmois = date_i18n($format . 'n', $E_start_unix );
+				$eventanne = date_i18n($format . 'y', $E_start_unix );
+				$eventnbjours = $eventjours + ($eventanne * 365);
+				$eventnbmois = $eventmois + ($eventanne * 12);
+
+				// si on est dans le cas des festivals
+				if ($eventype == 2) {			
+						
+							$event_list_array[] = array(
+								'event_start_unix'=>$E_start_unix,
+								'event_end_unix'=>$E_end_unix,
+								'event_id' => $p_id,
+								'event_title'=>$titreevent,
+								'event_lien'=>$lien,
+								'event_coach'=>$organizer_terms[0]->name,
+								'event_niveau'=>$niveauevent,
+								);
+								
+					} else {
+	
+							$event_list_array[] = array(
+								'event_start_unix'=>$E_start_unix,
+								'event_end_unix'=>$E_end_unix,
+								'event_id' => $p_id,
+								'event_title'=>$titreevent,
+								'event_lien'=>$lien,
+								'event_coach'=>$organizer_terms[0]->name,
+								'event_niveau'=>$niveauevent,
+								);
+					}
+				}
 	endwhile;
 
 	asort($event_list_array);

@@ -79,6 +79,9 @@ function affiche_calendrier() {
 			$ind = 1;
 			$event_list_array = get_event_list($ind);
 
+			// on va chercher la liste des featured events
+			$event_featured_array = get_featured_list();
+
 			// on récupère le jour du serveur
 			$jourcourant = date("z");
 			$anneecourante = date("y");
@@ -94,6 +97,59 @@ function affiche_calendrier() {
 			$cptjour = 0; //indique si un div est ouvert
 			$journum = 0; //numérote les jour de 1 à 5
 			$cptecrit = 0; //nombre de lignes écrites (on limite à 14 pour la mise en page)
+
+			// On commence par gérer les featured events
+			if(!empty($event_featured_array) && !is_wp_error($event_featured_array)){
+				// si l'on a un featured event à venir
+				$cptecrit = $cptecrit + 1;
+				?><div class="calfeat">
+				<strong> <?php echo('Prochainement'); ?> </strong> 
+				</br> <?php
+				
+				foreach ($event_featured_array as $eventfeat) {
+
+					$anneeevent = date_i18n($format . 'y', $eventfeat['event_start_unix'] );
+					$moisevent = date_i18n($format . 'm', $eventfeat['event_start_unix'] );
+					$jourevent = date_i18n($format . 'z', $eventfeat['event_start_unix'] );
+					$nomjourevent = date_i18n($format . 'l', $eventfeat['event_start_unix'] );
+					$numjourevent = $jourevent + ($anneeevent * 365);
+
+					$anneefinevent = date_i18n($format . 'y', $eventfeat['event_end_unix'] );
+					$moisfinevent = date_i18n($format . 'm', $eventfeat['event_end_unix'] );
+					$jourfinevent = date_i18n($format . 'z', $eventfeat['event_end_unix'] );
+					$numjourfinevent = $jourfinevent + ($anneefinevent * 365);
+
+					if ($numjourfinevent > $nbjours - 1) {
+						?>
+						<a href= "<?php echo ($eventfeat['event_lien']);?>" class="liencal">
+						<?php
+						echo $eventfeat['event_title'];
+
+						if ($numjourfinevent == $numjourevent ) {
+							echo(' le ');
+							echo date_i18n($format . ' d F', $eventfeat['event_start_unix'] );
+						} elseif ($moisevent == $moisfinevent) {
+							echo(' du ');
+							echo date_i18n($format . ' d', $eventfeat['event_start_unix'] );
+							echo(' au ');
+							echo date_i18n($format . ' d F', $eventfeat['event_end_unix'] );
+						} else {
+							echo(' du ');
+							echo date_i18n($format . ' d F', $eventfeat['event_start_unix'] );
+							echo(' au ');
+							echo date_i18n($format . ' d F', $eventfeat['event_end_unix'] );
+						}
+						echo(' > ');
+						?> </a> </br> <?php
+						$cptecrit = $cptecrit + 1;
+
+						if ($cptecrit > 15) {
+							break;
+						}
+					}
+				}
+				?> </div> <?php
+			}
 
 			// si le premier jour n'est pas celui d'aujourd'hui, on prend en compte les jours fermés
 			if ($nbjours < $firstnbjours) {

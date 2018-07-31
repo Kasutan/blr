@@ -1906,8 +1906,13 @@ button.acces span.slide-top {
 	padding: 4px 0 4px 16px;
 }
 
-.calaccueil:hover, .calaccueil:focus  {
+.calaccueil:hover, .calaccueil:focus, .calfeat:hover, .calfeat:focus   {
 	background-color: #fff;
+}
+
+.calfeat {
+	color: var(--rose-fonce);
+	padding: 4px 0 4px 16px;
 }
 
 .liencal:hover,
